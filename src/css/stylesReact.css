@@ -1,0 +1,7 @@
+
+@media  (max-width:1092px) {
+	#responsiveBreak {
+		width: 0% !important;
+        display:none !important
+	}
+}
