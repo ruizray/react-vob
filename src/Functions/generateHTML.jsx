@@ -64,7 +64,7 @@ const GenerateHTML = (props) => {
 			}
 		});
 
-		console.log(total);
+	
 		setHTML(total);
 	};
 

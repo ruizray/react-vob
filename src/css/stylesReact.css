@@ -264,7 +264,7 @@ right connector from last child*/
 	top: 0;
 	right: 50%;
 	border-top: 1px solid #ccc;
-	width: 50%;
+	width: 52%;
 	height: 20px;
 }
 .tree-child::after {
@@ -330,3 +330,4 @@ right connector from last child*/
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 }
+
