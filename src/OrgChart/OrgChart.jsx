@@ -1,69 +1,23 @@
 import React from "react";
 import { useEffect } from "react";
 import { Container, Row, Col, Card, CardBody, Button, CardTitle } from "reactstrap";
+import ContactInformation from "../components/ContactInformation";
+import { villageDirectory } from "../scripts/DepartmentInfo";
 const OrgChart = () => {
+	console.log(villageDirectory);
+	const { Mayor, CoAdministrator1, CoAdministrator2, Clerk } = villageDirectory.Executive;
+	console.log(Mayor, CoAdministrator1);
 	return (
 		<>
-			<Row>
-				<div class='tree'>
-					<ul>
-						<li>
-							<a href='#'>Parent</a>
-							<ul>
-								<li>
-									<a href='#'>Child</a>
-									<ul>
-										<li>
-											<a href='#'>Grand Child</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href='#'>Child</a>
-									<ul>
-										<li>
-											<a href='#'>Grand Child</a>
-										</li>
-										<li>
-											<a href='#'>Grand Child</a>
-											<ul>
-												<li>
-													<a href='#'>Great Grand Child</a>
-												</li>
-												<li>
-													<a href='#'>Great Grand Child</a>
-												</li>
-												<li>
-													<a href='#'>Great Grand Child</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href='#'>Grand Child</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</Row>
-
 			<Row className='tree-root d-flex justify-content-center align-items-center d-flex align-items-stretch'>
 				<Col className='tree-child '>
-					<Card className='w-50 mx-auto'>
-						<CardBody>Mayor</CardBody>
-					</Card>
+					<div className='w-50 mx-auto'>
+						<ContactInformation type='2' person={Mayor} />
+					</div>
+
 					<Row className='tree-root'>
 						<Col className='tree-child '>
-							<Row className='tree-root d-flex justify-content-center align-items-center d-flex align-items-stretch mx-2'>
-								<Col>
-									<Card className=''>
-										<CardBody>Co-Administrator</CardBody>
-									</Card>
-								</Col>
-							</Row>
-
+							<ContactInformation type='2' person={CoAdministrator1} />
 							<Row className='tree-root d-flex justify-content-center align-items-center d-flex align-items-stretch '>
 								<Col className='tree-child'>
 									<Card className=''>
@@ -71,38 +25,23 @@ const OrgChart = () => {
 									</Card>
 								</Col>
 								<Col className='tree-child'>
-									<Card className=''>
-										<CardBody>Level 3</CardBody>
-									</Card>
+									<ContactInformation type='2' person={{}} />
 								</Col>
 							</Row>
 						</Col>
 						<Col className='tree-child '>
-							<Row className='tree-root d-flex justify-content-center align-items-center d-flex align-items-stretch mx-2'>
-								<Col>
-									<Card className=''>
-										<CardBody>Co-Administrator</CardBody>
-									</Card>
-								</Col>
-							</Row>
-
+							<ContactInformation type='2' person={CoAdministrator2} />
 							<Row className='tree-root d-flex justify-content-center align-items-center d-flex align-items-stretch'>
 								<Col className='tree-child'>
-									<Card className=''>
-										<CardBody></CardBody>
-									</Card>
+									<ContactInformation type='2' person={{}} />
 								</Col>
 								<Col className='tree-child'>
-									<Card className=''>
-										<CardBody>Level 3</CardBody>
-									</Card>
+									<ContactInformation type='2' person={{}} />
 								</Col>
 							</Row>
 						</Col>
 						<Col className='tree-child '>
-							<Card className='m-2'>
-								<CardBody>Clerk</CardBody>
-							</Card>
+							<ContactInformation type='2' person={Clerk} />
 						</Col>
 					</Row>
 				</Col>
