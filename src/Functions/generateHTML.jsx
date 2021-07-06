@@ -19,12 +19,12 @@ const GenerateHTML = (props) => {
 
 	const page = createRef();
 	useEffect(() => {
-		const temp = document.documentElement.innerHTML;
-		console.log(temp);
+
+
 		addNewlines(page.current.innerHTML);
 	}, [page]);
 	const handleToggle = () => {
-		console.log(toggled);
+	
 		const temp = !toggled;
 		setToggled(temp);
 	};

@@ -11,13 +11,13 @@ const QuoteWithPicture = () => {
 								<CardImg src='https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Mayor_Mary_2.jpg'></CardImg>
 							</Col>
 							<Col className='align-self-center '>
-								<blockquote class='blockquote mb-0 mt-3' >
-									<p >
+								<blockquote class='blockquote mb-0 mt-3'>
+									<p>
 										Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor
 										since August 1, 2020, I am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I
 										believe strongly in our motto, “A Place to Grow”...
 									</p>
-									
+
 									<footer class='blockquote-footer'>
 										Mary Alexander-Basta, <cite title='Mayor'>Mayor</cite>
 									</footer>
@@ -32,6 +32,28 @@ const QuoteWithPicture = () => {
 					</Container>
 				</CardBody>
 			</Card>
+
+			<div class='card border-0 card-0'>
+				<div class='card profile py-3 px-4'>
+					<div class='text-center'>
+					
+						<img
+							src='https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Mayor_Mary_2.jpg'
+							class='img-fluid profile-pic'></img>
+					</div>
+					<h6 class='mb-0 mt-2'>Marielle Haag</h6> <small>Backend Developer</small>
+				</div>{" "}
+				<img class='img-fluid open-quotes' src='https://i.imgur.com/Hp91vdT.png' width='20' height='20'></img>
+				<p class='content mb-0'>
+					Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1, 2020, I am
+					honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A Place to Grow”
+					<br />
+				</p>{" "}
+				<img class='img-fluid close-quotes ml-auto' src='https://i.imgur.com/iPcHyJK.png' width='20' height='20'></img>
+				<button type='button' class='btn btn-primary ' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>
+					Read More
+				</button>
+			</div>
 
 			<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
 				<div class='modal-dialog modal-xl'>
@@ -61,14 +83,12 @@ const QuoteWithPicture = () => {
 								<footer class='blockquote-footer'>
 									Mary Alexander-Basta, <cite title='Mayor'>Mayor</cite>
 								</footer>
-								
 							</blockquote>
 						</div>
 						<div class='modal-footer'>
 							<button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>
 								Close
 							</button>
-							
 						</div>
 					</div>
 				</div>

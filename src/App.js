@@ -22,6 +22,7 @@ import {
 import "./css/stylesReact.css";
 import ExecutiveDepartment from "./Departments/ExecutiveDepartment";
 import GenerateHTML from "./Functions/generateHTML";
+import OrgChart from "./OrgChart/OrgChart";
 
 const App = () => {
 	const [isDepartmentsOpen, setDepartmentsIsOpen] = useState(false);
@@ -47,18 +48,36 @@ const App = () => {
 								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/Executive'>
 									<DropdownItem style={{ fontSize: "2rem" }}>Executive</DropdownItem>
 								</NavLink>
-								<DropdownItem>Option 2</DropdownItem>
-								<DropdownItem divider />
-								<DropdownItem>Reset</DropdownItem>
+								
+							</DropdownMenu>
+						</Dropdown>
+						<Dropdown
+							onMouseOver={() => setDepartmentsIsOpen(true)}
+							onFocus={() => setDepartmentsIsOpen(true)}
+							onMouseLeave={() => setDepartmentsIsOpen(false)}
+							onBlur={() => setDepartmentsIsOpen(false)}
+							toggle={() => setDepartmentsIsOpen(!isDepartmentsOpen)}
+							isOpen={isDepartmentsOpen}>
+							<DropdownToggle style={{ fontSize: "2rem" }} nav caret>
+								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/OrgChart'>
+									Departments
+								</NavLink>
+							</DropdownToggle>
+							<DropdownMenu>
+								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/Executive'>
+									<DropdownItem style={{ fontSize: "2rem" }}>Executive</DropdownItem>
+								</NavLink>
+								
 							</DropdownMenu>
 						</Dropdown>
 					</Nav>
 				</Navbar>
 			</div>
 			<GenerateHTML>
-				<Container fluid={true}>
+				<Container style={{maxWidth:1920}} >
 					<Route exact path='/departmentLandingPage' component={LandingPage} />
 					<Route exact path='/Executive' component={ExecutiveDepartment} />
+					<Route exact path='/OrgChart' component={OrgChart}/>
 				</Container>
 			</GenerateHTML>
 		</>
