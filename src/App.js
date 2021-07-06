@@ -2,21 +2,7 @@ import { React, useState } from "react";
 import { Route, NavLink } from "react-router-dom";
 
 import LandingPage from "./Departments/LandingPage";
-import {
-	Container,
-	Collapse,
-	Navbar,
-	NavbarToggler,
-	NavbarBrand,
-	Nav,
-	NavItem,
-	Dropdown,
-	UncontrolledDropdown,
-	DropdownToggle,
-	DropdownMenu,
-	DropdownItem,
-	NavbarText,
-} from "reactstrap";
+import { Container, Navbar, Nav, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from "reactstrap";
 
 //import 'bootstrap/dist/css/bootstrap.css'
 import "./css/stylesReact.css";
@@ -51,14 +37,15 @@ const App = () => {
 							</DropdownMenu>
 						</Dropdown>
 						<NavbarText style={{ fontSize: "2rem" }}>
-							<NavLink style={{ color: "rgba(0,0,0,.7)", fontSize: "2rem" }} to='/OrgChart'>Org Chart</NavLink>
+							<NavLink style={{ color: "rgba(0,0,0,.7)", fontSize: "2rem" }} to='/OrgChart'>
+								Org Chart
+							</NavLink>
 						</NavbarText>
-						
 					</Nav>
 				</Navbar>
 			</div>
 			<GenerateHTML>
-				<Container style={{ maxWidth: 1920 }}>
+				<Container fluid={true} style={{ maxWidth: 1920 }}>
 					<Route exact path='/departmentLandingPage' component={LandingPage} />
 					<Route exact path='/Executive' component={ExecutiveDepartment} />
 					<Route exact path='/OrgChart' component={OrgChart} />

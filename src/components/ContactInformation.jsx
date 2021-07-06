@@ -1,24 +1,27 @@
 import React from "react";
-import QuoteWithPicture from "../components/QuoteWithPicture";
-import { Card, CardTitle, CardBody, CardSubtitle, CardImg, Container, Row, Col } from "reactstrap";
+import { Card, CardTitle, CardBody, CardSubtitle } from "reactstrap";
 
 const ContactInformation = (props) => {
-	
 	const { title, name, email, phone } = props.person;
-	console.log(props.borderColor)
+	console.log(props.borderColor);
 	if (props.type === "2") {
 		return (
 			<>
-				<Card  className=  {props.borderColor ? props.borderColor +   " mx-2 border w-100 " :  '  mx-2 border w-100'}>
-					{props.person && <CardBody className='h-100 w-100'>
-						{title && <CardTitle tag={"h6"}>{title}</CardTitle>}
-						{name && (
-							<CardSubtitle tag='h6' className='mb-2'>
-								{name}
-							</CardSubtitle>
-						)}
+				<Card className={props.borderColor ? props.borderColor + "  border  " : "   border"}>
+					{props.person && (
+						<CardBody className='p-1 my-2 h-100 '>
+							{title && (
+								<CardTitle className="text-truncate" tag={"h6"}>
+									{title}
+								</CardTitle>
+							)}
+							{name && (
+								<CardSubtitle tag='h6' className=''>
+									{name}
+								</CardSubtitle>
+							)}
 
-						{/* {phone && <h6 className='mb-2 text-muted'>
+							{/* {phone && <h6 className='mb-2 text-muted'>
 							<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
 								phone
 							</i>
@@ -31,8 +34,9 @@ const ContactInformation = (props) => {
 							</i>
 							{email}
 						</h6>} */}
-						{props.children}
-					</CardBody>}
+							{props.children}
+						</CardBody>
+					)}
 				</Card>
 			</>
 		);
