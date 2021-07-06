@@ -2,11 +2,11 @@ import React from "react";
 
 import { Row, Col } from "reactstrap";
 import ContactInformation from "../components/ContactInformation";
-import { villageDirectory, organizationChart } from "../scripts/DepartmentInfo";
+import { organizationChart } from "../scripts/DepartmentInfo";
 import TreeRoot from "./../components/TreeRoot";
 const OrgChart = () => {
-	console.log(villageDirectory, organizationChart);
-	const { Mayor, CoAdministrator1, CoAdministrator2, Clerk, FOIA, DeputyClerk, AsstDeputyClerk } = villageDirectory.Executive;
+	console.log( organizationChart);
+
 
 	const handleChildren = (child, border) => {
 		console.log(border);
