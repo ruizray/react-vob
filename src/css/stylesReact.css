@@ -1,7 +1,333 @@
-
-@media  (max-width:1092px) {
+@media (max-width: 1092px) {
 	#responsiveBreak {
 		width: 0% !important;
-        display:none !important
+		display: none !important;
 	}
 }
+
+body {
+	/* background: linear-gradient(#01579B, #03A9F4); */
+	background-repeat: no-repeat;
+}
+
+.card-main {
+	padding: 50px;
+	border-radius: 10px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	box-shadow: 0px 4px 8px 0px #283593;
+}
+
+.card-0 {
+	color: #fff;
+	background-color: #536dfe;
+	position: relative;
+	margin-left: 70px;
+	border-radius: 10px;
+	min-height: 312px;
+	margin-top: 3rem;
+}
+
+.carousel-indicators li {
+	cursor: pointer;
+	border-radius: 50% !important;
+	width: 10px;
+	height: 10px;
+}
+
+.profile {
+	color: #000;
+	background-color: #ffd54f;
+	position: absolute;
+	left: -70px;
+	top: 10%;
+	border-radius: 8px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.profile-pic {
+	width: 200px;
+	height: auto;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.open-quotes {
+	margin-left: 200px;
+	margin-top: 100px;
+}
+
+.content {
+	margin-left: 200px;
+	margin-right: 80px;
+	font-size: 1.25rem;
+}
+
+.close-quotes {
+	margin-bottom: 100px;
+	margin-right: 60px;
+	margin-left: auto;
+}
+
+@media screen and (max-width: 576px) {
+	.card-main {
+		padding: 50px 10px;
+	}
+
+	.card-0 {
+		min-height: 432px;
+		margin-left: 0px;
+		margin-top: 16rem;
+	}
+
+	.profile {
+		align-self: center !important;
+		position: absolute;
+		left: auto;
+		top: -50%;
+		width: 50%;
+	}
+
+	.profile-pic {
+		width: 100%;
+	}
+
+	.open-quotes {
+		margin-top: 100px;
+		margin-left: 30px;
+	}
+
+	.content {
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.close-quotes {
+		margin-right: 30px;
+		margin-bottom: 50px;
+	}
+}
+
+
+
+/*Now the CSS*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.tree ul {
+	padding-top: 20px;
+	position: relative;
+
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.tree li {
+	float: left;
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before,
+.tree li::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 50%;
+	border-top: 1px solid #ccc;
+	width: 50%;
+	height: 20px;
+}
+.tree li::after {
+	right: auto;
+	left: 50%;
+	border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+.tree li:only-child::after,
+.tree li:only-child::before {
+	display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child {
+	padding-top: 0;
+}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.tree li:first-child::before,
+.tree li:last-child::after {
+	border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before {
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0;
+	height: 20px;
+}
+
+.tree li a {
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree li a:hover,
+.tree li a:hover + ul li a {
+	background: #c8e4f8;
+	color: #000;
+	border: 1px solid #94a0b4;
+}
+/*Connector styles on hover*/
+.tree li a:hover + ul li::after,
+.tree li a:hover + ul li::before,
+.tree li a:hover + ul::before,
+.tree li a:hover + ul ul::before {
+	border-color: #94a0b4;
+}
+
+
+
+.tree-root {
+	padding-top: 20px;
+	position: relative;
+
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+ .tree-child {
+
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.tree-child::before,
+.tree-child::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 50%;
+	border-top: 1px solid #ccc;
+	width: 52%;
+	height: 20px;
+}
+.tree-child::after {
+	right: auto;
+	left: 50%;
+	border-left: 1px solid #ccc;
+}
+
+.tree-child:only-child::after,
+.tree-child:only-child::before {
+	display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree-child:only-child {
+	padding-top: 0;
+}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.tree-child:first-child::before,
+.tree-child:last-child::after {
+	border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree-child:last-child::before {
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+.tree-child:first-child::after {
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree-root .tree-root::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0;
+	height: 20px;
+}
+
+.tree li a {
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+

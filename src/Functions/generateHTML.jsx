@@ -1,7 +1,6 @@
 import React from "react";
-import { createRef, useState,  useEffect } from "react";
+import { createRef, useState, useEffect } from "react";
 import { Button } from "reactstrap";
-
 
 const GenerateHTML = (props) => {
 	const header = `
@@ -20,19 +19,21 @@ const GenerateHTML = (props) => {
 
 	const page = createRef();
 	useEffect(() => {
+
+
 		addNewlines(page.current.innerHTML);
 	}, [page]);
 	const handleToggle = () => {
-		console.log(toggled);
+	
 		const temp = !toggled;
 		setToggled(temp);
 	};
 
 	const [HTML, setHTML] = useState();
-	const [toggled, setToggled] = useState(true);
+	const [toggled, setToggled] = useState(false);
 
 	const addNewlines = (str) => {
-		let tabs = 1;
+		let tabs = 0;
 		var total = "";
 		const regex2 = /(<.*?>)|([^<]*)/gm;
 		const array = str.split(regex2);
@@ -43,25 +44,17 @@ const GenerateHTML = (props) => {
 			}
 			return false;
 		});
-		console.log(filtered);
+
 		filtered.forEach((str, index) => {
 			str = str.trim();
-
-			if (str === "</h5>") {
-				console.log("h5 found");
-			}
 			if (str[1] === "/") {
 				tabs--;
 				const temp = "\t".repeat(tabs) + str + "\n";
 
 				total = total + temp;
 			} else {
-				let tag1 = str.indexOf("<") + 1;
-				let tag2 = str.indexOf(" ");
-				console.log(str, tag1, tag2);
-				if (tag1 <= 0 || tag2 <= 0) {
+				if (!str.includes("<")) {
 					const temp = "\t".repeat(tabs) + str + "\n";
-
 					total = total + temp;
 				} else {
 					const temp = "\t".repeat(tabs) + str + "\n";
@@ -71,11 +64,11 @@ const GenerateHTML = (props) => {
 			}
 		});
 
-		console.log(total);
+	
 		setHTML(total);
 	};
 
-	const input = toggled ? "none" : "content";
+
 	return (
 		<>
 			{" "}
