@@ -117,7 +117,6 @@ body {
 	.level-4,
 	.level-5 {
 		padding-left: 10% !important;
-		
 	}
 	.tree-root {
 		padding-top: 20px;
@@ -128,8 +127,8 @@ body {
 		-moz-transition: all 0.5s;
 	}
 
-	.tree-root .tree-child:first-child{
-		padding-top:0
+	.tree-root .tree-child:first-child {
+		padding-top: 0;
 	}
 
 	.tree-child {
@@ -319,8 +318,8 @@ right connector from last child*/
 
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
-.tree-root .tree-child .card:hover,
-.tree-root .tree-child .card:hover + .tree-root .tree-child .card {
+.tree-root .tree-child div:hover .card:hover,
+.tree-root .tree-child div:hover + div[id] .tree-root .tree-child  .card {
 	background: #c8e4f8;
 	color: #000;
 	border: 1px solid #94a0b4;
