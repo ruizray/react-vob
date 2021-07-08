@@ -7,35 +7,43 @@ const ContactInformation = (props) => {
 	if (props.type === "2") {
 		return (
 			<>
-				<Card className={props.borderColor ? props.borderColor + "  border  " : "   border"}>
+				<Card className={props.borderColor ? props.borderColor + " border" : "   border"}>
 					{props.person && (
-						<CardBody className='p-1 my-2 h-100 '>
-							{title && (
-								<CardTitle className="text-truncate" tag={"h6"}>
-									{title}
-								</CardTitle>
-							)}
-							{name && (
-								<CardSubtitle tag='h6' className=''>
-									{name}
-								</CardSubtitle>
-							)}
+						<>{props.childrenCount && (<span className='badge bg-primary rounded-pill float-end align-self-end'>{props.childrenCount}</span>)}
+					
+							<CardBody className='p-1 my-2 h-100 '>
+								
+								{title && (
+									<CardTitle className='text-truncate' tag={"h6"}>
+										{title}
+									</CardTitle>
+								)}
+								{name && (
+									<CardSubtitle tag='h6' >
+										{name}
+									</CardSubtitle>
+								)}
 
-							{/* {phone && <h6 className='mb-2 text-muted'>
-							<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
-								phone
-							</i>
-							{phone}
-						</h6>}
+								{phone && (
+									<h6 className='mb-2 text-muted'>
+										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+											phone
+										</i>
+										{phone}
+									</h6>
+								)}
 
-						{email && <h6 className='mb-2 text-muted text-truncate'>
-							<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
-								mail
-							</i>
-							{email}
-						</h6>} */}
-							{props.children}
-						</CardBody>
+								{email && (
+									<h6 className='mb-2 text-muted text-truncate'>
+										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+											mail
+										</i>
+										{email}
+									</h6>
+								)}
+								{props.children}
+							</CardBody>
+						</>
 					)}
 				</Card>
 			</>

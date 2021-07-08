@@ -11,12 +11,18 @@ const OrgChart = () => {
 		console.log(border);
 
 		if (child.children) {
-			const childrenCount = child.children.length;
+			var childrenCount = child.children.length;
 			const size = 12 / childrenCount;
 			return (
 				<Row className='tree-root   text-center mx-0 w-100'>
 					{child.children.map((temp) => {
-						console.log(temp);
+						if(temp.children){
+							var childrenCount2 = temp.children.length
+							console.log(temp, temp.children.length);
+						}else{
+							
+						}
+						
 						var tempName = temp.id;
 						var id = "#" + tempName;
 						const level = "tree-child mx-0 level-" + temp.level;
@@ -29,7 +35,8 @@ const OrgChart = () => {
 									aria-expanded='true'
 									aria-controls={tempName}
 									className=''>
-									<ContactInformation type='2' borderColor={border} person={temp}></ContactInformation>
+									<ContactInformation type='2' borderColor={border} person={temp} childrenCount={childrenCount2}></ContactInformation>
+									
 								</div>
 								<div id={tempName} className='collapse show'>
 									{handleChildren(temp, border)}
