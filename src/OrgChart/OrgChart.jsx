@@ -14,15 +14,14 @@ const OrgChart = () => {
 			var childrenCount = child.children.length;
 			const size = 12 / childrenCount;
 			return (
-				<Row className='tree-root   text-center mx-0 w-100'>
+				<Row className='tree-root text-center mx-0 w-100'>
 					{child.children.map((temp) => {
-						if(temp.children){
-							var childrenCount2 = temp.children.length
+						if (temp.children) {
+							var childrenCount2 = temp.children.length;
 							console.log(temp, temp.children.length);
-						}else{
-							
+						} else {
 						}
-						
+
 						var tempName = temp.id;
 						var id = "#" + tempName;
 						const level = "tree-child mx-0 level-" + temp.level;
@@ -35,8 +34,11 @@ const OrgChart = () => {
 									aria-expanded='true'
 									aria-controls={tempName}
 									className=''>
-									<ContactInformation type='2' borderColor={border} person={temp} childrenCount={childrenCount2}></ContactInformation>
-									
+									<ContactInformation
+										type='2'
+										borderColor={border}
+										person={temp}
+										childrenCount={childrenCount2}></ContactInformation>
 								</div>
 								<div id={tempName} className='collapse show'>
 									{handleChildren(temp, border)}
@@ -53,13 +55,9 @@ const OrgChart = () => {
 	console.log(organizationChart);
 	return (
 		<>
-		<div className="treestart ">
-			{handleChildren(organizationChart[0], "border-primary")}
-		</div>
-			
-		<div className="treestart ">
-			{handleChildren(organizationChart[1], "border-danger")}
-			</div>
+			<div className='treestart '>{handleChildren(organizationChart[0], "border-primary")}</div>
+
+			<div className='treestart '>{handleChildren(organizationChart[1], "border-danger")}</div>
 		</>
 	);
 };

@@ -9,9 +9,12 @@ import "./css/stylesReact.css";
 import ExecutiveDepartment from "./Departments/ExecutiveDepartment";
 import GenerateHTML from "./Functions/generateHTML";
 import OrgChart from "./OrgChart/OrgChart";
+import ElectedOfficials from "./Government/ElectedOfficials";
+import ElectedOfficialProfile from './Government/ElectedOfficialsProfiles/ElectedOfficialProfile';
 
 const App = () => {
 	const [isDepartmentsOpen, setDepartmentsIsOpen] = useState(false);
+	const [isGovernmentOpen, setGovernmentIsOpen] = useState(false);
 
 	return (
 		<>
@@ -25,7 +28,7 @@ const App = () => {
 							onBlur={() => setDepartmentsIsOpen(false)}
 							toggle={() => setDepartmentsIsOpen(!isDepartmentsOpen)}
 							isOpen={isDepartmentsOpen}>
-							<DropdownToggle style={{ fontSize: "2rem" }} nav caret>
+							<DropdownToggle tag={"h3"}  style={{ fontSize: "2rem" }} nav caret>
 								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/departmentLandingPage'>
 									Departments
 								</NavLink>
@@ -36,7 +39,25 @@ const App = () => {
 								</NavLink>
 							</DropdownMenu>
 						</Dropdown>
-						<NavbarText style={{ fontSize: "2rem" }}>
+						<Dropdown
+							onMouseOver={() => setGovernmentIsOpen(true)}
+							onFocus={() => setGovernmentIsOpen(true)}
+							onMouseLeave={() => setGovernmentIsOpen(false)}
+							onBlur={() => setGovernmentIsOpen(false)}
+							toggle={() => setGovernmentIsOpen(!isDepartmentsOpen)}
+							isOpen={isGovernmentOpen}>
+							<DropdownToggle tag={"h3"} style={{ fontSize: "2rem" }} nav caret>
+								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/Government'>
+									Government
+								</NavLink>
+							</DropdownToggle>
+							<DropdownMenu>
+								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/Elected'>
+									<DropdownItem style={{ fontSize: "2rem" }}>Elected Officials</DropdownItem>
+								</NavLink>
+							</DropdownMenu>
+						</Dropdown>
+						<NavbarText tag ={"h3"} style={{ fontSize: "2rem" }}>
 							<NavLink style={{ color: "rgba(0,0,0,.7)", fontSize: "2rem" }} to='/OrgChart'>
 								Org Chart
 							</NavLink>
@@ -49,6 +70,8 @@ const App = () => {
 					<Route exact path='/departmentLandingPage' component={LandingPage} />
 					<Route exact path='/Executive' component={ExecutiveDepartment} />
 					<Route exact path='/OrgChart' component={OrgChart} />
+					<Route exact path='/Elected' component={ElectedOfficials} />
+					<Route exact path='/ElectedOfficialProfile' component={ElectedOfficialProfile} />
 				</Container>
 			</GenerateHTML>
 		</>

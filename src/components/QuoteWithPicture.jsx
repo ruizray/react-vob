@@ -11,18 +11,18 @@ const QuoteWithPicture = () => {
 								<CardImg src='https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Mayor_Mary_2.jpg'></CardImg>
 							</Col>
 							<Col className='align-self-center '>
-								<blockquote class='blockquote mb-0 mt-3'>
+								<blockquote className='blockquote mb-0 mt-3'>
 									<p>
 										Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor
 										since August 1, 2020, I am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I
 										believe strongly in our motto, “A Place to Grow”...
 									</p>
 
-									<footer class='blockquote-footer'>
+									<footer className='blockquote-footer'>
 										Mary Alexander-Basta, <cite title='Mayor'>Mayor</cite>
 									</footer>
 									<div className='align-items-end d-flex h-100 w-100'>
-										<button type='button' class='btn btn-primary ' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>
+										<button type='button' className='btn btn-primary ' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>
 											Read more
 										</button>
 									</div>
@@ -33,39 +33,39 @@ const QuoteWithPicture = () => {
 				</CardBody>
 			</Card>
 
-			<div class='card border-0 card-0'>
-				<div class='card profile py-3 px-4'>
-					<div class='text-center'>
+			<div className='card border-0 card-0'>
+				<div className='card profile py-3 px-4'>
+					<div className='text-center'>
 					
 						<img
 							src='https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Mayor_Mary_2.jpg'
-							class='img-fluid profile-pic'></img>
+							className='img-fluid profile-pic'></img>
 					</div>
-					<h6 class='mb-0 mt-2'>Marielle Haag</h6> <small>Backend Developer</small>
+					<h6 className='mb-0 mt-2'>Marielle Haag</h6> <small>Backend Developer</small>
 				</div>{" "}
-				<img class='img-fluid open-quotes' src='https://i.imgur.com/Hp91vdT.png' width='20' height='20'></img>
-				<p class='content mb-0'>
+				<img className='img-fluid open-quotes' src='https://i.imgur.com/Hp91vdT.png' width='20' height='20'></img>
+				<p className='content mb-0'>
 					Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1, 2020, I am
 					honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A Place to Grow”
 					<br />
 				</p>{" "}
-				<img class='img-fluid close-quotes ml-auto' src='https://i.imgur.com/iPcHyJK.png' width='20' height='20'></img>
-				<button type='button' class='btn btn-primary ' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>
+				<img className='img-fluid close-quotes ml-auto' src='https://i.imgur.com/iPcHyJK.png' width='20' height='20'></img>
+				<button type='button' className='btn btn-primary ' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>
 					Read More
 				</button>
 			</div>
 
-			<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-				<div class='modal-dialog modal-xl'>
-					<div class='modal-content'>
-						<div class='modal-header'>
-							<h5 class='modal-title' id='exampleModalLabel'>
+			<div className='modal fade' id='exampleModal' tabIndex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+				<div className='modal-dialog modal-xl'>
+					<div className='modal-content'>
+						<div className='modal-header'>
+							<h5 className='modal-title' id='exampleModalLabel'>
 								Message from the Mayor
 							</h5>
-							<button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
+							<button type='button' className='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
 						</div>
-						<div class='modal-body'>
-							<blockquote class='blockquote mb-0' style={{ display: "grid" }}>
+						<div className='modal-body'>
+							<blockquote className='blockquote mb-0' style={{ display: "grid" }}>
 								<p className='d-inline-block mb-0'>
 									Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since
 									August 1, 2020, I am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe
@@ -80,13 +80,13 @@ const QuoteWithPicture = () => {
 									and welcome anyone who would like to meet with me to either call, email, or come in to the village office.
 								</p>
 
-								<footer class='blockquote-footer'>
+								<footer className='blockquote-footer'>
 									Mary Alexander-Basta, <cite title='Mayor'>Mayor</cite>
 								</footer>
 							</blockquote>
 						</div>
-						<div class='modal-footer'>
-							<button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>
+						<div className='modal-footer'>
+							<button type='button' className='btn btn-secondary' data-mdb-dismiss='modal'>
 								Close
 							</button>
 						</div>

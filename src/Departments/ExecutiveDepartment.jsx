@@ -4,7 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 import ContactInformation from "./../components/ContactInformation";
 import { villageDirectory } from "../scripts/DepartmentInfo";
 const ExecutiveDepartment = () => {
-	const { Mayor, CoAdministrator1, CoAdministrator2, Clerk } = villageDirectory.Executive;
+	const { Mayor } = villageDirectory.Executive;
 	return (
 		<>
 			<Container fluid={true}></Container>
@@ -16,8 +16,8 @@ const ExecutiveDepartment = () => {
 					
 				</Col>
 				<Col>
-					<ContactInformation person={Mayor} />
-					<ContactInformation person={Mayor}  />
+					<ContactInformation type={1} person={Mayor} />
+					<ContactInformation type={1} person={Mayor}  />
 				</Col>
 			</Row>
 		</>

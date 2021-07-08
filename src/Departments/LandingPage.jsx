@@ -1,8 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import {  Row, Col } from "reactstrap";
 import DepartmentCard from "./DepartmentCard";
-
-import GenerateHTML from "./../Functions/generateHTML";
 
 const LandingPage = () => {
 	return (
