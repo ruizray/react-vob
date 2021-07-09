@@ -10,7 +10,7 @@ const ContactInformation = (props) => {
 	if (type === "2") {
 		return (
 			<>
-				<Card className={borderColor ? borderColor + " border" : "   border"}>
+				<Card className={borderColor ? borderColor + " border hover-shadow" : "   border hover-shadow"}>
 					{props.person && (
 						<>
 							{childrenCount && <span className='badge bg-primary rounded-pill float-end align-self-end'>{childrenCount}</span>}
@@ -50,7 +50,7 @@ const ContactInformation = (props) => {
 	} else if (type === 1) {
 		return (
 			<>
-				<Card className='my-3 w-100 border'>
+				<Card className='my-3 w-100 border '>
 					<CardBody className='h-100 w-100'>
 						<CardTitle tag={"h2"}>{title}</CardTitle>
 						<CardSubtitle tag='h5' className='mb-2'>

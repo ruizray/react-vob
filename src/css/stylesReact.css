@@ -184,8 +184,11 @@ body {
 .tree-root .tree-child div:hover .card:hover,
 .tree-root .tree-child div:hover + div[id] .tree-root .tree-child .card {
 	background: #c8e4f8;
-	color: #000;
-	border: 1px solid #94a0b4;
+	-webkit-box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
 }
 /*Connector styles on hover*/
 .tree li a:hover + ul li::after,

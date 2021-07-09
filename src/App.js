@@ -114,6 +114,13 @@ const App = () => {
 											</li>
 										</ul>
 									</li>
+									<li>
+										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/OrgChart'>
+											organization Chart
+										</NavLink>
+
+										
+									</li>
 								</ul>
 							</li>
 						</ul>
