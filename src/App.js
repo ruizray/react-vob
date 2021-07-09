@@ -1,77 +1,134 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Route, NavLink } from "react-router-dom";
 
 import LandingPage from "./Departments/LandingPage";
-import { Container, Navbar, Nav, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from "reactstrap";
-
-//import 'bootstrap/dist/css/bootstrap.css'
+import { Container } from "reactstrap";
 import "./css/stylesReact.css";
 import ExecutiveDepartment from "./Departments/ExecutiveDepartment";
 import GenerateHTML from "./Functions/generateHTML";
 import OrgChart from "./OrgChart/OrgChart";
 import ElectedOfficials from "./Government/ElectedOfficials";
-import ElectedOfficialProfile from './Government/ElectedOfficialsProfiles/ElectedOfficialProfile';
-
+import { MayorMaryProfile } from "./Government/ElectedOfficialsProfiles/ElectedOfficialProfiles";
+import AnimalControl from "./Departments/Police/AnimalControl";
 const App = () => {
-	const [isDepartmentsOpen, setDepartmentsIsOpen] = useState(false);
-	const [isGovernmentOpen, setGovernmentIsOpen] = useState(false);
-
 	return (
 		<>
 			<div>
-				<Navbar className='justify-content-center px-3 mb-4' color='light' light expand='md'>
-					<Nav className=' mr-auto' navbar>
-						<Dropdown
-							onMouseOver={() => setDepartmentsIsOpen(true)}
-							onFocus={() => setDepartmentsIsOpen(true)}
-							onMouseLeave={() => setDepartmentsIsOpen(false)}
-							onBlur={() => setDepartmentsIsOpen(false)}
-							toggle={() => setDepartmentsIsOpen(!isDepartmentsOpen)}
-							isOpen={isDepartmentsOpen}>
-							<DropdownToggle tag={"h3"}  style={{ fontSize: "2rem" }} nav caret>
-								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/departmentLandingPage'>
+				<nav class='navbar navbar-expand-lg navbar-light bg-light mb-2 ' style={{ fontSize: "2rem" }}>
+					<div class='container-fluid justify-content-center'>
+						<ul class='navbar-nav'>
+							<li class='nav-item dropdown'>
+								<div
+									className='dropdown-toggle mx-2'
+									href='#'
+									id='Departments'
+									role='button'
+									data-mdb-toggle='dropdown'
+									aria-expanded='false'>
 									Departments
-								</NavLink>
-							</DropdownToggle>
-							<DropdownMenu>
-								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/Executive'>
-									<DropdownItem style={{ fontSize: "2rem" }}>Executive</DropdownItem>
-								</NavLink>
-							</DropdownMenu>
-						</Dropdown>
-						<Dropdown
-							onMouseOver={() => setGovernmentIsOpen(true)}
-							onFocus={() => setGovernmentIsOpen(true)}
-							onMouseLeave={() => setGovernmentIsOpen(false)}
-							onBlur={() => setGovernmentIsOpen(false)}
-							toggle={() => setGovernmentIsOpen(!isDepartmentsOpen)}
-							isOpen={isGovernmentOpen}>
-							<DropdownToggle tag={"h3"} style={{ fontSize: "2rem" }} nav caret>
-								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/Government'>
+								</div>
+								<ul style={{ fontSize: "1.5rem" }} class='dropdown-menu' aria-labelledby='Departments'>
+									<li>
+										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/departmentLandingPage'>
+											Landing Page
+										</NavLink>
+									</li>
+									<li>
+										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/Executive'>
+											Executive »
+										</NavLink>
+										<ul class='dropdown-menu dropdown-submenu'>
+											<li>
+												<a class='dropdown-item' href='#'>
+													Submenu item 1
+												</a>
+											</li>
+
+											<li>
+												<a class='dropdown-item' href='#'>
+													Submenu item 3 &raquo;{" "}
+												</a>
+												<ul class='dropdown-menu dropdown-submenu'>
+													<li>
+														<a class='dropdown-item' href='#'>
+															Multi level 1
+														</a>
+													</li>
+													<li>
+														<a class='dropdown-item' href='#'>
+															Multi level 2
+														</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/Police'>
+											Police »
+										</NavLink>
+										<ul class='dropdown-menu dropdown-submenu'>
+											<li>
+												<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/AnimalControl'>
+													Animal Control »
+												</NavLink>
+											</li>
+
+											
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class='nav-item dropdown'>
+								<div
+									className='dropdown-toggle mx-2'
+									href='#'
+									id='Government'
+									role='button'
+									data-mdb-toggle='dropdown'
+									aria-expanded='false'>
 									Government
-								</NavLink>
-							</DropdownToggle>
-							<DropdownMenu>
-								<NavLink style={{ color: "rgba(0,0,0,.7)" }} to='/Elected'>
-									<DropdownItem style={{ fontSize: "2rem" }}>Elected Officials</DropdownItem>
-								</NavLink>
-							</DropdownMenu>
-						</Dropdown>
-						<NavbarText tag ={"h3"} style={{ fontSize: "2rem" }}>
-							<NavLink style={{ color: "rgba(0,0,0,.7)", fontSize: "2rem" }} to='/OrgChart'>
-								Org Chart
-							</NavLink>
-						</NavbarText>
-					</Nav>
-				</Navbar>
+								</div>
+								<ul style={{ fontSize: "1.5rem" }} class='dropdown-menu' aria-labelledby='Government'>
+									<li>
+										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/departmentLandingPage'>
+											Landing Page
+										</NavLink>
+									</li>
+									<li>
+										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/Elected'>
+											Elected Officials »
+										</NavLink>
+
+										<ul class='dropdown-menu dropdown-submenu'>
+											<li>
+												<a class='dropdown-item' href='#'>
+													Submenu item 1
+												</a>
+											</li>
+
+											<li>
+												<a class='dropdown-item' href='#'>
+													Submenu item 3
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
 			</div>
 			<GenerateHTML>
-				<Container fluid={true} style={{ maxWidth: 1920 }}>
+				<Container  style={{ maxWidth: 1920 }}>
 					<Route exact path='/departmentLandingPage' component={LandingPage} />
 					<Route exact path='/Executive' component={ExecutiveDepartment} />
 					<Route exact path='/OrgChart' component={OrgChart} />
 					<Route exact path='/Elected' component={ElectedOfficials} />
-					<Route exact path='/ElectedOfficialProfile' component={ElectedOfficialProfile} />
+
+					<Route exact path='/MayorMary' component={MayorMaryProfile} />
+					<Route exact path='/AnimalControl' component={AnimalControl} />
 				</Container>
 			</GenerateHTML>
 		</>

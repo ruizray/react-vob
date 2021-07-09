@@ -3,7 +3,7 @@ import { Card, CardTitle, CardBody, CardSubtitle } from "reactstrap";
 import { NavLink, useLocation } from "react-router-dom";
 
 const ContactInformation = (props) => {
-	const { title, name, email, phone, image, profileLink } = props.person;
+	const { title, name, email, phone, image, profileLink, profilePath } = props.person;
 	console.log(profileLink);
 	const { type, childrenCount, borderColor } = props;
 	let location = useLocation();
@@ -50,7 +50,7 @@ const ContactInformation = (props) => {
 	} else if (type === 1) {
 		return (
 			<>
-				<Card className='my-3 w-100'>
+				<Card className='my-3 w-100 border'>
 					<CardBody className='h-100 w-100'>
 						<CardTitle tag={"h2"}>{title}</CardTitle>
 						<CardSubtitle tag='h5' className='mb-2'>
@@ -64,21 +64,24 @@ const ContactInformation = (props) => {
 							{phone}
 						</h5>
 
-						<h5 className='mb-2 text-muted text-truncate'>
-							<i style={{ verticalAlign: "middle" }} className=' material-icons  text-center'>
-								mail
-							</i>
-							{email}
-						</h5>
+						{email && (
+							<h5 className='mb-2 text-muted text-truncate'>
+								<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+									mail
+								</i>
+								{email}
+							</h5>
+						)}
 					</CardBody>
 				</Card>
 			</>
 		);
 	} else if (type === 3) {
 		const { backgroundPositionY, backgroundImage, backgroundSize, backgroundPositionX } = image;
-		const person = props.person
+		console.log(props.person);
+		const person = props.person;
 		return (
-			<Card className='text-center border w-100 mt-3 pt-3  h-100'>
+			<Card className='text-center border w-100 mt-3 pt-3 hover-zoom hover-shadow  h-100'>
 				<CardBody>
 					<div className='mb-3 member-thumb mx-auto'>
 						<div
@@ -91,7 +94,7 @@ const ContactInformation = (props) => {
 							}}
 						/>
 					</div>
-					<div className=''>
+					<div>
 						<h3>{name}</h3>
 						<h3 className='text-muted'>{title}</h3>
 					</div>
@@ -112,14 +115,7 @@ const ContactInformation = (props) => {
 							{email}
 						</h5>
 					)}
-					<NavLink
-						to={{
-							pathname: "/ElectedOfficialProfile",
-							props2:{
-								person
-							},
-							state: { hello: "yes" },
-						}}>
+					<NavLink className='stretched-link' to={profilePath}>
 						<button type='button' className='btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light'>
 							View Profile
 						</button>

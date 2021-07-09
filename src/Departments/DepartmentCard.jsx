@@ -4,7 +4,7 @@ import { Card, CardBody, Button, CardTitle } from "reactstrap";
 const DepartmentCard = (props) => {
 	return (
 		<>
-		<Card className='card-raised h-100 w-100 ripple'>
+		<Card className='card-raised h-100 w-100 hover-shadow ripple'>
 			<CardBody className='flex-column d-flex h-100 w-100 p-4 text-center '>
 				<i className='w-100 material-icons icon-lg bg-light text-center' style={{ fontSize: "8rem" }}>
 					{props.icon}

@@ -3,9 +3,11 @@ export const villageDirectory = {
 		Mayor: {
 			name: "Mary Alexander-Basta",
 			phone: "(630) 226-8412",
+			cell: "(630) 280-4819",
 			email: "mayormary@bolingbrook.com",
 			title: "Mayor",
-			profileLink:"https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=0D89AE7E-8639-4C4E-8A3D-7A6FA65D1EF2",
+			profileLink: "https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=0D89AE7E-8639-4C4E-8A3D-7A6FA65D1EF2",
+			profilePath: "/MayorMary",
 			image: {
 				backgroundImage:
 					"url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Mary_Basta_2019.png)",
@@ -19,7 +21,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8417",
 			email: "Email Needed",
 			title: "Village Trustee",
-			profileLink:"https://www.bolingbrook.com/index.asp?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=508ED333-D119-44A0-8C8E-B05EE3435B2E",
+			profilePath: "/trusteeRupsis",
+			profileLink: "https://www.bolingbrook.com/index.asp?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=508ED333-D119-44A0-8C8E-B05EE3435B2E",
 			image: {
 				backgroundImage:
 					"url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Aimee_Rupsis_Headshot.jpg)",
@@ -33,7 +36,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8417",
 			email: "Email Needed",
 			title: "Village Trustee",
-			profileLink:"https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=2B389FD4-2233-42DC-8438-E762563FEDCD",
+			profilePath: "/trusteeRupsis",
+			profileLink: "https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=2B389FD4-2233-42DC-8438-E762563FEDCD",
 			image: {
 				backgroundImage:
 					"url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Michael_Lawler_Village_Trustee_2017_cropped.PNG)",
@@ -47,7 +51,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8417",
 			email: "Email Needed",
 			title: "Village Trustee",
-			profileLink:"https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=CF668DFE-FF34-4C7F-AB1E-07C6B339B64D",
+			profilePath: "/trusteeRupsis",
+			profileLink: "https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=CF668DFE-FF34-4C7F-AB1E-07C6B339B64D",
 			image: {
 				backgroundImage:
 					"url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Michael_Carpanzano_2019.png)",
@@ -61,7 +66,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8417",
 			email: "Email Needed",
 			title: "Village Trustee",
-			profileLink:"https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=B3F45964-3CF0-42BE-8745-4505BAE43EA1",
+			profilePath: "/trusteeRupsis",
+			profileLink: "https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=B3F45964-3CF0-42BE-8745-4505BAE43EA1",
 			image: {
 				backgroundImage:
 					"url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Maria_Web.jpg)",
@@ -75,7 +81,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8417",
 			email: "Email Needed",
 			title: "Village Trustee",
-			profileLink:"https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=154E2106-BF2F-4A27-9DBE-C09E79BAD24E",
+			profilePath: "/trusteeRupsis",
+			profileLink: "https://www.bolingbrook.com/?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=154E2106-BF2F-4A27-9DBE-C09E79BAD24E",
 			image: {
 				backgroundImage:
 					"url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Trustee_Sheldon_L._Watts.jpg)",
@@ -89,7 +96,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8417",
 			email: "Email Needed",
 			title: "Village Trustee",
-			profileLink:"https://www.bolingbrook.com/index.asp?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=85425B34-934A-4A84-93D9-2CF9DCC93ED1",
+			profilePath: "/trusteeRupsis",
+			profileLink: "https://www.bolingbrook.com/index.asp?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=85425B34-934A-4A84-93D9-2CF9DCC93ED1",
 			image: {
 				backgroundImage:
 					"url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Troy_Profile_Picture.jpg)",
@@ -116,7 +124,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8411",
 			email: "mbarton@bolingbrook.com",
 			title: "Village Clerk",
-			profileLink:"https://www.bolingbrook.com/index.asp?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=8C7C1162-6514-456F-B0B5-345DC5511BA6",
+			profilePath: "/trusteeRupsis",
+			profileLink: "https://www.bolingbrook.com/index.asp?SEC=0506393A-9DFE-4C7C-905C-C4D2609F079A&DE=8C7C1162-6514-456F-B0B5-345DC5511BA6",
 			image: {
 				backgroundImage: "url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/mmb_2020.jpg)",
 				backgroundSize: "230px",
@@ -151,6 +160,17 @@ export const villageDirectory = {
 			phone: "(630) 226-8414",
 			email: "foia@bolingbrook.com",
 			title: "FOIA Officer",
+		},
+	},
+	Police: {
+		AnimalControl: {
+			title:"Main Line",
+			phone: "(630) 226-8500",
+		},
+		AnimalControlSupervisor: {
+			name: "Linda Laketa",
+			phone: "(630) 226-8412",
+			title: "Animal Control Supervisor",
 		},
 	},
 };
