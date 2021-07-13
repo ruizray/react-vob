@@ -17,7 +17,7 @@ const MayorMaryProfile = (props) => {
 	return (
 		<>
 			<Row className='gutters-sm'>
-				<div className='col-md-3 mb-3 text-truncate'>
+				<div className='col-md-3 mb-3 text-truncate '>
 					<Card className='border'>
 						<CardBody>
 							<div className='d-flex flex-column align-items-center text-center'>

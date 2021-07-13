@@ -16,10 +16,10 @@ const App = () => {
 	return (
 		<>
 			<div>
-				<nav class='navbar navbar-expand-lg navbar-light bg-light mb-2 ' style={{ fontSize: "2rem" }}>
-					<div class='container-fluid justify-content-center'>
-						<ul class='navbar-nav'>
-							<li class='nav-item dropdown'>
+				<nav className='navbar navbar-expand-lg navbar-light bg-light mb-2 ' style={{ fontSize: "2rem" }}>
+					<div className='container-fluid justify-content-center'>
+						<ul className='navbar-nav'>
+							<li className='nav-item dropdown'>
 								<div
 									className='dropdown-toggle mx-2'
 									href=' '
@@ -29,7 +29,7 @@ const App = () => {
 									aria-expanded='false'>
 									Departments
 								</div>
-								<ul style={{ fontSize: "1.5rem" }} class='dropdown-menu' aria-labelledby='Departments'>
+								<ul style={{ fontSize: "1.5rem" }} className='dropdown-menu' aria-labelledby='Departments'>
 									<li>
 										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/departmentLandingPage'>
 											Landing Page
@@ -39,25 +39,25 @@ const App = () => {
 										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/Executive'>
 											Executive »
 										</NavLink>
-										<ul class='dropdown-menu dropdown-submenu'>
+										<ul className='dropdown-menu dropdown-submenu'>
 											<li>
-												<a class='dropdown-item' href=' '>
+												<a className='dropdown-item' href=' '>
 													Submenu item 1
 												</a>
 											</li>
 
 											<li>
-												<a class='dropdown-item' href=' '>
+												<a className='dropdown-item' href=' '>
 													Submenu item 3 &raquo;{" "}
 												</a>
-												<ul class='dropdown-menu dropdown-submenu'>
+												<ul className='dropdown-menu dropdown-submenu'>
 													<li>
-														<a class='dropdown-item' href=' '>
+														<a className='dropdown-item' href=' '>
 															Multi level 1
 														</a>
 													</li>
 													<li>
-														<a class='dropdown-item' href=' '>
+														<a className='dropdown-item' href=' '>
 															Multi level 2
 														</a>
 													</li>
@@ -69,7 +69,7 @@ const App = () => {
 										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/Police'>
 											Police »
 										</NavLink>
-										<ul class='dropdown-menu dropdown-submenu'>
+										<ul className='dropdown-menu dropdown-submenu'>
 											<li>
 												<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/AnimalControl'>
 													Animal Control »
@@ -81,7 +81,7 @@ const App = () => {
 									</li>
 								</ul>
 							</li>
-							<li class='nav-item dropdown'>
+							<li className='nav-item dropdown'>
 								<div
 									className='dropdown-toggle mx-2'
 									href=' '
@@ -91,7 +91,7 @@ const App = () => {
 									aria-expanded='false'>
 									Government
 								</div>
-								<ul style={{ fontSize: "1.5rem" }} class='dropdown-menu' aria-labelledby='Government'>
+								<ul style={{ fontSize: "1.5rem" }} className='dropdown-menu' aria-labelledby='Government'>
 									<li>
 										<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/departmentLandingPage'>
 											Landing Page
@@ -102,15 +102,15 @@ const App = () => {
 											Elected Officials »
 										</NavLink>
 
-										<ul class='dropdown-menu dropdown-submenu'>
+										<ul className='dropdown-menu dropdown-submenu'>
 											<li>
-												<a class='dropdown-item' href=' '>
+												<a className='dropdown-item' href=' '>
 													Submenu item 1
 												</a>
 											</li>
 
 											<li>
-												<a class='dropdown-item' href=' '>
+												<a className='dropdown-item' href=' '>
 													Submenu item 3
 												</a>
 											</li>

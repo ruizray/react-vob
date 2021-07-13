@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
-import {ContactInformation} from "./../components/ContactInformation";
+import {ContactCardProfile} from "./../components/ContactInformation";
 
 import { villageDirectory } from "./../scripts/DepartmentInfo";
 const ElectedOfficials = (props) => {
@@ -9,32 +9,32 @@ const ElectedOfficials = (props) => {
 		<>
 			<Row className=' d-flex justify-content-center align-items-center d-flex align-items-stretch '>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={Mayor}></ContactInformation>
+					<ContactCardProfile type={3} person={Mayor}></ContactCardProfile>
 				</Col>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={Clerk}></ContactInformation>
+					<ContactCardProfile type={3} person={Clerk}></ContactCardProfile>
 				</Col>
 			</Row>
 			<Row className=' d-flex justify-content-center align-items-center d-flex align-items-stretch '>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={TrusteeDoris}></ContactInformation>
+					<ContactCardProfile type={3} person={TrusteeDoris}></ContactCardProfile>
 				</Col>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={TrusteeWatts}></ContactInformation>
+					<ContactCardProfile type={3} person={TrusteeWatts}></ContactCardProfile>
 				</Col>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={TrusteeZarate}></ContactInformation>
+					<ContactCardProfile type={3} person={TrusteeZarate}></ContactCardProfile>
 				</Col>
 			</Row>
             <Row className=' d-flex justify-content-center align-items-center d-flex align-items-stretch '>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={TrusteeCarpanzano}></ContactInformation>
+					<ContactCardProfile type={3} person={TrusteeCarpanzano}></ContactCardProfile>
 				</Col>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={TrusteeLawler}></ContactInformation>
+					<ContactCardProfile type={3} person={TrusteeLawler}></ContactCardProfile>
 				</Col>
 				<Col className="mt-2" lg={3}>
-					<ContactInformation type={3} person={TrusteeRupsis}></ContactInformation>
+					<ContactCardProfile type={3} person={TrusteeRupsis}></ContactCardProfile>
 				</Col>
 			</Row>
 		</>

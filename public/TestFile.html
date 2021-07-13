@@ -18,408 +18,316 @@
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root">
 			<!--------->
-			<div class="container-fluid" style="max-width: 1920px;">
-				<div class="tree-root  w-100 row">
-					<div class="tree-child w-100 col-lg-12">
-						<div type="button" data-mdb-toggle="collapse" data-mdb-target="#tree-root" aria-expanded="false" aria-controls="collapseExample" class="w-50 mx-auto">
-							<div class="border-primary  border   card">
-								<div class="p-1 my-2 h-100  card-body">
-									<h6 class="text-truncate card-title">
-										Mayor
-									</h6>
-									<h6 class="card-subtitle">
-										Mary Alexander-Basta
-									</h6>
-								</div>
-							</div>
+			<head>
+				<meta charset="utf-8" />
+				<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+				<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+				<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta name="theme-color" content="#000000" />
+				<meta name="description" content="Web site created using create-react-app" />
+				<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+				<title>React App</title>
+				</head>
+			<div class="container">
+				<div class="gx-3 row">
+					<div class="col-md-3">
+					</div>
+					<div id="fadeInTop " class="col-md-6">
+						<div class="flex-column d-flex clamped card-body">
+							<i class="material-icons icon-lg text-dark">
+								front_hand
+							</i>
+							<h3>
+								Welcome
+							</h3>
+							<p>
+								The Executive Department consists of the Office of the Mayor, Village Co-Administrators, Board of Trustees, Village Clerk, and staff.
+							</p>
 						</div>
-						<div id="tree-root" class="collapse show">
-							<div class="tree-root   text-center mx-0 w-100 row">
-								<div class="tree-child mx-0 level-2 col-lg-3">
-									<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Martha" aria-expanded="true" aria-controls="collapseExample" class="">
-										<div class="border-primary  border   card">
-											<div class="p-1 my-2 h-100  card-body">
-												<h6 class="text-truncate card-title">
-													Village Clerk
-												</h6>
-												<h6 class="card-subtitle">
-													Martha 'Marti' M. Barton
-												</h6>
-											</div>
-										</div>
-									</div>
-									<div id="Martha" class="collapse show">
-										<div class="tree-root   text-center mx-0 w-100 row">
-											<div class="tree-child mx-0 level-3 col-lg-12">
-												<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Crystal" aria-expanded="true" aria-controls="collapseExample" class="">
-													<div class="border-primary  border   card">
-														<div class="p-1 my-2 h-100  card-body">
-															<h6 class="text-truncate card-title">
-																Deputy Village Clerk
-															</h6>
-															<h6 class="card-subtitle">
-																Crystal Tovar
-															</h6>
-														</div>
-													</div>
-												</div>
-												<div id="Crystal" class="collapse show">
-													<div class="tree-root   text-center mx-0 w-100 row">
-														<div class="tree-child mx-0 level-4 col-lg-12">
-															<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Sandy" aria-expanded="true" aria-controls="collapseExample" class="">
-																<div class="border-primary  border   card">
-																	<div class="p-1 my-2 h-100  card-body">
-																		<h6 class="text-truncate card-title">
-																			Assistant Deputy Village Clerk
-																		</h6>
-																		<h6 class="card-subtitle">
-																			Sandy Clark
-																		</h6>
-																	</div>
-																</div>
-															</div>
-															<div id="Sandy" class="collapse show">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tree-child mx-0 level-2 col-lg-3">
-									<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Ken" aria-expanded="true" aria-controls="collapseExample" class="">
-										<div class="border-primary  border   card">
-											<div class="p-1 my-2 h-100  card-body">
-												<h6 class="text-truncate card-title">
-													Co-Administrator(Public Safety)
-												</h6>
-												<h6 class="card-subtitle">
-													Ken Teppel
-												</h6>
-											</div>
-										</div>
-									</div>
-									<div id="Ken" class="collapse show">
-										<div class="tree-root   text-center mx-0 w-100 row">
-											<div class="tree-child mx-0 level-3 col-lg-6">
-												<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Police" aria-expanded="true" aria-controls="collapseExample" class="">
-													<div class="border-primary  border   card">
-														<div class="p-1 my-2 h-100  card-body">
-															<h6 class="card-subtitle">
-																Police Department
-															</h6>
-														</div>
-													</div>
-												</div>
-												<div id="Police" class="collapse show">
-												</div>
-											</div>
-											<div class="tree-child mx-0 level-3 col-lg-6">
-												<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Fire" aria-expanded="true" aria-controls="collapseExample" class="">
-													<div class="border-primary  border   card">
-														<div class="p-1 my-2 h-100  card-body">
-															<h6 class="card-subtitle">
-																Fire Department
-															</h6>
-														</div>
-													</div>
-												</div>
-												<div id="Fire" class="collapse show">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tree-child mx-0 level-2 col-lg-3">
-									<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Lucas" aria-expanded="true" aria-controls="collapseExample" class="">
-										<div class="border-primary  border   card">
-											<div class="p-1 my-2 h-100  card-body">
-												<h6 class="text-truncate card-title">
-													Co-Administrator
-												</h6>
-												<h6 class="card-subtitle">
-													Lucas Rickelman
-												</h6>
-											</div>
-										</div>
-									</div>
-									<div id="Lucas" class="collapse show">
-									</div>
-								</div>
-								<div class="tree-child mx-0 level-2 col-lg-3">
-									<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Fran" aria-expanded="true" aria-controls="collapseExample" class="">
-										<div class="border-primary  border   card">
-											<div class="p-1 my-2 h-100  card-body">
-												<h6 class="text-truncate card-title">
-													FOIA Officer
-												</h6>
-												<h6 class="card-subtitle">
-													Fran Miller
-												</h6>
-											</div>
-										</div>
-									</div>
-									<div id="Fran" class="collapse show">
-										<div class="tree-root   text-center mx-0 w-100 row">
-											<div class="tree-child mx-0 level-3 col-lg-12">
-												<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Art" aria-expanded="true" aria-controls="collapseExample" class="">
-													<div class="border-primary  border   card">
-														<div class="p-1 my-2 h-100  card-body">
-															<h6 class="text-truncate card-title">
-																Assistant FOIA Officer
-															</h6>
-															<h6 class="card-subtitle">
-																Art McGuigan
-															</h6>
-														</div>
-													</div>
-												</div>
-												<div id="Art" class="collapse show">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+						<div class="flex-column d-flex clamped   card-body">
+							<i class="material-icons icon-lg text-dark">
+								announcement
+							</i>
+							<h3>
+								Message From the Mayor
+							</h3>
+							<div class="testimonial">
+								<p>
+									Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1, 2020, I am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A Place to Grow”
+								</p>
+								<p>
+									Not only have I personally experienced this with my family in Bolingbrook, I have seen this motto be demonstrated by our residents, businesses, and community. The Executive Department exists to handle the day to day operations of the village, and my goal is to ensure that our staff follows that motto. The department continues to move forward by constantly collaborating with all other village departments, reviewing where we’ve been and where we’re going, and communicating with our residents. I believe in an open door policy. I want to have open lines of communication and welcome anyone who would like to meet with me to either call, email, or come in to the village office.
+								</p>
+								<footer class="blockquote-footer">
+									Mary Alexander-Basta,
+									<cite title="Mayor">
+										Mayor
+									</cite>
+								</footer>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="tree-root  w-100 row">
-					<div class="tree-child  col">
-						<div class="w-50 mx-auto">
-							<div class="   border card">
-								<div class="p-1 my-2 h-100  card-body">
-									<h6 class="card-subtitle">
-										Fire Department
-									</h6>
-								</div>
+					<div id="fadeInRight" class="col-md-3">
+						<div class=" w-100 border my-1 hover-shadow  card">
+							<div class="h-100 w-100 card-body">
+								<ul class="ps-0  list-group-flush  list-group list-group-flush">
+									<div class="list-group-flush ">
+										<li class="px-0 list-group-item">
+											<h5 class="mb-0 d-flex card-title">
+												<span class="text-truncate">
+													Mayor
+												</span>
+												<span role="button" id="MaryAlexanderBasta" class="ms-auto float-right material-icons border rounded-pill caret">
+													expand_more
+												</span>
+											</h5>
+										</li>
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												person
+											</i>
+											Mary Alexander-Basta
+										</li>
+									</div>
+									<div toggler="MaryAlexanderBasta" class="collapse" style="border-left: none; border-right: none;">
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												phone
+											</i>
+											(630) 226-8412
+										</li>
+										<li class=" text-muted ps-0  list-group-item">
+											<i class=" material-icons  text-center" style="vertical-align: middle; font-size: inherit;">
+												mail
+											</i>
+											mayormary@bolingbrook.com
+										</li>
+									</div>
+								</ul>
 							</div>
 						</div>
-						<div class="tree-root   text-center mx-0 w-100 row">
-							<div class="tree-child mx-0 level-2 col-lg-12">
-								<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Jeff" aria-expanded="true" aria-controls="collapseExample" class="">
-									<div class="border-danger  border   card">
-										<div class="p-1 my-2 h-100  card-body">
-											<h6 class="text-truncate card-title">
-												Fire Chief
-											</h6>
-											<h6 class="card-subtitle">
-												Jeff LaJoie
-											</h6>
-										</div>
+						<div class=" w-100 border my-1 hover-shadow  card">
+							<div class="h-100 w-100 card-body">
+								<ul class="ps-0  list-group-flush  list-group list-group-flush">
+									<div class="list-group-flush ">
+										<li class="px-0 list-group-item">
+											<h5 class="mb-0 d-flex card-title">
+												<span class="text-truncate">
+													Village Hall
+												</span>
+												<span role="button" id="VillageHall" class="ms-auto float-right material-icons border rounded-pill caret">
+													expand_more
+												</span>
+											</h5>
+										</li>
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												person
+											</i>
+											Main Office
+										</li>
 									</div>
-								</div>
-								<div id="Jeff" class="collapse show">
-									<div class="tree-root   text-center mx-0 w-100 row">
-										<div class="tree-child mx-0 level-3 col-lg-3">
-											<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Fire" aria-expanded="true" aria-controls="collapseExample" class="">
-												<div class="border-danger  border   card">
-													<div class="p-1 my-2 h-100  card-body">
-														<h6 class="card-subtitle">
-															Fire Prevention Bureau
-														</h6>
-													</div>
-												</div>
-											</div>
-											<div id="Fire" class="collapse show">
-												<div class="tree-root   text-center mx-0 w-100 row">
-													<div class="tree-child mx-0 level-4 col-lg-12">
-														<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Brian" aria-expanded="true" aria-controls="collapseExample" class="">
-															<div class="border-danger  border   card">
-																<div class="p-1 my-2 h-100  card-body">
-																	<h6 class="text-truncate card-title">
-																		Fire Marshall
-																	</h6>
-																	<h6 class="card-subtitle">
-																		Brian Gaston
-																	</h6>
-																</div>
-															</div>
-														</div>
-														<div id="Brian" class="collapse show">
-															<div class="tree-root   text-center mx-0 w-100 row">
-																<div class="tree-child mx-0 level-5 col-lg-4">
-																	<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Scott" aria-expanded="true" aria-controls="collapseExample" class="">
-																		<div class="border-danger  border   card">
-																			<div class="p-1 my-2 h-100  card-body">
-																				<h6 class="text-truncate card-title">
-																					Inspector
-																				</h6>
-																				<h6 class="card-subtitle">
-																					Scott Bovyn
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																	<div id="Scott" class="collapse show">
-																	</div>
-																</div>
-																<div class="tree-child mx-0 level-5 col-lg-4">
-																	<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Nicole" aria-expanded="true" aria-controls="collapseExample" class="">
-																		<div class="border-danger  border   card">
-																			<div class="p-1 my-2 h-100  card-body">
-																				<h6 class="text-truncate card-title">
-																					Inspector
-																				</h6>
-																				<h6 class="card-subtitle">
-																					Nicole McGowan
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																	<div id="Nicole" class="collapse show">
-																	</div>
-																</div>
-																<div class="tree-child mx-0 level-5 col-lg-4">
-																	<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Frank" aria-expanded="true" aria-controls="collapseExample" class="">
-																		<div class="border-danger  border   card">
-																			<div class="p-1 my-2 h-100  card-body">
-																				<h6 class="text-truncate card-title">
-																					Inspector
-																				</h6>
-																				<h6 class="card-subtitle">
-																					Frank Ritter
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																	<div id="Frank" class="collapse show">
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="tree-child mx-0 level-3 col-lg-3">
-											<div type="button" data-mdb-toggle="collapse" data-mdb-target="#" aria-expanded="true" aria-controls="collapseExample" class="">
-												<div class="border-danger  border   card">
-													<div class="p-1 my-2 h-100  card-body">
-														<h6 class="card-subtitle">
-															EMS
-														</h6>
-													</div>
-												</div>
-											</div>
-											<div id="" class="collapse show">
-												<div class="tree-root   text-center mx-0 w-100 row">
-													<div class="tree-child mx-0 level-4 col-lg-12">
-														<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Todd" aria-expanded="true" aria-controls="collapseExample" class="">
-															<div class="border-danger  border   card">
-																<div class="p-1 my-2 h-100  card-body">
-																	<h6 class="text-truncate card-title">
-																		Battalion Chief / EMS Director
-																	</h6>
-																	<h6 class="card-subtitle">
-																		Todd Nemeth
-																	</h6>
-																</div>
-															</div>
-														</div>
-														<div id="Todd" class="collapse show">
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="tree-child mx-0 level-3 col-lg-3">
-											<div type="button" data-mdb-toggle="collapse" data-mdb-target="#" aria-expanded="true" aria-controls="collapseExample" class="">
-												<div class="border-danger  border   card">
-													<div class="p-1 my-2 h-100  card-body">
-														<h6 class="card-subtitle">
-															Training
-														</h6>
-													</div>
-												</div>
-											</div>
-											<div id="" class="collapse show">
-												<div class="tree-root   text-center mx-0 w-100 row">
-													<div class="tree-child mx-0 level-4 col-lg-12">
-														<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Troy" aria-expanded="true" aria-controls="collapseExample" class="">
-															<div class="border-danger  border   card">
-																<div class="p-1 my-2 h-100  card-body">
-																	<h6 class="text-truncate card-title">
-																		Battalion Chief / EMS Director
-																	</h6>
-																	<h6 class="card-subtitle">
-																		Troy Kirch
-																	</h6>
-																</div>
-															</div>
-														</div>
-														<div id="Troy" class="collapse show">
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="tree-child mx-0 level-3 col-lg-3">
-											<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Battalion" aria-expanded="true" aria-controls="collapseExample" class="">
-												<div class="border-danger  border   card">
-													<div class="p-1 my-2 h-100  card-body">
-														<h6 class="card-subtitle">
-															Battalion Chiefs
-														</h6>
-													</div>
-												</div>
-											</div>
-											<div id="Battalion" class="collapse show">
-												<div class="tree-root   text-center mx-0 w-100 row">
-													<div class="tree-child mx-0 level-4 col-lg-4">
-														<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Ron" aria-expanded="true" aria-controls="collapseExample" class="">
-															<div class="border-danger  border   card">
-																<div class="p-1 my-2 h-100  card-body">
-																	<h6 class="text-truncate card-title">
-																		Battalion Chief
-																	</h6>
-																	<h6 class="card-subtitle">
-																		Ron Banda
-																	</h6>
-																</div>
-															</div>
-														</div>
-														<div id="Ron" class="collapse show">
-														</div>
-													</div>
-													<div class="tree-child mx-0 level-4 col-lg-4">
-														<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Joe" aria-expanded="true" aria-controls="collapseExample" class="">
-															<div class="border-danger  border   card">
-																<div class="p-1 my-2 h-100  card-body">
-																	<h6 class="text-truncate card-title">
-																		Battalion Chief
-																	</h6>
-																	<h6 class="card-subtitle">
-																		Joe Fagan
-																	</h6>
-																</div>
-															</div>
-														</div>
-														<div id="Joe" class="collapse show">
-														</div>
-													</div>
-													<div class="tree-child mx-0 level-4 col-lg-4">
-														<div type="button" data-mdb-toggle="collapse" data-mdb-target="#Dan" aria-expanded="true" aria-controls="collapseExample" class="">
-															<div class="border-danger  border   card">
-																<div class="p-1 my-2 h-100  card-body">
-																	<h6 class="text-truncate card-title">
-																		Battalion Chief
-																	</h6>
-																	<h6 class="card-subtitle">
-																		Dan Ross
-																	</h6>
-																</div>
-															</div>
-														</div>
-														<div id="Dan" class="collapse show">
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+									<div toggler="VillageHall" class="collapse" style="border-left: none; border-right: none;">
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												phone
+											</i>
+											(630) 226-8400
+										</li>
+										<li class=" text-muted ps-0  list-group-item">
+											<i class=" material-icons  text-center" style="vertical-align: middle; font-size: inherit;">
+												local_printshop
+											</i>
+											(630) 226-8409
+										</li>
 									</div>
-								</div>
+								</ul>
+							</div>
+						</div>
+						<div class=" w-100 border my-1 hover-shadow  card">
+							<div class="h-100 w-100 card-body">
+								<ul class="ps-0  list-group-flush  list-group list-group-flush">
+									<div class="list-group-flush ">
+										<li class="px-0 list-group-item">
+											<h5 class="mb-0 d-flex card-title">
+												<span class="text-truncate">
+													Co-Administrator
+												</span>
+												<span role="button" id="CoAdministrator1" class="ms-auto float-right material-icons border rounded-pill caret">
+													expand_more
+												</span>
+											</h5>
+										</li>
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												person
+											</i>
+											Ken Teppel
+										</li>
+									</div>
+									<div toggler="CoAdministrator1" class="collapse" style="border-left: none; border-right: none;">
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												phone
+											</i>
+											(630) 226-8696
+										</li>
+										<li class=" text-muted ps-0  list-group-item">
+											<i class=" material-icons  text-center" style="vertical-align: middle; font-size: inherit;">
+												mail
+											</i>
+											kteppel@bolingbrook.com
+										</li>
+									</div>
+								</ul>
+							</div>
+						</div>
+						<div class=" w-100 border my-1 hover-shadow  card">
+							<div class="h-100 w-100 card-body">
+								<ul class="ps-0  list-group-flush  list-group list-group-flush">
+									<div class="list-group-flush ">
+										<li class="px-0 list-group-item">
+											<h5 class="mb-0 d-flex card-title">
+												<span class="text-truncate">
+													Co-Administrator
+												</span>
+												<span role="button" id="CoAdministrator2" class="ms-auto float-right material-icons border rounded-pill caret">
+													expand_more
+												</span>
+											</h5>
+										</li>
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												person
+											</i>
+											Lucas Rickelman
+										</li>
+									</div>
+									<div toggler="CoAdministrator2" class="collapse" style="border-left: none; border-right: none;">
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												phone
+											</i>
+											(630) 226-8805
+										</li>
+										<li class=" text-muted ps-0  list-group-item">
+											<i class=" material-icons  text-center" style="vertical-align: middle; font-size: inherit;">
+												mail
+											</i>
+											lrickelm@bolingbrook.com
+										</li>
+									</div>
+								</ul>
+							</div>
+						</div>
+						<div class=" w-100 border my-1 hover-shadow  card">
+							<div class="h-100 w-100 card-body">
+								<ul class="ps-0  list-group-flush  list-group list-group-flush">
+									<div class="list-group-flush ">
+										<li class="px-0 list-group-item">
+											<h5 class="mb-0 d-flex card-title">
+												<span class="text-truncate">
+													Village Clerk
+												</span>
+												<span role="button" id="Clerk" class="ms-auto float-right material-icons border rounded-pill caret">
+													expand_more
+												</span>
+											</h5>
+										</li>
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												person
+											</i>
+											Martha 'Marti' M. Barton
+										</li>
+									</div>
+									<div toggler="Clerk" class="collapse" style="border-left: none; border-right: none;">
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												phone
+											</i>
+											(630) 226-8411
+										</li>
+										<li class=" text-muted ps-0  list-group-item">
+											<i class=" material-icons  text-center" style="vertical-align: middle; font-size: inherit;">
+												mail
+											</i>
+											mbarton@bolingbrook.com
+										</li>
+									</div>
+								</ul>
+							</div>
+						</div>
+						<div class=" w-100 border my-1 hover-shadow  card">
+							<div class="h-100 w-100 card-body">
+								<ul class="ps-0  list-group-flush  list-group list-group-flush">
+									<div class="list-group-flush ">
+										<li class="px-0 list-group-item">
+											<h5 class="mb-0 d-flex card-title">
+												<span class="text-truncate">
+													Village Attorney
+												</span>
+												<span role="button" id="VillageAttorney" class="ms-auto float-right material-icons border rounded-pill caret">
+													expand_more
+												</span>
+											</h5>
+										</li>
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												person
+											</i>
+											(Odelson, Sterk, Murphey, Frazier, McGrath, LTD)
+										</li>
+									</div>
+									<div toggler="VillageAttorney" class="collapse" style="border-left: none; border-right: none;">
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												phone
+											</i>
+											(630) 226-8412
+										</li>
+									</div>
+								</ul>
+							</div>
+						</div>
+						<div class=" w-100 border my-1 hover-shadow  card">
+							<div class="h-100 w-100 card-body">
+								<ul class="ps-0  list-group-flush  list-group list-group-flush">
+									<div class="list-group-flush ">
+										<li class="px-0 list-group-item">
+											<h5 class="mb-0 d-flex card-title">
+												<span class="text-truncate">
+													FOIA Officer
+												</span>
+												<span role="button" id="FreedomOfInformation" class="ms-auto float-right material-icons border rounded-pill caret">
+													expand_more
+												</span>
+											</h5>
+										</li>
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												person
+											</i>
+											Fran Miller
+										</li>
+									</div>
+									<div toggler="FreedomOfInformation" class="collapse" style="border-left: none; border-right: none;">
+										<li class="text-muted ps-0 list-group-item">
+											<i class=" material-icons text-center" style="vertical-align: middle; font-size: inherit;">
+												phone
+											</i>
+											(630) 226-8414
+										</li>
+										<li class=" text-muted ps-0  list-group-item">
+											<i class=" material-icons  text-center" style="vertical-align: middle; font-size: inherit;">
+												mail
+											</i>
+											foia@bolingbrook.com
+										</li>
+									</div>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -430,3 +338,6 @@
 	</body>
 </html>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+<script>
+	console.log(document.getElementById("#ITEM"))
+</script>

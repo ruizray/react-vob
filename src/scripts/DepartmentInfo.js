@@ -6,7 +6,7 @@ export const villageDirectory = {
 			phone: "(630) 226-8400",
 			fax: "(630) 226-8409",
 			title: "Village Hall",
-			name:"Main Office",
+			name: "Main Office",
 		},
 		Mayor: {
 			name: "Mary Alexander-Basta",
@@ -148,7 +148,7 @@ export const villageDirectory = {
 		},
 		DeputyClerk: {
 			name: "Crystal Tovar",
-			id:"DeputyClerk",
+			id: "DeputyClerk",
 			phone: "(630) 226-8413",
 			email: "Need Email",
 			title: "Deputy Village Clerk",
@@ -161,7 +161,7 @@ export const villageDirectory = {
 		},
 		Attorney: {
 			name: "(Odelson, Sterk, Murphey, Frazier, McGrath, LTD)",
-			id:"VillageAttorney",
+			id: "VillageAttorney",
 			phone: "(630) 226-8412",
 			title: "Village Attorney",
 		},
@@ -172,7 +172,7 @@ export const villageDirectory = {
 		},
 		FOIA: {
 			name: "Fran Miller",
-			id:"FreedomOfInformation",
+			id: "FreedomOfInformation",
 			phone: "(630) 226-8414",
 			email: "foia@bolingbrook.com",
 			title: "FOIA Officer",
@@ -180,15 +180,60 @@ export const villageDirectory = {
 	},
 	Police: {
 		AnimalControl: {
-			title: "Main Line",
-			id:"AnimalControl",
+			name: "Main Line",
+			id: "AnimalControl",
+			title:"Animal Control",
 			phone: "(630) 226-8500",
 		},
 		AnimalControlSupervisor: {
 			name: "Linda Laketa",
-			id:"AnimalControlSupervisor",
+			id: "AnimalControlSupervisor",
 			phone: "(630) 226-8412",
 			title: "Animal Control Supervisor",
+		},
+		PoliceChief: {
+			name: "Mike Rompa",
+			id: "PoliceChief",
+			phone: "(630) 226-8412",
+			email: "mayormary@bolingbrook.com",
+			title: "Chief of Police",
+			image: {
+				backgroundImage: "url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/940.jpg)",
+				backgroundSize: "210px",
+				backgroundPositionY: "-5px",
+				backgroundPositionX: "-12px",
+			},
+		},
+		AfterHours: {
+			name: "After Hours",
+			id: "AfterHours",
+			phone: "(630) 226-8670",
+			title: "After Hours",
+		},
+		Investigations: {
+			name: "Investigations",
+			id: "Investigations",
+			phone: "(630) 226-8620",
+			title: "Investigations",
+		},
+		CodeEnforcement: {
+			name: "Code Enforcement",
+			id: "CodeEnforcement",
+			phone: "(630) 226-8760",
+			title: "Code Enforcement",
+		},
+		Evidence: {
+			name: "Evidence",
+			id: "Evidence",
+			phone: "(630) 226-8620",
+			title: "Evidence",
+		},
+		PoliceAdministration: {
+			name: "Police Administration",
+			id: "PoliceAdministration",
+			phone: "(630) 226-8600",
+			email: "police@bolingbrook.com",
+			title: "Police Administration",
 		},
 	},
 };

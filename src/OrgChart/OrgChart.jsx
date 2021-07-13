@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Row, Col } from "reactstrap";
-import { ContactInformation } from "../components/ContactInformation";
+import { ContactCardTree } from "../components/ContactInformation";
 import { organizationChart } from "../scripts/DepartmentInfo";
 
 const OrgChart = () => {
@@ -33,11 +33,11 @@ const OrgChart = () => {
 									aria-expanded='true'
 									aria-controls={tempName}
 									className=''>
-									<ContactInformation
+									<ContactCardTree
 										type='2'
 										borderColor={border}
 										person={temp}
-										childrenCount={childrenCount2}></ContactInformation>
+										childrenCount={childrenCount2}></ContactCardTree>
 								</div>
 								<div id={tempName} className='collapse show'>
 									{handleChildren(temp, border)}

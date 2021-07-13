@@ -1,164 +1,66 @@
 import React from "react";
 import { Row, Col, Card, CardBody, CardFooter, CardTitle, CardImg } from "reactstrap";
-import {ContactInformation , ContactCardSideBar} from "../../components/ContactInformation";
+import { ContactCardSideBar } from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
-
+import ContentCard from "../../components/ContentCard";
+import CallToAction from "../../components/CallToAction";
+import QuoteWithPicture from "./../../components/QuoteWithPicture";
 const PoliceLandingPage = () => {
-	const { AnimalControl, AnimalControlSupervisor } = villageDirectory.Police;
+	const { AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence} = villageDirectory.Police;
+
 	return (
 		<>
 			<Row>
 				<Col></Col>
-				<Col md={12} lg={12} xl={6}>
-					<CardBody className='flex-column d-flex p-4'>
-						<i className='material-icons icon-lg '>announcement</i>
-						<h2 className='display-6'>Misson Statement</h2>
+				<Col md={6}>
+					<ContentCard header='Mission Statement' icon='announcement'>
 						<p>
-							To work in and with our community to provide leadership in the humane treatment of all animals, to address the causes of
-							suffering, to encourage people to take responsibility for their animal companions and to provide care for animals who are
-							neglected, abused, exploited stray or homeless.
+							The mission of the Bolingbrook Police Department is to work in partnership with the community to prevent, reduce and deter
+							crime. We are committed to the citizens of Bolingbrook and the men and women of our department to provide professional police
+							service in an ethical, courteous and impartial manner. In furtherance of this mission, we are committed to the following
+							values represented by the law enforcement star we wear: Justice, Temperance, Courage, Prudence, Fortitude, Tolerance and
+							Truth.
 						</p>
-					</CardBody>
-
-					<CardBody className='flex-column d-flex p-4'>
-						<i className='material-icons icon-lg '>airport_shuttle</i>
-						<h2 className='display-6'>Wildlife Removal</h2>
+					</ContentCard>
+					<QuoteWithPicture personImage={PoliceChief.image} header='Message from the Chief' icon='person'>
 						<p>
-							Occasionally residents encounter skunks, possums, and other small wildlife who have made a home under porches and back yard
-							decks. Bolingbrook Animal Control is available to assist with traps and advice on how to deter these critters from remaining.
-							We can be reached during regular business hours at (630) 226-8689 or (630) 226-8500. Nights and weekends, please call (630)
-							226-8660. In addition, the Village of Bolingbrook is providing a list of licensed private professionals in the area who can
-							be hired to assist with wildlife problems.
+							Welcome to the Bolingbrook Police Department website. We invite you to explore the various pages and links. It is our hope
+							that you find the information here helpful. The members of the Bolingbrook Police Department are a dedicated group of
+							professionals who take great pride in their work. We are committed to preventing crime, addressing quality of life concerns
+							and impartially enforcing the law. Our success is due to the strong support we receive from our growing community. We
+							recognize the value of those relationships and constantly work to strengthen the partnerships with those we serve. Our goal
+							remains making sure Bolingbrook stays a great place to live, work and raise a family.
 						</p>
-					</CardBody>
-
-					<Card className='border card-raised ripple-primary mb-3 w-50 m-auto text-center justify-content-center'>
-						<CardBody className='flex-column d-flex p-4'>
-							<p>
-								If a resident would like to trap the animal themselves, they must first obtain a permit from the Illinois Department of
-								Natural Resources.
-							</p>
-							<button
-								href='#'
-								style={{ width: "fit-content" }}
-								color='primary'
-								className='btn btn-primary stretched-link align-self-center '>
-								Nusicance Wildlife Control Permit
-							</button>
-						</CardBody>
-					</Card>
-
-					<CardBody className='flex-column d-flex p-4'>
-						<i className='material-icons icon-lg '>search</i>
-						<h2 className='display-6'>Missing Pet</h2>
 						<p>
-							When your pet disappears, move quickly, before it has time to go far; 90% of lost dogs and cats are found within two miles of
-							where they were lost. Mobilize help - family, neighbors, and friends and assign tasks to everyone. Have some one call
-							Bolingbrook Animal Control at 630-226-8500. Walk and drive through the neighborhood calling your pets. Have two people in the
-							car when you are searching, so one can drive while the other looks. Be cautious when calling around busy intersections - your
-							pet may try to cross the street to get to you.
+							If you have any questions regarding our department or if we can be of additional service to you, please feel free to contact
+							the police department by email at police@bolingbrook.com or telephone at 630-226-8600.
 						</p>
-						<ul>
-							<li>If your pet is friendly with strangers, check parks and schools.</li>
-							<li>If your pet is shy, frightened, or injured, check places that offer seclusion.</li>
-							<li>Leave the gate to your yard open in case your dog returns home on its own.</li>
-						</ul>
-					</CardBody>
-					<CardBody className='flex-column d-flex p-4'>
-						<i className='material-icons icon-lg '>school</i>
-						<h2 className='display-6'>Local Wildlife</h2>
-						<p>
-							Many wild animals have adapted well to living in our neighborhoods. By remembering some key factors about living with
-							wildlife, we can learn how to avoid potential problems and enjoy the peace and serenity that these animals can bring to our
-							backyards and communities. The information below in the links provide problem-solving advice and ways you can make your yard
-							and home less attractive to wild animals.
-						</p>
+						<footer className='blockquote-footer'>
+							Mike Rompa, <cite title='Mayor'>Chief of Police</cite>
+						</footer>
+					</QuoteWithPicture>
 
-						<Row  className=' d-flex justify-content-center align-items-center d-flex align-items-stretch'>
-							<Col md={4}>
-								<Card className='hover-shadow mx-1 text-center border mb-3'>
-									<CardImg
-										top={true}
-										src='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Coyotes(1).jpg'></CardImg>
-									<CardBody>
-										<CardTitle
-											href='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Coyotes(2).pdf'
-											className='stretched-link '
-											tag={"a"}>
-											Coyotes
-										</CardTitle>
-									</CardBody>
-								</Card>
-							</Col>
-							<Col md={4}>
-								<Card className='hover-shadow mx-1 text-center border mb-3'>
-									<CardImg
-										top={true}
-										src='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Raccoons(1).jpg'></CardImg>
-									<CardBody>
-										<CardTitle
-											href='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Raccoons(2).pdf'
-											className='stretched-link '
-											tag={"a"}>
-											Racoons
-										</CardTitle>
-									</CardBody>
-								</Card>
-							</Col>
-						</Row>
-
-						<Row  className=' d-flex justify-content-center align-items-center d-flex align-items-stretch '>
-							<Col md={4}>
-								<Card className='hover-shadow mx-1 text-center border mb-3'>
-									<CardImg
-										top={true}
-										src='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Squirrels(1).jpg'></CardImg>
-									<CardBody>
-										<CardTitle
-											href='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Squirrels(2).pdf'
-											className='stretched-link '
-											tag={"a"}>
-											Squirrels
-										</CardTitle>
-									</CardBody>
-								</Card>
-							</Col>
-							<Col md={4}>
-								<Card className='hover-shadow mx-1 text-center border mb-3'>
-									<CardImg
-										top={true}
-										src='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Striped_Skunk(1).jpg'></CardImg>
-									<CardBody>
-										<CardTitle
-											href='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Striped_Skunk(2).pdf'
-											className='stretched-link '
-											tag={"a"}>
-											Skunks
-										</CardTitle>
-									</CardBody>
-								</Card>
-							</Col>
-                            <Col md={4}>
-								<Card className='hover-shadow mx-1 text-center border mb-3'>
-									<CardImg
-										top={true}
-										src='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Opossums.jpg'></CardImg>
-									<CardBody>
-										<CardTitle
-											href='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Opossum(2).pdf'
-											className='stretched-link '
-											tag={"a"}>
-											Opposums
-										</CardTitle>
-									</CardBody>
-								</Card>
-							</Col>
-						</Row>
-					</CardBody>
+					<ContentCard header='Brook Police News' icon='alarm'>
+						<iframe
+							className='border'
+							title='newsbox'
+							id='newsBox'
+							src='https://www3.thedatabank.com/dpg/698/pm.asp?index=1&Publication=Brook+Police+News'
+							width='100%'
+							height='300'></iframe>
+					</ContentCard>
+					<CallToAction buttonText='Sign up for Brook Police News' buttonLink=''>
+						<p>Click here to sign up to receive Brook Police News.</p>
+					</CallToAction>
 				</Col>
 				<Col>
+					<ContactCardSideBar person={PoliceAdministration} />
+					<ContactCardSideBar person={PoliceChief} />
 					<ContactCardSideBar person={AnimalControl} />
-					<ContactCardSideBar person={AnimalControlSupervisor} />
+					<ContactCardSideBar person={AfterHours} />
+					<ContactCardSideBar person={Investigations} />
+					<ContactCardSideBar person={CodeEnforcement} />
+					<ContactCardSideBar person={Evidence} />
 				</Col>
 			</Row>
 		</>
