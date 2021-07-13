@@ -1,60 +1,48 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 import { Card, CardImg, Container, Row, Col, CardBody } from "reactstrap";
+import { villageDirectory } from "./../scripts/DepartmentInfo";
 const QuoteWithPicture = () => {
+	const { Mayor } = villageDirectory.Executive;
+	const { backgroundPositionY, backgroundImage, backgroundSize, backgroundPositionX } = Mayor.image;
 	return (
 		<>
-			<Card className='pl-0 ml-0'>
-				<CardBody className='h-100 w-100'>
-					<Container className='ps-1 ml-0' fluid={true}>
-						<Row className='d-flex justify-content-center align-items-center d-flex align-items-stretch'>
-							<Col className='align-self-md-center' sm={6} lg={3}>
-								<CardImg src='https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Mayor_Mary_2.jpg'></CardImg>
-							</Col>
-							<Col className='align-self-center '>
-								<blockquote className='blockquote mb-0 mt-3'>
-									<p>
-										Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor
-										since August 1, 2020, I am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I
-										believe strongly in our motto, “A Place to Grow”...
-									</p>
-
-									<footer className='blockquote-footer'>
-										Mary Alexander-Basta, <cite title='Mayor'>Mayor</cite>
-									</footer>
-									<div className='align-items-end d-flex h-100 w-100'>
-										<button type='button' className='btn btn-primary ' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>
-											Read more
-										</button>
-									</div>
-								</blockquote>
-							</Col>
-						</Row>
-					</Container>
-				</CardBody>
-			</Card>
-
-			<div className='card border-0 card-0'>
-				<div className='card profile py-3 px-4'>
-					<div className='text-center'>
-					
-						<img
-							src='https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Mayor_Mary_2.jpg'
-							className='img-fluid profile-pic'></img>
+			<CardBody className='flex-column d-flex clamped  '>
+				<i className='material-icons icon-lg '>announcement</i>
+				<h2 className='display-6'>Message From the Mayor</h2>
+				<div class='testimonial'>
+					<div class='avatar mx-auto mb-4'>
+						<div
+							className='avatar'
+							style={{
+								backgroundSize,
+								backgroundPositionY,
+								backgroundPositionX,
+								backgroundImage,
+							}}
+						/>
 					</div>
-					<h6 className='mb-0 mt-2'>Marielle Haag</h6> <small>Backend Developer</small>
-				</div>{" "}
-				<img className='img-fluid open-quotes' src='https://i.imgur.com/Hp91vdT.png' width='20' height='20'></img>
-				<p className='content mb-0'>
-					Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1, 2020, I am
-					honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A Place to Grow”
-					<br />
-				</p>{" "}
-				<img className='img-fluid close-quotes ml-auto' src='https://i.imgur.com/iPcHyJK.png' width='20' height='20'></img>
-				<button type='button' className='btn btn-primary ' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>
-					Read More
-				</button>
-			</div>
-
+					<p>
+						<p>
+							<i style={{ WebkitTransform: "scaleX(-1)", transform: "scaleX(-1)" }} class='material-icons'>
+								format_quote
+							</i>
+							Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1,
+							2020, I am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A
+							Place to Grow”{" "}
+						</p>
+						<p>
+							Not only have I personally experienced this with my family in Bolingbrook, I have seen this motto be demonstrated by our
+							residents, businesses, and community. The Executive Department exists to handle the day to day operations of the village, and
+							my goal is to ensure that our staff follows that motto. The department continues to move forward by constantly collaborating
+							with all other village departments, reviewing where we’ve been and where we’re going, and communicating with our residents. I
+							believe in an open door policy. I want to have open lines of communication and welcome anyone who would like to meet with me
+							to either call, email, or come in to the village office.
+						</p>
+					</p>
+					<h4 class='font-weight-bold'>Mary Alexander-Basta</h4>
+					<h6 class='font-weight-bold my-3'>Mayor</h6>
+				</div>
+			</CardBody>
 			<div className='modal fade' id='exampleModal' tabIndex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
 				<div className='modal-dialog modal-xl'>
 					<div className='modal-content'>

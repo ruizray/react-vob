@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Row, Col } from "reactstrap";
-import ContactInformation from "../components/ContactInformation";
+import {ContactInformation} from "../components/ContactInformation";
 import { organizationChart } from "../scripts/DepartmentInfo";
 
 const OrgChart = () => {
@@ -19,8 +19,7 @@ const OrgChart = () => {
 						if (temp.children) {
 							var childrenCount2 = temp.children.length;
 							console.log(temp, temp.children.length);
-						} else {
-						}
+						} 
 
 						var tempName = temp.id;
 						var id = "#" + tempName;

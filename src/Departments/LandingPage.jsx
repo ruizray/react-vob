@@ -1,6 +1,6 @@
 import React from "react";
 import {  Row, Col } from "reactstrap";
-import DepartmentCard from "./DepartmentCard";
+import DepartmentCard from "../components/DepartmentCard";
 
 const LandingPage = () => {
 	return (

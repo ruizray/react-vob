@@ -1,16 +1,16 @@
 import React from "react";
 import { Row, Col, Card, CardBody, CardFooter, CardTitle, CardImg } from "reactstrap";
-import {ContactCardSideBar,ContactInformation} from "../../components/ContactInformation";
+import {ContactInformation , ContactCardSideBar} from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
-import CallToAction from './../../components/CallToAction';
-const AnimalControl = () => {
+
+const PoliceLandingPage = () => {
 	const { AnimalControl, AnimalControlSupervisor } = villageDirectory.Police;
 	return (
 		<>
 			<Row>
 				<Col></Col>
-				<Col md={6}>
-					<CardBody className='flex-column d-flex p-4 clamped'>
+				<Col md={12} lg={12} xl={6}>
+					<CardBody className='flex-column d-flex p-4'>
 						<i className='material-icons icon-lg '>announcement</i>
 						<h2 className='display-6'>Misson Statement</h2>
 						<p>
@@ -20,7 +20,7 @@ const AnimalControl = () => {
 						</p>
 					</CardBody>
 
-					<CardBody className='flex-column d-flex p-4 clamped'>
+					<CardBody className='flex-column d-flex p-4'>
 						<i className='material-icons icon-lg '>airport_shuttle</i>
 						<h2 className='display-6'>Wildlife Removal</h2>
 						<p>
@@ -32,7 +32,21 @@ const AnimalControl = () => {
 						</p>
 					</CardBody>
 
-					<CallToAction></CallToAction>
+					<Card className='border card-raised ripple-primary mb-3 w-50 m-auto text-center justify-content-center'>
+						<CardBody className='flex-column d-flex p-4'>
+							<p>
+								If a resident would like to trap the animal themselves, they must first obtain a permit from the Illinois Department of
+								Natural Resources.
+							</p>
+							<button
+								href='#'
+								style={{ width: "fit-content" }}
+								color='primary'
+								className='btn btn-primary stretched-link align-self-center '>
+								Nusicance Wildlife Control Permit
+							</button>
+						</CardBody>
+					</Card>
 
 					<CardBody className='flex-column d-flex p-4'>
 						<i className='material-icons icon-lg '>search</i>
@@ -151,4 +165,4 @@ const AnimalControl = () => {
 	);
 };
 
-export default AnimalControl;
+export default PoliceLandingPage;

@@ -1,7 +1,16 @@
 export const villageDirectory = {
 	Executive: {
+		VillageHall: {
+			address: "375 W. Briarcliff Road",
+			id: "VillageHall",
+			phone: "(630) 226-8400",
+			fax: "(630) 226-8409",
+			title: "Village Hall",
+			name:"Main Office",
+		},
 		Mayor: {
 			name: "Mary Alexander-Basta",
+			id: "MaryAlexanderBasta",
 			phone: "(630) 226-8412",
 			cell: "(630) 280-4819",
 			email: "mayormary@bolingbrook.com",
@@ -93,6 +102,7 @@ export const villageDirectory = {
 		},
 		TrusteeDoris: {
 			name: "Troy J. Doris",
+			id: "TrusteeDoris",
 			phone: "(630) 226-8417",
 			email: "Email Needed",
 			title: "Village Trustee",
@@ -109,18 +119,21 @@ export const villageDirectory = {
 
 		CoAdministrator1: {
 			name: "Ken Teppel",
+			id: "CoAdministrator1",
 			phone: "(630) 226-8696",
 			email: "kteppel@bolingbrook.com",
 			title: "Co-Administrator",
 		},
 		CoAdministrator2: {
 			name: "Lucas Rickelman",
+			id: "CoAdministrator2",
 			phone: "(630) 226-8805",
 			email: "lrickelm@bolingbrook.com",
 			title: "Co-Administrator",
 		},
 		Clerk: {
 			name: "Martha 'Marti' M. Barton",
+			id: "Clerk",
 			phone: "(630) 226-8411",
 			email: "mbarton@bolingbrook.com",
 			title: "Village Clerk",
@@ -135,6 +148,7 @@ export const villageDirectory = {
 		},
 		DeputyClerk: {
 			name: "Crystal Tovar",
+			id:"DeputyClerk",
 			phone: "(630) 226-8413",
 			email: "Need Email",
 			title: "Deputy Village Clerk",
@@ -147,6 +161,7 @@ export const villageDirectory = {
 		},
 		Attorney: {
 			name: "(Odelson, Sterk, Murphey, Frazier, McGrath, LTD)",
+			id:"VillageAttorney",
 			phone: "(630) 226-8412",
 			title: "Village Attorney",
 		},
@@ -157,6 +172,7 @@ export const villageDirectory = {
 		},
 		FOIA: {
 			name: "Fran Miller",
+			id:"FreedomOfInformation",
 			phone: "(630) 226-8414",
 			email: "foia@bolingbrook.com",
 			title: "FOIA Officer",
@@ -164,11 +180,13 @@ export const villageDirectory = {
 	},
 	Police: {
 		AnimalControl: {
-			title:"Main Line",
+			title: "Main Line",
+			id:"AnimalControl",
 			phone: "(630) 226-8500",
 		},
 		AnimalControlSupervisor: {
 			name: "Linda Laketa",
+			id:"AnimalControlSupervisor",
 			phone: "(630) 226-8412",
 			title: "Animal Control Supervisor",
 		},

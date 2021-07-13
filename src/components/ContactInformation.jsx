@@ -1,16 +1,16 @@
 import React from "react";
-import { Card, CardTitle, CardBody, CardSubtitle } from "reactstrap";
-import { NavLink, useLocation } from "react-router-dom";
+import { Card, CardTitle, CardBody, CardSubtitle, ListGroup, ListGroupItem, UncontrolledCollapse } from "reactstrap";
+import { NavLink } from "react-router-dom";
 
 const ContactInformation = (props) => {
-	const { title, name, email, phone, image, profileLink, profilePath } = props.person;
+	const { title, name, email, phone, image, profileLink, profilePath, address, fax } = props.person;
 	console.log(profileLink);
 	const { type, childrenCount, borderColor } = props;
-	let location = useLocation();
+
 	if (type === "2") {
 		return (
 			<>
-				<Card className={borderColor ? borderColor + " border hover-shadow" : "   border hover-shadow"}>
+				<Card className={borderColor ? borderColor + " border hover-shadow" : " border hover-shadow"}>
 					{props.person && (
 						<>
 							{childrenCount && <span className='badge bg-primary rounded-pill float-end align-self-end'>{childrenCount}</span>}
@@ -44,35 +44,6 @@ const ContactInformation = (props) => {
 							</CardBody>
 						</>
 					)}
-				</Card>
-			</>
-		);
-	} else if (type === 1) {
-		return (
-			<>
-				<Card className='my-3 w-100 border '>
-					<CardBody className='h-100 w-100'>
-						<CardTitle tag={"h2"}>{title}</CardTitle>
-						<CardSubtitle tag='h5' className='mb-2'>
-							{name}
-						</CardSubtitle>
-
-						<h5 className='mb-2 text-muted'>
-							<i style={{ verticalAlign: "middle" }} className=' material-icons  text-center'>
-								phone
-							</i>
-							{phone}
-						</h5>
-
-						{email && (
-							<h5 className='mb-2 text-muted text-truncate'>
-								<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
-									mail
-								</i>
-								{email}
-							</h5>
-						)}
-					</CardBody>
 				</Card>
 			</>
 		);
@@ -126,4 +97,61 @@ const ContactInformation = (props) => {
 	}
 };
 
-export default ContactInformation;
+const ContactCardSideBar = (props) => {
+	const { title, name, email, phone, fax, id } = props.person;
+	return (
+		<>
+			<Card role="button" id={id} className='my-3 w-100 border hover-shadow '>
+				<CardBody className='h-100 w-100'>
+					<ListGroup flush={true} className='ps-0 list-group-flush '>
+						<div   className="list-group-flush ">
+							<ListGroupItem className='ps-0'>
+								<CardTitle tag={"h5"} className='mb-0'>
+									{title}
+								</CardTitle>
+							</ListGroupItem>
+
+							{name && (
+								<ListGroupItem className='text-muted ps-0'>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+										person
+									</i>
+									{name}
+								</ListGroupItem>
+							)}
+						</div>
+						<UncontrolledCollapse  toggler={id}  style={{borderLeft:"none", borderRight:"none"}}>
+							{phone && (
+								<ListGroupItem className='text-muted ps-0'>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+										phone
+									</i>
+									{phone}
+								</ListGroupItem>
+							)}
+
+							{email && (
+								<ListGroupItem className=' text-muted ps-0 '>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+										mail
+									</i>
+									{email}
+								</ListGroupItem>
+							)}
+							{fax && (
+								<ListGroupItem className=' text-muted ps-0 '>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+										local_printshop
+									</i>
+									{fax}
+								</ListGroupItem>
+							)}
+						</UncontrolledCollapse>
+					</ListGroup>
+				</CardBody>
+			</Card>
+		</>
+	);
+};
+
+export { ContactCardSideBar, ContactInformation };

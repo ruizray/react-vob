@@ -1,15 +1,17 @@
 import { React } from "react";
+import { Container } from "reactstrap";
 import { Route, NavLink } from "react-router-dom";
 
-import LandingPage from "./Departments/LandingPage";
-import { Container } from "reactstrap";
 import "./css/stylesReact.css";
+
+import LandingPage from "./Departments/LandingPage";
 import ExecutiveDepartment from "./Departments/ExecutiveDepartment";
 import GenerateHTML from "./Functions/generateHTML";
 import OrgChart from "./OrgChart/OrgChart";
 import ElectedOfficials from "./Government/ElectedOfficials";
 import { MayorMaryProfile } from "./Government/ElectedOfficialsProfiles/ElectedOfficialProfiles";
 import AnimalControl from "./Departments/Police/AnimalControl";
+import PoliceLandingPage from './Departments/Police/PoliceLandingPage';
 const App = () => {
 	return (
 		<>
@@ -20,7 +22,7 @@ const App = () => {
 							<li class='nav-item dropdown'>
 								<div
 									className='dropdown-toggle mx-2'
-									href='#'
+									href=' '
 									id='Departments'
 									role='button'
 									data-mdb-toggle='dropdown'
@@ -39,23 +41,23 @@ const App = () => {
 										</NavLink>
 										<ul class='dropdown-menu dropdown-submenu'>
 											<li>
-												<a class='dropdown-item' href='#'>
+												<a class='dropdown-item' href=' '>
 													Submenu item 1
 												</a>
 											</li>
 
 											<li>
-												<a class='dropdown-item' href='#'>
+												<a class='dropdown-item' href=' '>
 													Submenu item 3 &raquo;{" "}
 												</a>
 												<ul class='dropdown-menu dropdown-submenu'>
 													<li>
-														<a class='dropdown-item' href='#'>
+														<a class='dropdown-item' href=' '>
 															Multi level 1
 														</a>
 													</li>
 													<li>
-														<a class='dropdown-item' href='#'>
+														<a class='dropdown-item' href=' '>
 															Multi level 2
 														</a>
 													</li>
@@ -82,7 +84,7 @@ const App = () => {
 							<li class='nav-item dropdown'>
 								<div
 									className='dropdown-toggle mx-2'
-									href='#'
+									href=' '
 									id='Government'
 									role='button'
 									data-mdb-toggle='dropdown'
@@ -102,13 +104,13 @@ const App = () => {
 
 										<ul class='dropdown-menu dropdown-submenu'>
 											<li>
-												<a class='dropdown-item' href='#'>
+												<a class='dropdown-item' href=' '>
 													Submenu item 1
 												</a>
 											</li>
 
 											<li>
-												<a class='dropdown-item' href='#'>
+												<a class='dropdown-item' href=' '>
 													Submenu item 3
 												</a>
 											</li>
@@ -128,7 +130,7 @@ const App = () => {
 				</nav>
 			</div>
 			<GenerateHTML>
-				<Container  style={{ maxWidth: 1920 }}>
+				<Container  >
 					<Route exact path='/departmentLandingPage' component={LandingPage} />
 					<Route exact path='/Executive' component={ExecutiveDepartment} />
 					<Route exact path='/OrgChart' component={OrgChart} />
@@ -136,6 +138,7 @@ const App = () => {
 
 					<Route exact path='/MayorMary' component={MayorMaryProfile} />
 					<Route exact path='/AnimalControl' component={AnimalControl} />
+					<Route exact path='/Police' component={PoliceLandingPage} />
 				</Container>
 			</GenerateHTML>
 		</>
