@@ -101,7 +101,8 @@ const ContactCardSideBar = (props) => {
 	const { title, name, email, phone, fax, id } = props.person;
 	return (
 		<>
-			
+			<Card className=' w-100 border my-1 hover-shadow '>
+				<CardBody className='h-100 w-100'>
 					<ListGroup flush={true} className='ps-0  list-group-flush '>
 						<div className='list-group-flush '>
 							<ListGroupItem className='px-0'>
@@ -150,7 +151,8 @@ const ContactCardSideBar = (props) => {
 							)}
 						</UncontrolledCollapse>
 					</ListGroup>
-				
+				</CardBody>
+			</Card>
 		</>
 	);
 };

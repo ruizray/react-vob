@@ -8,7 +8,7 @@ const QuoteWithPicture = () => {
 		<>
 			<CardBody className='flex-column d-flex clamped  '>
 				<i className='material-icons icon-lg '>announcement</i>
-				<h2 className='display-6'>Message From the Mayor</h2>
+				<h3 >Message From the Mayor</h3>
 				<div class='testimonial'>
 					{/* <div class='avatar mx-auto mb-4'>
 						<div
@@ -23,9 +23,9 @@ const QuoteWithPicture = () => {
 					</div> */}
 
 					<p>
-						<i style={{ WebkitTransform: "scaleX(-1)", transform: "scaleX(-1)" }} class='material-icons'>
-							format_quote
-						</i>
+						{/* <i style={{ WebkitTransform: "scaleX(-1)", transform: "scaleX(-1)" }} class='material-icons'>
+								format_quote
+							</i> */}
 						Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1, 2020, I
 						am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A Place to
 						Grow”{" "}
@@ -38,11 +38,12 @@ const QuoteWithPicture = () => {
 						open door policy. I want to have open lines of communication and welcome anyone who would like to meet with me to either call,
 						email, or come in to the village office.
 					</p>
-
-					<h4 class='font-weight-bold'>Mary Alexander-Basta</h4>
-					<h6 class='font-weight-bold my-3'>Mayor</h6>
+					<footer className='blockquote-footer'>
+						Mary Alexander-Basta, <cite title='Mayor'>Mayor</cite>
+					</footer>
 				</div>
 			</CardBody>
+
 			<div className='modal fade' id='exampleModal' tabIndex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
 				<div className='modal-dialog modal-xl'>
 					<div className='modal-content'>
