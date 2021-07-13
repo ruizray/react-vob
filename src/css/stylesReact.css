@@ -6,6 +6,7 @@
 	width: clamp(45ch, 100%, 75ch);
 }
 
+
 ul.list-group-flush li{
 	border-left:0px;
 	border-right:0px;
@@ -292,6 +293,11 @@ right connector from last child*/
 }
 #fadeIn .card:nth-child(5) {
 	animation-delay: 2s;
+}#fadeIn .card:nth-child(6) {
+	animation-delay: 2.5s;
+}
+#fadeIn .card:nth-child(7) {
+	animation-delay: 3s;
 }
 
 @keyframes fadeIn {

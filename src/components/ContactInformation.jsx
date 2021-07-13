@@ -101,13 +101,15 @@ const ContactCardSideBar = (props) => {
 	const { title, name, email, phone, fax, id } = props.person;
 	return (
 		<>
-			<Card role="button" id={id} className='my-3 w-100 border hover-shadow '>
-				<CardBody className='h-100 w-100'>
-					<ListGroup flush={true} className='ps-0 list-group-flush '>
-						<div   className="list-group-flush ">
-							<ListGroupItem className='ps-0'>
-								<CardTitle tag={"h5"} className='mb-0'>
-									{title}
+			
+					<ListGroup flush={true} className='ps-0  list-group-flush '>
+						<div className='list-group-flush '>
+							<ListGroupItem className='px-0'>
+								<CardTitle tag={"h5"} className='mb-0 d-flex'>
+									<span className='text-truncate'>{title}</span>
+									<span role='button' id={id} className='ms-auto float-right material-icons border rounded-pill caret'>
+										expand_more
+									</span>
 								</CardTitle>
 							</ListGroupItem>
 
@@ -120,7 +122,7 @@ const ContactCardSideBar = (props) => {
 								</ListGroupItem>
 							)}
 						</div>
-						<UncontrolledCollapse  toggler={id}  style={{borderLeft:"none", borderRight:"none"}}>
+						<UncontrolledCollapse toggler={id} style={{ borderLeft: "none", borderRight: "none" }}>
 							{phone && (
 								<ListGroupItem className='text-muted ps-0'>
 									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
@@ -148,8 +150,7 @@ const ContactCardSideBar = (props) => {
 							)}
 						</UncontrolledCollapse>
 					</ListGroup>
-				</CardBody>
-			</Card>
+				
 		</>
 	);
 };

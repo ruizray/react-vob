@@ -10,7 +10,7 @@ const QuoteWithPicture = () => {
 				<i className='material-icons icon-lg '>announcement</i>
 				<h2 className='display-6'>Message From the Mayor</h2>
 				<div class='testimonial'>
-					<div class='avatar mx-auto mb-4'>
+					{/* <div class='avatar mx-auto mb-4'>
 						<div
 							className='avatar'
 							style={{
@@ -20,25 +20,25 @@ const QuoteWithPicture = () => {
 								backgroundImage,
 							}}
 						/>
-					</div>
+					</div> */}
+
 					<p>
-						<p>
-							<i style={{ WebkitTransform: "scaleX(-1)", transform: "scaleX(-1)" }} class='material-icons'>
-								format_quote
-							</i>
-							Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1,
-							2020, I am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A
-							Place to Grow”{" "}
-						</p>
-						<p>
-							Not only have I personally experienced this with my family in Bolingbrook, I have seen this motto be demonstrated by our
-							residents, businesses, and community. The Executive Department exists to handle the day to day operations of the village, and
-							my goal is to ensure that our staff follows that motto. The department continues to move forward by constantly collaborating
-							with all other village departments, reviewing where we’ve been and where we’re going, and communicating with our residents. I
-							believe in an open door policy. I want to have open lines of communication and welcome anyone who would like to meet with me
-							to either call, email, or come in to the village office.
-						</p>
+						<i style={{ WebkitTransform: "scaleX(-1)", transform: "scaleX(-1)" }} class='material-icons'>
+							format_quote
+						</i>
+						Welcome to the Bolingbrook Executive Department website. As a resident of Bolingbrook since 2003 and Mayor since August 1, 2020, I
+						am honored and thrilled to be serving as the Mayor of the Village of Bolingbrook. I believe strongly in our motto, “A Place to
+						Grow”{" "}
 					</p>
+					<p>
+						Not only have I personally experienced this with my family in Bolingbrook, I have seen this motto be demonstrated by our
+						residents, businesses, and community. The Executive Department exists to handle the day to day operations of the village, and my
+						goal is to ensure that our staff follows that motto. The department continues to move forward by constantly collaborating with all
+						other village departments, reviewing where we’ve been and where we’re going, and communicating with our residents. I believe in an
+						open door policy. I want to have open lines of communication and welcome anyone who would like to meet with me to either call,
+						email, or come in to the village office.
+					</p>
+
 					<h4 class='font-weight-bold'>Mary Alexander-Basta</h4>
 					<h6 class='font-weight-bold my-3'>Mayor</h6>
 				</div>
