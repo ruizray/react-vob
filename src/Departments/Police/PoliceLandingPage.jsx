@@ -1,18 +1,32 @@
 import React from "react";
-import { Row, Col, Card, CardBody, CardFooter, CardTitle, CardImg } from "reactstrap";
+import { Row, Col, Card, CardBody,  CardImg, ListGroup, ListGroupItem } from "reactstrap";
 import { ContactCardSideBar } from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import ContentCard from "../../components/ContentCard";
 import CallToAction from "../../components/CallToAction";
 import QuoteWithPicture from "./../../components/QuoteWithPicture";
 const PoliceLandingPage = () => {
-	const { AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence} = villageDirectory.Police;
+	const { AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence } = villageDirectory.Police;
 
 	return (
 		<>
-			<Row>
-				<Col></Col>
-				<Col md={6}>
+			<Row className="gx-3">
+				<Col>
+					<Card className='border mt-4 '>
+						<CardBody>
+							<a href='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Rachel_Web.PNG'>
+								<CardImg src='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Rachel_Web.PNG'></CardImg>{" "}
+							</a>
+							<ListGroup flush='true'>
+								<ListGroupItem>Ongoing Missing Persons Cases:</ListGroupItem>
+								<ListGroupItem>~Rachel Marie Mellon</ListGroupItem>
+								<ListGroupItem>~Rachel Marie Mellon</ListGroupItem>
+								<ListGroupItem>~Rachel Marie Mellon</ListGroupItem>
+							</ListGroup>
+						</CardBody>
+					</Card>
+				</Col>
+				<Col id='fadeInTop' md={6}>
 					<ContentCard header='Mission Statement' icon='announcement'>
 						<p>
 							The mission of the Bolingbrook Police Department is to work in partnership with the community to prevent, reduce and deter
@@ -36,7 +50,7 @@ const PoliceLandingPage = () => {
 							the police department by email at police@bolingbrook.com or telephone at 630-226-8600.
 						</p>
 						<footer className='blockquote-footer'>
-							Mike Rompa, <cite title='Mayor'>Chief of Police</cite>
+							Mike Rompa, <cite title='Chief of Police'>Chief of Police</cite>
 						</footer>
 					</QuoteWithPicture>
 

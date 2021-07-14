@@ -3,8 +3,6 @@ import React from "react";
 import { Row, CardImg, Card, CardBody, ListGroup, ListGroupItem, Col } from "reactstrap";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 
-
-
 const MayorMaryProfile = (props) => {
 	const { Mayor } = villageDirectory.Executive;
 	var { backgroundImage } = Mayor.image;

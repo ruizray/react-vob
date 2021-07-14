@@ -3,9 +3,8 @@ import { Card, CardTitle, CardBody, CardSubtitle, ListGroup, ListGroupItem, Unco
 import { NavLink } from "react-router-dom";
 
 const ContactCardProfile = (props) => {
-	const { title, name, email, phone, image, profilePath, address, fax } = props.person;
+	const { title, name, email, phone, image, profilePath } = props.person;
 	const { backgroundPositionY, backgroundImage, backgroundSize, backgroundPositionX } = image;
-
 
 	return (
 		<Card className='text-center border w-100 mt-3 pt-3 hover-zoom hover-shadow  h-100'>
@@ -53,7 +52,7 @@ const ContactCardProfile = (props) => {
 };
 
 const ContactCardTree = (props) => {
-	const { title, name, email, phone, fax } = props.person;
+	const { title, name, email, phone } = props.person;
 	const { childrenCount, borderColor } = props;
 	return (
 		<>
@@ -99,63 +98,102 @@ const ContactCardTree = (props) => {
 };
 
 const ContactCardSideBar = (props) => {
-	const { title, name, email, phone, fax, id } = props.person;
-	return (
-		<>
-			<Card className='w-100 border my-1 hover-shadow'>
-				<CardBody className='h-100 w-100'>
-					<ListGroup flush={true} className='ps-0 list-group-flush '>
-						<div className='list-group-flush'>
-							<ListGroupItem className='px-0'>
-								<CardTitle tag={"h5"} className='mb-0 d-flex'>
-									<span className='text-truncate'>{title}</span>
-									<span role='button' id={id} className='ms-auto float-right material-icons border rounded-pill caret'>
-										expand_more
-									</span>
-								</CardTitle>
-							</ListGroupItem>
+	if (props.Members) {
+		const [...Members] = props.Members
+		return (
+			<>
+				<Card className='w-100 border my-1 hover-shadow'>
+					<CardBody className='h-100 w-100 py-1'>
+						<ListGroup flush={true} className='ps-0 list-group-flush '>
+							<div className='list-group-flush'>
+								<ListGroupItem className='px-0'>
+									<CardTitle tag={"h5"} className='mb-0 d-flex'>
+										<span className='text-truncate'>Members</span>
+										<span
+											role='button'
+											id={"MembersToggle"}
+											className='ms-auto float-right material-icons border rounded-pill caret'>
+											expand_more
+										</span>
+									</CardTitle>
+								</ListGroupItem>
+							</div>
+							<UncontrolledCollapse toggler={"MembersToggle"} style={{ borderLeft: "none", borderRight: "none" }}>
+								{Members.map((member) => {
+									return (
+										<ListGroupItem key={member} className='text-muted ps-0'>
+											<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+												person
+											</i>
+											{member}
+										</ListGroupItem>
+									);
+								})}
+							</UncontrolledCollapse>
+						</ListGroup>
+					</CardBody>
+				</Card>
+			</>
+		);
+	} else {
+		const { title, name, email, phone, fax, id } = props.person;
+		return (
+			<>
+				<Card className='w-100 border my-1 hover-shadow'>
+					<CardBody className='h-100 w-100 py-1'>
+						<ListGroup flush={true} className='ps-0 list-group-flush '>
+							<div className='list-group-flush'>
+								<ListGroupItem className='px-0'>
+									<CardTitle tag={"h5"} className='mb-0 d-flex'>
+										<span className='text-truncate'>{title}</span>
+										<span role='button' id={id} className='ms-auto float-right material-icons border rounded-pill caret'>
+											expand_more
+										</span>
+									</CardTitle>
+								</ListGroupItem>
 
-							{name && (
-								<ListGroupItem className='text-muted ps-0'>
-									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
-										person
-									</i>
-									{name}
-								</ListGroupItem>
-							)}
-						</div>
-						<UncontrolledCollapse toggler={id} style={{ borderLeft: "none", borderRight: "none" }}>
-							{phone && (
-								<ListGroupItem className='text-muted ps-0'>
-									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
-										phone
-									</i>
-									{phone}
-								</ListGroupItem>
-							)}
+								{name && (
+									<ListGroupItem className='text-muted ps-0'>
+										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+											person
+										</i>
+										{name}
+									</ListGroupItem>
+								)}
+							</div>
+							<UncontrolledCollapse toggler={id} style={{ borderLeft: "none", borderRight: "none" }}>
+								{phone && (
+									<ListGroupItem className='text-muted ps-0'>
+										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+											phone
+										</i>
+										{phone}
+									</ListGroupItem>
+								)}
 
-							{email && (
-								<ListGroupItem className=' text-muted ps-0 '>
-									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
-										mail
-									</i>
-									{email}
-								</ListGroupItem>
-							)}
-							{fax && (
-								<ListGroupItem className=' text-muted ps-0 '>
-									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
-										local_printshop
-									</i>
-									{fax}
-								</ListGroupItem>
-							)}
-						</UncontrolledCollapse>
-					</ListGroup>
-				</CardBody>
-			</Card>
-		</>
-	);
+								{email && (
+									<ListGroupItem className=' text-muted ps-0 text-truncate'>
+										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+											mail
+										</i>
+										{email}
+									</ListGroupItem>
+								)}
+								{fax && (
+									<ListGroupItem className=' text-muted ps-0 '>
+										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+											local_printshop
+										</i>
+										{fax}
+									</ListGroupItem>
+								)}
+							</UncontrolledCollapse>
+						</ListGroup>
+					</CardBody>
+				</Card>
+			</>
+		);
+	}
 };
 
 export { ContactCardSideBar, ContactCardProfile, ContactCardTree };

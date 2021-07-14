@@ -1,15 +1,10 @@
 import React from "react";
-
 import { Row, Col } from "reactstrap";
 import { ContactCardTree } from "../components/ContactInformation";
-import { organizationChart } from "../scripts/DepartmentInfo";
+import { organizationChart, villageDirectory } from "../scripts/DepartmentInfo";
 
 const OrgChart = () => {
-	console.log(organizationChart);
-
 	const handleChildren = (child, border) => {
-		console.log(border);
-
 		if (child.children) {
 			var childrenCount = child.children.length;
 			const size = 12 / childrenCount;
@@ -18,7 +13,6 @@ const OrgChart = () => {
 					{child.children.map((temp) => {
 						if (temp.children) {
 							var childrenCount2 = temp.children.length;
-							console.log(temp, temp.children.length);
 						}
 
 						var tempName = temp.id;
@@ -33,11 +27,7 @@ const OrgChart = () => {
 									aria-expanded='true'
 									aria-controls={tempName}
 									className=''>
-									<ContactCardTree
-										type='2'
-										borderColor={border}
-										person={temp}
-										childrenCount={childrenCount2}></ContactCardTree>
+									<ContactCardTree type='2' borderColor={border} person={temp} childrenCount={childrenCount2}></ContactCardTree>
 								</div>
 								<div id={tempName} className='collapse show'>
 									{handleChildren(temp, border)}
@@ -51,12 +41,105 @@ const OrgChart = () => {
 			return <></>;
 		}
 	};
+
 	console.log(organizationChart);
 	return (
 		<>
 			<div className='treestart '>{handleChildren(organizationChart[0], "border-primary")}</div>
 
 			<div className='treestart '>{handleChildren(organizationChart[1], "border-danger")}</div>
+			<ol className='organizational-chart'>
+				<li>
+					<div>
+						<ContactCardTree type='2' borderColor={"primary"} person={villageDirectory.Executive.Mayor} childrenCount={2}></ContactCardTree>
+					</div>
+
+					<ol>
+						<li>
+							<div>
+								<ContactCardTree
+									type='2'
+									borderColor={"primary"}
+									person={villageDirectory.Executive.Clerk}
+									childrenCount={2}></ContactCardTree>
+							</div>
+							<ol>
+								<li>
+									<div>
+										<ContactCardTree
+											type='2'
+											borderColor={"primary"}
+											person={villageDirectory.Executive.DeputyClerk}
+											childrenCount={2}></ContactCardTree>
+									</div>
+									<ol>
+										<li>
+											<div>
+												<ContactCardTree
+													type='2'
+													borderColor={"primary"}
+													person={villageDirectory.Executive.AsstDeputyClerk}
+													childrenCount={2}></ContactCardTree>
+											</div>
+										</li>
+									</ol>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<div>
+								<ContactCardTree
+									type='2'
+									borderColor={"primary"}
+									person={villageDirectory.Executive.CoAdministrator1}
+									childrenCount={2}></ContactCardTree>
+							</div>
+							<ol>
+								<li>
+									<div>
+										<h3>Tertiary</h3>
+									</div>
+								</li>
+								<li>
+									<div>
+										<h3>Tertiary</h3>
+									</div>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<div>
+								<ContactCardTree
+									type='2'
+									borderColor={"primary"}
+									person={villageDirectory.Executive.CoAdministrator2}
+									childrenCount={2}></ContactCardTree>
+							</div>
+							
+						</li>
+						<li>
+							<div>
+								<ContactCardTree
+									type='2'
+									borderColor={"primary"}
+									person={villageDirectory.Executive.FOIA}
+									childrenCount={2}></ContactCardTree>
+							</div>
+							<ol>
+								<li>
+									<div>
+										<ContactCardTree
+											type='2'
+											borderColor={"primary"}
+											person={villageDirectory.Executive.AsstFOIA}
+											childrenCount={2}></ContactCardTree>
+									</div>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+			</ol>
 		</>
 	);
 };

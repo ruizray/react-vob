@@ -1,7 +1,13 @@
-.CTA {
+.CTA-primary {
 
 	border-left-style: ridge !important;
     border-left: 6px solid #1266f1 !important;
+}
+
+.CTA-danger {
+
+	border-left-style: ridge !important;
+    border-left: 6px solid #f93154 !important;
 }
 
 .clamped {
@@ -200,21 +206,7 @@ right connector from last child*/
 		height: 20px;
 	}
 
-	.tree li a {
-		border: 1px solid #ccc;
-		padding: 5px 10px;
-		text-decoration: none;
-		color: rgb(0, 0, 0);
-		font-family: arial, verdana, tahoma;
-		font-size: 11px;
-		display: inline-block;
-		border-radius: 5px;
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		transition: all 0.5s;
-		-webkit-transition: all 0.5s;
-		-moz-transition: all 0.5s;
-	}
+	
 }
 
 .card-box {
@@ -291,32 +283,32 @@ right connector from last child*/
 	animation: fadeInTop 0.5s ease-in both;
 }
 #fadeInRight .card {
-	animation: fadeInRight 0.5s ease-in both;
+	animation: fadeInRight 0.25s ease-in both;
 }
 
 #fadeInTop .card:nth-child(2),
 #fadeInRight .card:nth-child(2) {
-	animation-delay: 0.5s;
+	animation-delay: 0.25s;
 }
 #fadeInTop .card:nth-child(3),
 #fadeInRight .card:nth-child(3) {
-	animation-delay: 1s;
+	animation-delay: 0.5s;
 }
 #fadeInTop .card:nth-child(4),
 #fadeInRight .card:nth-child(4) {
-	animation-delay: 1.5s;
+	animation-delay: 0.75s;
 }
 #fadeInTop .card:nth-child(5),
 #fadeInRight .card:nth-child(5) {
-	animation-delay: 2s;
+	animation-delay: 1s;
 }
 #fadeInTop .card:nth-child(6),
 #fadeInRight .card:nth-child(6) {
-	animation-delay: 2.5s;
+	animation-delay: 1.25s;
 }
 #fadeInTop .card:nth-child(7),
 #fadeInRight .card:nth-child(7) {
-	animation-delay: 3s;
+	animation-delay: 1.5s;
 }
 
 @keyframes fadeInTop {

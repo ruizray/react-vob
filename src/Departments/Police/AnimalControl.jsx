@@ -10,7 +10,7 @@ const AnimalControl = () => {
 		<>
 			<Row>
 				<Col></Col>
-				<Col md={6}>
+				<Col id='fadeInTop' md={6}>
 					<ContentCard header='Mission Statement' icon='announcement'>
 						<p>
 							To work in and with our community to provide leadership in the humane treatment of all animals, to address the causes of
@@ -29,9 +29,12 @@ const AnimalControl = () => {
 						</p>
 					</ContentCard>
 
-					<div>
-						<CallToAction></CallToAction>
-					</div>
+					<CallToAction buttonText="Nuisance Wildlife Control Permit">
+						<p>
+						If a resident would like to trap the animal themselves, they must first obtain a permit from the Illinois Department of Natural Resources.
+						</p>
+					</CallToAction>
+
 					<ContentCard header='Missing Pet' icon='search'>
 						<p>
 							When your pet disappears, move quickly, before it has time to go far; 90% of lost dogs and cats are found within two miles of
