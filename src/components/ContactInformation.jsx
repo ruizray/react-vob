@@ -104,7 +104,7 @@ const ContactCardSideBar = (props) => {
 			<>
 				<Card className='w-100 border my-1 hover-shadow'>
 					<CardBody className='h-100 w-100 py-1'>
-						<ListGroup flush={true} className='ps-0 list-group-flush '>
+						<ListGroup  className='ps-0 list-group-flush '>
 							<div className='list-group-flush'>
 								<ListGroupItem className='px-0'>
 									<CardTitle tag={"h5"} className='mb-0 d-flex'>

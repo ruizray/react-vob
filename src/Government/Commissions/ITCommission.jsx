@@ -3,7 +3,7 @@ import { Row, Col } from "reactstrap";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContactCardSideBar } from "../../components/ContactInformation";
 import CallToAction from "../../components/CallToAction";
-import ContentCard from "../../components/ContentCard";
+import {ContentCard} from "../../components/ContentCard";
 const ITCommission = () => {
 	const { Chair, ViceChair, Liason, Members } = villageDirectory.Commissions.IT;
 	console.log(Members);

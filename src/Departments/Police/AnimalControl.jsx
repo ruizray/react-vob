@@ -3,7 +3,7 @@ import { Row, Col, Card, CardBody, CardTitle, CardImg } from "reactstrap";
 import { ContactCardSideBar } from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import CallToAction from "./../../components/CallToAction";
-import ContentCard from "../../components/ContentCard";
+import {ContentCard} from "../../components/ContentCard";
 const AnimalControl = () => {
 	const { AnimalControl, AnimalControlSupervisor } = villageDirectory.Police;
 	return (
@@ -27,13 +27,13 @@ const AnimalControl = () => {
 							226-8660. In addition, the Village of Bolingbrook is providing a list of licensed private professionals in the area who can
 							be hired to assist with wildlife problems.
 						</p>
+						<CallToAction buttonText='Nuisance Wildlife Control Permit'>
+							<p>
+								If a resident would like to trap the animal themselves, they must first obtain a permit from the Illinois Department of
+								Natural Resources.
+							</p>
+						</CallToAction>
 					</ContentCard>
-
-					<CallToAction buttonText="Nuisance Wildlife Control Permit">
-						<p>
-						If a resident would like to trap the animal themselves, they must first obtain a permit from the Illinois Department of Natural Resources.
-						</p>
-					</CallToAction>
 
 					<ContentCard header='Missing Pet' icon='search'>
 						<p>
@@ -138,7 +138,7 @@ const AnimalControl = () => {
 						</Row>
 					</ContentCard>
 				</Col>
-				<Col>
+				<Col className="fadeInRight">
 					<ContactCardSideBar person={AnimalControl} />
 					<ContactCardSideBar person={AnimalControlSupervisor} />
 				</Col>

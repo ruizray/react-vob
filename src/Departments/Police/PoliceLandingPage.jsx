@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Card, CardBody,  CardImg, ListGroup, ListGroupItem } from "reactstrap";
 import { ContactCardSideBar } from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
-import ContentCard from "../../components/ContentCard";
+import {ContentCard} from "../../components/ContentCard";
 import CallToAction from "../../components/CallToAction";
 import QuoteWithPicture from "./../../components/QuoteWithPicture";
 const PoliceLandingPage = () => {
@@ -17,7 +17,7 @@ const PoliceLandingPage = () => {
 							<a href='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Rachel_Web.PNG'>
 								<CardImg src='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Rachel_Web.PNG'></CardImg>{" "}
 							</a>
-							<ListGroup flush='true'>
+							<ListGroup flush={true}>
 								<ListGroupItem>Ongoing Missing Persons Cases:</ListGroupItem>
 								<ListGroupItem>~Rachel Marie Mellon</ListGroupItem>
 								<ListGroupItem>~Rachel Marie Mellon</ListGroupItem>
@@ -67,7 +67,7 @@ const PoliceLandingPage = () => {
 						<p>Click here to sign up to receive Brook Police News.</p>
 					</CallToAction>
 				</Col>
-				<Col>
+				<Col id="fadeInRight">
 					<ContactCardSideBar person={PoliceAdministration} />
 					<ContactCardSideBar person={PoliceChief} />
 					<ContactCardSideBar person={AnimalControl} />

@@ -263,6 +263,40 @@ export const villageDirectory = {
 				"Steve Mertes",
 			],
 		},
+		Beautification: {
+			Chair: {
+				name: "Phyllis Ann Ruggiero",
+				id: "BeautyChair",
+				title: "Chair",
+				email: "Phyllis-ann@att.net",
+			},
+			ViceChair: {
+				name: "Barbara Ann Parker",
+				email: "parkernycbabs@yahoo.com",
+				id: "BeautyViceChair",
+				title: "Vice-Chair",
+			},
+
+			Members: [
+				"Lola Fashina",
+				"Mary Hoffman",
+				"Susan Jagiel",
+				"Bobbi Massi",
+				"Mary Myers",
+				"Ron Supalo",
+				"Timothy Wade",
+				"Richard Zihala",
+				"Laura Teipe",
+				"Scott Fagust",
+				"Evelyn Fletcher",
+				"Debi Savage",
+				"Jeanne Thompson",
+				"Roy Herman",
+				"Iva Asenova",
+				"Cheryl Burger",
+				"Andrea Boyles",
+			],
+		},
 	},
 	Police: {
 		AnimalControl: {

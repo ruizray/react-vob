@@ -3,7 +3,7 @@ import QuoteWithPicture from "../../components/QuoteWithPicture";
 import { Row, Col } from "reactstrap";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContactCardSideBar } from "../../components/ContactInformation";
-import ContentCard from "../../components/ContentCard";
+import {ContentCard} from "../../components/ContentCard";
 const ExecutiveDepartment = () => {
 	const { Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA } = villageDirectory.Executive;
 

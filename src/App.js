@@ -17,6 +17,7 @@ import HumanResources from "./Departments/Human Resources/HumanResources";
 import AgendasAndMinutes from "./Government/AgendasAndMinutes";
 import ArtsCouncil from './Government/Commissions/ArtsCouncil';
 import ITCommission from './Government/Commissions/ITCommission';
+import BeautificationCommittee from './Government/Commissions/BeautificationCommittee';
 const App = () => {
 	return (
 		<>
@@ -125,6 +126,11 @@ const App = () => {
 													IT Commission
 												</NavLink>
 											</li>
+											<li>
+												<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to='/BeautificationCommittee'>
+													Beautification Committee
+												</NavLink>
+											</li>
 										</ul>
 									</li>
 									<li>
@@ -167,6 +173,7 @@ const App = () => {
 					<Route exact path='/Elected' component={ElectedOfficials} />
 					<Route exact path='/ArtsCouncil' component={ArtsCouncil} />
 					<Route exact path='/ITCommission' component={ITCommission} />
+					<Route exact path='/BeautificationCommittee' component={BeautificationCommittee} />
 					<Route exact path='/MayorMary' component={MayorMaryProfile} />
 					<Route exact path='/AnimalControl' component={AnimalControl} />
 					<Route exact path='/Police' component={PoliceLandingPage} />
