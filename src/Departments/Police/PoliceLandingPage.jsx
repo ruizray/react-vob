@@ -1,8 +1,8 @@
 import React from "react";
-import { Row, Col, Card, CardBody,  CardImg, ListGroup, ListGroupItem } from "reactstrap";
+import { Row, Col, Card, CardBody, CardImg, ListGroup, ListGroupItem } from "reactstrap";
 import { ContactCardSideBar } from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
-import {ContentCard} from "../../components/ContentCard";
+import { ContentCard } from "../../components/ContentCard";
 import CallToAction from "../../components/CallToAction";
 import QuoteWithPicture from "./../../components/QuoteWithPicture";
 const PoliceLandingPage = () => {
@@ -10,7 +10,7 @@ const PoliceLandingPage = () => {
 
 	return (
 		<>
-			<Row className="gx-3">
+			<Row className='gx-3'>
 				<Col>
 					<Card className='border mt-4 '>
 						<CardBody>
@@ -62,12 +62,12 @@ const PoliceLandingPage = () => {
 							src='https://www3.thedatabank.com/dpg/698/pm.asp?index=1&Publication=Brook+Police+News'
 							width='100%'
 							height='300'></iframe>
+						<CallToAction buttonText='Sign up for Brook Police News' buttonLink=''>
+							<p>Click here to sign up to receive Brook Police News.</p>
+						</CallToAction>
 					</ContentCard>
-					<CallToAction buttonText='Sign up for Brook Police News' buttonLink=''>
-						<p>Click here to sign up to receive Brook Police News.</p>
-					</CallToAction>
 				</Col>
-				<Col id="fadeInRight">
+				<Col id='fadeInRight'>
 					<ContactCardSideBar person={PoliceAdministration} />
 					<ContactCardSideBar person={PoliceChief} />
 					<ContactCardSideBar person={AnimalControl} />

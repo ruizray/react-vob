@@ -8,8 +8,8 @@ const CallToAction = (props) => {
 	}
 
 	return (
-		<Card className={"border  text-center mb-4 mx-2 clamped " + border}>
-			<CardBody className=''>
+		<Card className={"border w-100 text-center my-4" + border}>
+			<CardBody>
 				{props.children}
 				<button href={buttonLink} style={{ width: "fit-content" }} color='primary' className='btn btn-primary stretched-link align-self-center '>
 					{buttonText}

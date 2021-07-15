@@ -138,7 +138,7 @@ const AnimalControl = () => {
 						</Row>
 					</ContentCard>
 				</Col>
-				<Col className="fadeInRight">
+				<Col id="fadeInRight">
 					<ContactCardSideBar person={AnimalControl} />
 					<ContactCardSideBar person={AnimalControlSupervisor} />
 				</Col>

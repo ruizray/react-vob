@@ -4,57 +4,16 @@ import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContactCardSideBar } from "../../components/ContactInformation";
 import CallToAction from "../../components/CallToAction";
 import { ContentCard, ContentCardSubsection } from "../../components/ContentCard";
+import ScrollSpy from "../../components/ScrollSpy";
 const BeautificationCommittee = () => {
 	const { Chair, ViceChair, Members } = villageDirectory.Commissions.Beautification;
-	const [ScrollSpy, setScrollSpy] = useState([]);
-	const handleScrollSpyData = (id) => {
-		let temp = { ...ScrollSpy };
 
-		console.log(id);
-	};
-	useEffect(() => {
-		let nodes = [];
-		let sectionMain = document.querySelectorAll("section.sectionMain");
-		console.log(sectionMain);
-		for (var main of sectionMain) {
-			let node = { mainSection: main.id, subsections: [] };
-			let subsections = main.querySelectorAll("section.subsection");
-			for (var subsection of subsections) {
-				node.subsections.push(subsection.id);
-			}
-			nodes.push(node);
-		}
-	
-		setScrollSpy(nodes);
-		
-	}, []);
 
-	const handleSubsections = (subsections) => {
-		if (subsections.length <= 0) {
-			return <></>;
-		} else {
-			return (
-				<ul class='nav flex-column ps-3'>
-					{subsections.map((subsection) => {
-						return (
-							<>
-								<li class='nav-item'>
-									<a className='nav-link' href={"#" + subsection}>
-										{subsection}
-									</a>
-								</li>
-							</>
-						);
-					})}
-				</ul>
-			);
-		}
-	};
 
 	return (
 		<Row className='x-3'>
 			<Col md={3}></Col>
-			<Col  id='fadeInTop' md={6}>
+			<Col id='fadeInTop' md={6}>
 				<ContentCard icon='front_hand' header='Welcome'>
 					<p>
 						The Beautification Commission was created to develop strategies to preserve and protect the heritage and integrity of existing
@@ -86,10 +45,10 @@ const BeautificationCommittee = () => {
 						Arbor Day will be celebrated on Saturday, April 24th and winners will be asked to participate in the tree planting at the BRAC on
 						Lindsay Lane, near the pond.
 					</p>
-					<ContentCardSubsection subHeader='Arbor Day Coloring Page Contest' passBack={handleScrollSpyData}>
+					<ContentCardSubsection subHeader='Arbor Day Coloring Page Contest' >
 						<p className='lead mb-1 text-muted'>(Judging Categories 3-4 Yrs. and 5-6 Yrs)</p>
 					</ContentCardSubsection>
-					<ContentCardSubsection subHeader='Arbor Day Poster Contest' passBack={handleScrollSpyData}>
+					<ContentCardSubsection subHeader='Arbor Day Poster Contest' >
 						<p className='lead mb-1 text-muted'>Judging Categories 7-10 Yrs. and 11-14</p>
 					</ContentCardSubsection>
 				</ContentCard>
@@ -98,22 +57,7 @@ const BeautificationCommittee = () => {
 				<ContactCardSideBar person={Chair}></ContactCardSideBar>
 				<ContactCardSideBar person={ViceChair}></ContactCardSideBar>
 				<ContactCardSideBar Members={Members}></ContactCardSideBar>
-				<div id='scrollspy1' className='sticky-top'>
-					<ul className='nav flex-column nav-pills menu-sidebar'>
-						{ScrollSpy.map((section) => {
-							return (
-								<li className='nav-item'>
-									<a className='nav-link' href={"#" + section.mainSection}>
-										{section.mainSection}
-									</a>
-									{handleSubsections(section.subsections)}
-								</li>
-							);
-						})}
-
-						
-					</ul>
-				</div>
+				<ScrollSpy/>
 			</Col>
 		</Row>
 	);

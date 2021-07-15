@@ -99,12 +99,12 @@ const ContactCardTree = (props) => {
 
 const ContactCardSideBar = (props) => {
 	if (props.Members) {
-		const [...Members] = props.Members
+		const [...Members] = props.Members;
 		return (
 			<>
 				<Card className='w-100 border my-1 hover-shadow'>
 					<CardBody className='h-100 w-100 py-1'>
-						<ListGroup  className='ps-0 list-group-flush '>
+						<ListGroup className='ps-0 list-group-flush '>
 							<div className='list-group-flush'>
 								<ListGroupItem className='px-0'>
 									<CardTitle tag={"h5"} className='mb-0 d-flex'>
@@ -146,7 +146,13 @@ const ContactCardSideBar = (props) => {
 								<ListGroupItem className='px-0'>
 									<CardTitle tag={"h5"} className='mb-0 d-flex'>
 										<span className='text-truncate'>{title}</span>
-										<span role='button' id={id} className='ms-auto float-right material-icons border rounded-pill caret'>
+										<span
+											role='button'
+											data-mdb-toggle='collapse'
+											href={"#" + id}
+											aria-expanded='false'
+											aria-controls={id}
+											className='ms-auto float-right material-icons border rounded-pill caret'>
 											expand_more
 										</span>
 									</CardTitle>
@@ -161,7 +167,7 @@ const ContactCardSideBar = (props) => {
 									</ListGroupItem>
 								)}
 							</div>
-							<UncontrolledCollapse toggler={id} style={{ borderLeft: "none", borderRight: "none" }}>
+							<div className='collapse' id={id} style={{ borderLeft: "none", borderRight: "none" }}>
 								{phone && (
 									<ListGroupItem className='text-muted ps-0'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
@@ -187,7 +193,7 @@ const ContactCardSideBar = (props) => {
 										{fax}
 									</ListGroupItem>
 								)}
-							</UncontrolledCollapse>
+							</div>
 						</ListGroup>
 					</CardBody>
 				</Card>

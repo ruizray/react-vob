@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardTitle, Row, Col } from "reactstrap";
+import { Card, CardBody, CardImg, CardTitle, Row, Col } from "reactstrap";
 
 const LinkCard = (props) => {
 	return (
@@ -27,7 +27,7 @@ const LinkCard = (props) => {
 const TwoLinkCard = (props) => {
 	return (
 		<>
-			<Card className='card-raised h-100  border'>
+			<Card className='card-raised h-100 border'>
 				<CardBody className=' flex-column d-flex h-100 w-100 p-4 text-center'>
 					<i className='w-100 material-icons icon-lg bg-light text-center' style={{ fontSize: "8rem" }}>
 						{props.icon}
@@ -62,4 +62,26 @@ const TwoLinkCard = (props) => {
 	);
 };
 
-export { LinkCard, TwoLinkCard };
+const FrontDoorCard = (props) => {
+	const { imgLink, title } = props;
+	return (
+		<>
+			<Card className='card-raised h-100 border'>
+				<CardImg src={imgLink}></CardImg>
+				<CardBody className=' flex-column d-flex h-100 w-100 p-3'>
+					<CardTitle tag={"h4"} className='mb-1'>
+						{title}
+					</CardTitle>{props.children}
+					<div className='align-items-end d-flex h-100 w-100'>
+						<a href={props.link} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark ripple'>
+							Visit
+						</a>
+					</div>
+					
+				</CardBody>
+			</Card>
+		</>
+	);
+};
+
+export { LinkCard, TwoLinkCard, FrontDoorCard };

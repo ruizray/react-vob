@@ -15,8 +15,8 @@ const ContentCard = (props) => {
 };
 
 const ContentCardSubsection = (props) => {
-	const { subHeader, id, passBack } = props;
-	passBack(subHeader)
+	const { subHeader, id } = props;
+	
 	const str = subHeader.replace(/\s/g, "");
 	return (
 		<section id={str} className="subsection">
