@@ -30,8 +30,8 @@ const ScrollSpy = () => {
 					{subsections.map((subsection) => {
 						return (
 							<>
-								<li key={subsection.id} className='nav-item'>
-									<a key={subsection.id} className='nav-link' href={"#" + subsection.id}>
+								<li key={"key2" + subsection.id} className='nav-item'>
+									<a key={"key" + subsection.id} className='nav-link' href={"#" + subsection.id}>
 										{subsection.innerHTML}
 									</a>
 								</li>
@@ -47,8 +47,8 @@ const ScrollSpy = () => {
 			<ul className='nav flex-column nav-pills menu-sidebar'>
 				{ScrollSpy.map((section) => {
 					return (
-						<li key={section.mainSection} className='nav-item'>
-							<a key={section.mainSection} className='nav-link' href={"#" + section.mainSection}>
+						<li key={"key3" + section.mainSection} className='nav-item'>
+							<a key={"key4" +section.mainSection} className='nav-link' href={"#" + section.mainSection}>
 								{section.innerHTML}
 							</a>
 							{handleSubsections(section.subsections)}

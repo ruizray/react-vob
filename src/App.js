@@ -22,6 +22,7 @@ import LastUpdated from "./components/LastUpdated";
 import FrontDoor from "./Residents/FrontDoor";
 import PoliceDivisions from "./Departments/Police/PoliceDivisions/PoliceDivisions";
 import CodeEnforcement from "./Departments/Police/PoliceDivisions/CodeEnforcement";
+import AboutBolingbrook from "./Residents/AboutBolingbrook";
 const App = () => {
 	return (
 		<>
@@ -48,7 +49,6 @@ const App = () => {
 										<NavDropDownSub text='Crime Prevention' to='/CrimePrevention'></NavDropDownSub>
 									</NavDropDownItem>
 									<NavDropDownItem text='Explorers' to='/PoliceExplorers'></NavDropDownItem>
-									
 								</NavDropDownItem>
 								<NavDropDownItem text='Human Resources' to='/HumanResources'></NavDropDownItem>
 							</NavRoot>
@@ -61,6 +61,9 @@ const App = () => {
 								</NavDropDownItem>
 								<NavDropDownItem text='Elected Officials' to='/Elected'></NavDropDownItem>
 								<NavDropDownItem text='Organization Chart' to='/OrgChart'></NavDropDownItem>
+							</NavRoot>
+							<NavRoot text='Residents'>
+								<NavDropDownItem text='About Bolingbrook' to='/AboutBolingbrook'></NavDropDownItem>
 							</NavRoot>
 							<NavRoot text='Front Door' to='/FrontDoor'></NavRoot>
 						</ul>
@@ -75,6 +78,7 @@ const App = () => {
 						<Route exact path='/Executive' component={ExecutiveDepartment} />
 						<Route exact path='/HumanResources' component={HumanResources} />
 						<Route exact path='/OrgChart' component={OrgChart} />
+						<Route exact path='/AboutBolingbrook' component={AboutBolingbrook} />
 						<Route exact path='/Elected' component={ElectedOfficials} />
 						<Route exact path='/ArtsCouncil' component={ArtsCouncil} />
 						<Route exact path='/ITCommission' component={ITCommission} />
@@ -124,8 +128,17 @@ const NavDropDownItem = (props) => {
 	const { to, text } = props;
 	return (
 		<li>
-			<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to={to}>
-				{!props.children ? text : text + " »"}
+			<NavLink className='dropdown-item h-100 d-flex justify-content-between align-items-center' style={{ color: "rgba(0,0,0,.7)" }} to={to}>
+				{!props.children ? (
+					text
+				) : (
+					<>
+						<span >{text}</span>
+						<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className='material-icons'>
+							chevron_right
+						</i>
+					</>
+				)}
 			</NavLink>
 			{props.children && <ul className='dropdown-menu dropdown-submenu'>{props.children}</ul>}
 		</li>
@@ -137,7 +150,16 @@ const NavDropDownSub = (props) => {
 	return (
 		<li>
 			<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to={to}>
-				{!props.children ? text : text + "»"}
+				{!props.children ? (
+					text
+				) : (
+					<>
+						<span >{text}</span>
+						<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className='material-icons'>
+							chevron_right
+						</i>
+					</>
+				)}
 			</NavLink>
 		</li>
 	);
