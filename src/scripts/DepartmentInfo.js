@@ -337,10 +337,16 @@ export const villageDirectory = {
 			title: "Investigations",
 		},
 		CodeEnforcement: {
-			name: "Code Enforcement",
+			name: "Main Line",
 			id: "CodeEnforcement",
 			phone: "(630) 226-8760",
 			title: "Code Enforcement",
+		},
+		CodeEnforcementSupervisor:{
+			name:"Randy Kainrath",
+			phone: "(630) 226-8765",
+			email: "rkainrath@bolingbrook.com",
+			title: "Code Enforcement Supervisor",
 		},
 		Evidence: {
 			name: "Evidence",

@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col, Card, CardBody, CardTitle, CardImg } from "reactstrap";
-import { ContactCardSideBar } from "../../components/ContactInformation";
-import { villageDirectory } from "../../scripts/DepartmentInfo";
-import CallToAction from "./../../components/CallToAction";
-import {ContentCard} from "../../components/ContentCard";
+import { ContactCardSideBar } from "../../../components/ContactInformation";
+import { villageDirectory } from "../../../scripts/DepartmentInfo";
+import CallToAction from "../../../components/CallToAction";
+import { ContentCard } from "../../../components/ContentCard";
 const AnimalControl = () => {
 	const { AnimalControl, AnimalControlSupervisor } = villageDirectory.Police;
 	return (

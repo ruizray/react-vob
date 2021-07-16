@@ -7,11 +7,11 @@ import "./css/OrgChart.css";
 
 import LandingPage from "./Departments/LandingPage";
 import ExecutiveDepartment from "./Departments/Executive/ExecutiveDepartment";
-import GenerateHTML from "./Functions/generateHTML";
+import GenerateHTML from "./components/generateHTML";
 import OrgChart from "./OrgChart/OrgChart";
 import ElectedOfficials from "./Government/ElectedOfficials";
 import { MayorMaryProfile } from "./Government/ElectedOfficialsProfiles/ElectedOfficialProfiles";
-import AnimalControl from "./Departments/Police/AnimalControl";
+import AnimalControl from "./Departments/Police/PoliceDivisions/AnimalControl";
 import PoliceLandingPage from "./Departments/Police/PoliceLandingPage";
 import HumanResources from "./Departments/Human Resources/HumanResources";
 import AgendasAndMinutes from "./Government/AgendasAndMinutes";
@@ -20,6 +20,8 @@ import ITCommission from "./Government/Commissions/ITCommission";
 import BeautificationCommittee from "./Government/Commissions/BeautificationCommittee";
 import LastUpdated from "./components/LastUpdated";
 import FrontDoor from "./Residents/FrontDoor";
+import PoliceDivisions from "./Departments/Police/PoliceDivisions/PoliceDivisions";
+import CodeEnforcement from "./Departments/Police/PoliceDivisions/CodeEnforcement";
 const App = () => {
 	return (
 		<>
@@ -40,7 +42,13 @@ const App = () => {
 								<NavDropDownItem text='Landing Page' to='/departmentLandingPage'></NavDropDownItem>
 								<NavDropDownItem text='Executive' to='/Executive'></NavDropDownItem>
 								<NavDropDownItem text='Police' to='/Police'>
-									<NavDropDownSub text='Animal Control' to='/AnimalControl'></NavDropDownSub>
+									<NavDropDownItem text='Divisions' to='/Police'>
+										<NavDropDownSub text='Animal Control' to='/AnimalControl'></NavDropDownSub>
+										<NavDropDownSub text='Code Enforcement' to='/CodeEnforcement'></NavDropDownSub>
+										<NavDropDownSub text='Crime Prevention' to='/CrimePrevention'></NavDropDownSub>
+									</NavDropDownItem>
+									<NavDropDownItem text='Explorers' to='/PoliceExplorers'></NavDropDownItem>
+									
 								</NavDropDownItem>
 								<NavDropDownItem text='Human Resources' to='/HumanResources'></NavDropDownItem>
 							</NavRoot>
@@ -74,6 +82,8 @@ const App = () => {
 						<Route exact path='/MayorMary' component={MayorMaryProfile} />
 						<Route exact path='/AnimalControl' component={AnimalControl} />
 						<Route exact path='/Police' component={PoliceLandingPage} />
+						<Route exact path='/PoliceDivisions' component={PoliceDivisions} />
+						<Route exact path='/CodeEnforcement' component={CodeEnforcement} />
 						<Route exact path='/FrontDoor' component={FrontDoor} />
 					</LastUpdated>
 				</Container>
@@ -89,7 +99,7 @@ const NavRoot = (props) => {
 	if (to) {
 		return (
 			<li className='nav-item dropdown'>
-				<NavLink className="mx-2" style={{ color: "#4f4f4f" }} to={to}>
+				<NavLink className='mx-2' style={{ color: "#4f4f4f" }} to={to}>
 					{text}
 				</NavLink>
 			</li>

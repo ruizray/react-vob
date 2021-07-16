@@ -19,12 +19,9 @@ const GenerateHTML = (props) => {
 
 	const page = createRef();
 	useEffect(() => {
-
-
 		addNewlines(page.current.innerHTML);
 	}, [page]);
 	const handleToggle = () => {
-	
 		const temp = !toggled;
 		setToggled(temp);
 	};
@@ -64,10 +61,8 @@ const GenerateHTML = (props) => {
 			}
 		});
 
-	
 		setHTML(total);
 	};
-
 
 	return (
 		<>
@@ -77,11 +72,14 @@ const GenerateHTML = (props) => {
 				Generate HTML
 			</Button>
 			{toggled ? (
-				<p style={{ whiteSpace: "break-spaces" }}>
+				<code>
+
+				
+				<p style={{ whiteSpace: "break-spaces",fontSize:"1rem"}}>
 					{header}
 
 					{"\n" + HTML}
-				</p>
+				</p></code>
 			) : (
 				<p></p>
 			)}

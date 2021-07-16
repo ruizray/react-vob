@@ -62,26 +62,26 @@ const TwoLinkCard = (props) => {
 	);
 };
 
-const FrontDoorCard = (props) => {
-	const { imgLink, title } = props;
+const FrontDoorLinkCard = (props) => {
+	const { imgLink, title, buttonLink} = props;
 	return (
 		<>
 			<Card className='card-raised h-100 border'>
 				<CardImg src={imgLink}></CardImg>
 				<CardBody className=' flex-column d-flex h-100 w-100 p-3'>
-					<CardTitle tag={"h4"} className='mb-1'>
+					<CardTitle tag={"h4"} className='mb-2'>
 						{title}
-					</CardTitle>{props.children}
+					</CardTitle>
+					{props.children}
 					<div className='align-items-end d-flex h-100 w-100'>
-						<a href={props.link} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark ripple'>
+						<a href={buttonLink} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark ripple'>
 							Visit
 						</a>
 					</div>
-					
 				</CardBody>
 			</Card>
 		</>
 	);
 };
 
-export { LinkCard, TwoLinkCard, FrontDoorCard };
+export { LinkCard, TwoLinkCard, FrontDoorLinkCard };

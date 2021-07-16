@@ -6,7 +6,7 @@ const LastUpdated = (props) => {
 		<>
 			{props.children}
 			<p style={{ fontSize: 16, textAlign: "end" }}>
-				{"Page last updated on " + months[date.getMonth()].toString() + " " + date.getMonth() + " " + date.getFullYear()}
+				{"Page last updated on " + months[date.getMonth()].toString() + " " + date.getDate() + " " + date.getFullYear()}
 			</p>
 		</>
 	);

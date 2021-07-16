@@ -12,7 +12,7 @@ const ScrollSpy = () => {
 			let node = { mainSection: main.id, subsections: [], innerHTML };
 			let subsections = main.querySelectorAll("section.subsection");
 			for (var subsection of subsections) {
-				innerHTML = subsection.querySelector("h3").innerText;
+				innerHTML = subsection.querySelector("h4").innerText;
 				node.subsections.push({ id: subsection.id, innerHTML });
 			}
 			nodes.push(node);

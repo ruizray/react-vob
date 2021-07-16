@@ -18,7 +18,15 @@
 	font-family: "Roboto", sans-serif;
 	text-align: inherit;
 	padding: initial;
-	margin: 0;
+	margin-bottom:0.25rem
+}
+
+.subsection ul{
+	margin-bottom:0px
+}
+
+.subsection {
+	margin-bottom:1rem;
 }
 
 .CTA-primary {
