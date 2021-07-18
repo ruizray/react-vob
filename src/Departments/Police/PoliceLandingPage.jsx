@@ -1,13 +1,13 @@
 import React from "react";
 import { Row, Col, Card, CardBody, CardImg, ListGroup, ListGroupItem } from "reactstrap";
-import { ContactCardSideBar } from "../../components/ContactInformation";
+import { ContactCardSideBar, ContactSideBar } from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContentCard } from "../../components/ContentCard";
 import CallToAction from "../../components/CallToAction";
 import QuoteWithPicture from "./../../components/QuoteWithPicture";
 const PoliceLandingPage = () => {
 	const { AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence } = villageDirectory.Police;
-
+	const people = {AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence}
 	return (
 		<>
 			<Row className='gx-3'>
@@ -68,13 +68,8 @@ const PoliceLandingPage = () => {
 					</ContentCard>
 				</Col>
 				<Col id='fadeInRight'>
-					<ContactCardSideBar person={PoliceAdministration} />
-					<ContactCardSideBar person={PoliceChief} />
-					<ContactCardSideBar person={AnimalControl} />
-					<ContactCardSideBar person={AfterHours} />
-					<ContactCardSideBar person={Investigations} />
-					<ContactCardSideBar person={CodeEnforcement} />
-					<ContactCardSideBar person={Evidence} />
+					<ContactSideBar people={people}></ContactSideBar>
+					
 				</Col>
 			</Row>
 		</>

@@ -29,6 +29,9 @@
 	font-size:0.975rem !important;
 }
 
+.responsive-image{
+	width:75%;
+}
 
 .subsection ul{
 	margin-bottom:0px
@@ -77,6 +80,9 @@ ul.list-group-flush div {
 @media screen and (max-width: 576px) {
 	.clamped {
 		width: auto;
+	}
+	.responsive-image{
+		width:auto;
 	}
 }
 @media screen and (max-width: 1024px) {

@@ -202,4 +202,16 @@ const ContactCardSideBar = (props) => {
 	}
 };
 
-export { ContactCardSideBar, ContactCardProfile, ContactCardTree };
+const ContactSideBar = ({ people }) => {
+	console.log(Object.keys(people));
+	return (
+		<>
+			{Object.keys(people).map((person) => {
+				console.log(person)
+				return <ContactCardSideBar person={people[person]} />;
+			})}
+		</>
+	);
+};
+
+export { ContactCardSideBar, ContactCardProfile, ContactCardTree, ContactSideBar };

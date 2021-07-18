@@ -2,11 +2,10 @@ import React from "react";
 import { CardBody, Card, CardTitle } from "reactstrap";
 const ContentCard = (props) => {
 	const { header, id } = props;
-	
 
 	return (
 		<section id={id} className='sectionMain'>
-			<CardBody  className=' clamped w-100 my-0 py-1'>
+			<CardBody className=' clamped w-100 my-0 py-1'>
 				{/* <i className='material-icons icon-lg text-dark'>{icon}</i> */}
 				<h1 className='display-6'>{header}</h1>
 				{props.children}
@@ -23,6 +22,16 @@ const ContentCardSubsection = (props) => {
 			<h4 style={{ fontWeight: "500", color: "#014b82", marginBottom: "0.25rem" }}>{subHeader}</h4>
 			{props.children}
 		</section>
+	);
+};
+
+const ContentCardImage = ({ src, caption, alt, imageStyle }) => {
+	
+	return (
+		<figure class='figure w-100' style={ { textAlign: "center" }}>
+			<img src={src} class={"figure-img img-fluid shadow-3 mb-3 " + imageStyle} alt={alt} />
+			{caption && (<figcaption class='figure-caption'>{"Pictured: " + caption}</figcaption>)}
+		</figure>
 	);
 };
 
@@ -48,4 +57,4 @@ const FrontDoorCard = (props) => {
 		</Card>
 	);
 };
-export { ContentCard, ContentCardSubsection, FrontDoorCard };
+export { ContentCard, ContentCardSubsection, FrontDoorCard, ContentCardImage };

@@ -2,11 +2,11 @@ import React from "react";
 import QuoteWithPicture from "../../components/QuoteWithPicture";
 import { Row, Col } from "reactstrap";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
-import { ContactCardSideBar } from "../../components/ContactInformation";
+import { ContactSideBar } from "../../components/ContactInformation";
 import {ContentCard} from "../../components/ContentCard";
 const ExecutiveDepartment = () => {
 	const { Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA } = villageDirectory.Executive;
-
+	const people = { Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA }
 	return (
 		<>
 			<Row className='gx-3'>
@@ -39,13 +39,8 @@ const ExecutiveDepartment = () => {
 					</QuoteWithPicture>
 				</Col>
 				<Col md={3} id='fadeInRight'>
-					<ContactCardSideBar person={Mayor} />
-					<ContactCardSideBar person={VillageHall} />
-					<ContactCardSideBar person={CoAdministrator1} />
-					<ContactCardSideBar person={CoAdministrator2} />
-					<ContactCardSideBar person={Clerk} />
-					<ContactCardSideBar person={Attorney} />
-					<ContactCardSideBar person={FOIA} />
+					<ContactSideBar people></ContactSideBar>
+				
 				</Col>
 			</Row>
 		</>

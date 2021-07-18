@@ -342,8 +342,8 @@ export const villageDirectory = {
 			phone: "(630) 226-8760",
 			title: "Code Enforcement",
 		},
-		CodeEnforcementSupervisor:{
-			name:"Randy Kainrath",
+		CodeEnforcementSupervisor: {
+			name: "Randy Kainrath",
 			phone: "(630) 226-8765",
 			email: "rkainrath@bolingbrook.com",
 			title: "Code Enforcement Supervisor",
@@ -360,6 +360,82 @@ export const villageDirectory = {
 			phone: "(630) 226-8600",
 			email: "police@bolingbrook.com",
 			title: "Police Administration",
+		},
+	},
+
+	Fire: {
+		FireAdministration: {
+			name: "Main Line",
+			id: "FireAdministration",
+			phone: "(630) 226-8540",
+			email: "fire@bolingbrook.com",
+			title: "Fire Administration",
+		},
+		FireChief: {
+			name: "Jeff LaJoie",
+			id: "JeffLaJoie",
+			phone: "(630) 226-8696",
+			email: "Need Email",
+			title: "Fire Chief",
+		},
+		FireMarshal: {
+			name: "Brian Gaston",
+			id: "BrianGaston",
+			phone: "(630) 226-8696",
+			email: "Need Email",
+			title: "Fire Marshall",
+		},
+
+		BattalionChief1: {
+			name: "Todd Nemeth",
+			id: "ToddNemeth",
+			phone: "(630) 226-8532",
+			email: "Need Email",
+			title: "Battalion Chief / EMS Director",
+		},
+		BattalionChief2: {
+			name: "Troy Kirch",
+			id: "TroyKirch",
+			phone: "(630) 226-8531",
+			email: "Need Email",
+			title: "Battalion Chief / EMS Director",
+		},
+
+		BattalionChief3: {
+			name: "Ron Banda",
+			id: "RonBanda",
+			phone: "(630) 226-8524",
+			email: "Need Email",
+			title: "Battalion Chief",
+		},
+		BattalionChief4: {
+			name: "Joe Fagan",
+			id: "JoeFagan",
+			phone: "(630) 226-8523",
+			email: "Need Email",
+			title: "Battalion Chief",
+			level: 3,
+		},
+
+		BattalionChief5: {
+			name: "Dan Ross",
+			id: "DanRoss",
+			phone: "(630) 226-8525",
+			email: "Need Email",
+			title: "Battalion Chief",
+			level: 3,
+		},
+		FireAdminAid: {
+			name: "Meghan Strimel",
+			id: "FireAdminAid",
+
+			title: "Administrative Aid",
+		},
+		FireSecretary: {
+			name: "Justin Gomez",
+			id: "FireSecretary",
+
+			title: "Secretary",
 		},
 	},
 };

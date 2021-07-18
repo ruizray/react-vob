@@ -22,6 +22,11 @@ import FrontDoor from "./Residents/FrontDoor";
 import PoliceDivisions from "./Departments/Police/PoliceDivisions/PoliceDivisions";
 import CodeEnforcement from "./Departments/Police/PoliceDivisions/CodeEnforcement";
 import TransparencyPolicy from "./Government/TransparencyPolicy";
+import IMRF from "./Departments/Finance/IMRF";
+import FinanceLandingPage from "./Departments/Finance/FinanceLandingPage";
+import FireLandingPage from "./Departments/Fire/FireLandingPage";
+import SmokeDetectors from "./Departments/Fire/SmokeDetectors";
+import CitizensOfTheYear from "./Residents/CitizensOfTheYear";
 
 const App = () => {
 	return (
@@ -61,7 +66,18 @@ const App = () => {
 									</NavDropDownItem>
 									<NavDropDownItem text='Explorers' to='/PoliceExplorers'></NavDropDownItem>
 								</NavDropDownItem>
+								<NavDropDownItem text='Finance' to='/Finance'>
+									<NavDropDownItem text='IMRF' to='/IMRF'></NavDropDownItem>
+								</NavDropDownItem>
+								<NavDropDownItem text='Fire' to='/Fire'>
+									<NavDropDownItem text='Smoke Detectors' to='/SmokeDetectors'></NavDropDownItem>
+								</NavDropDownItem>
 								<NavDropDownItem text='Human Resources' to='/HumanResources'></NavDropDownItem>
+							</NavRoot>
+							<NavRoot text='Residents' >
+								<NavDropDownItem text='Articles' to="/Articles">
+									<NavDropDownItem text='2020 Citizens Of The Year' to='/CitizensOfTheYear'></NavDropDownItem>
+								</NavDropDownItem>
 							</NavRoot>
 
 							<NavRoot text='Front Door' to='/FrontDoor'></NavRoot>
@@ -76,6 +92,10 @@ const App = () => {
 						<Route exact path='/AgendasAndMinutes' component={AgendasAndMinutes} />
 						<Route exact path='/Executive' component={ExecutiveDepartment} />
 						<Route exact path='/HumanResources' component={HumanResources} />
+						<Route exact path='/IMRF' component={IMRF} />
+						<Route exact path='/Fire' component={FireLandingPage} />
+						<Route exact path='/SmokeDetectors' component={SmokeDetectors} />
+						<Route exact path='/Finance' component={FinanceLandingPage} />
 						<Route exact path='/OrgChart' component={OrgChart} />
 						<Route exact path='/Elected' component={ElectedOfficials} />
 						<Route exact path='/ArtsCouncil' component={ArtsCouncil} />
@@ -87,7 +107,8 @@ const App = () => {
 						<Route exact path='/PoliceDivisions' component={PoliceDivisions} />
 						<Route exact path='/CodeEnforcement' component={CodeEnforcement} />
 						<Route exact path='/FrontDoor' component={FrontDoor} />
-						<Route exact path='/TransparencyPolicy' component={TransparencyPolicy}/>
+						<Route exact path='/TransparencyPolicy' component={TransparencyPolicy} />
+						<Route exact path='/CitizensOfTheYear' component={CitizensOfTheYear} />
 					</LastUpdated>
 				</Container>
 			</GenerateHTML>
