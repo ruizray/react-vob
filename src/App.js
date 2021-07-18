@@ -1,7 +1,6 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import { Container } from "reactstrap";
 import { Route, NavLink } from "react-router-dom";
-
 import "./css/stylesReact.css";
 import "./css/OrgChart.css";
 
@@ -22,6 +21,8 @@ import LastUpdated from "./components/LastUpdated";
 import FrontDoor from "./Residents/FrontDoor";
 import PoliceDivisions from "./Departments/Police/PoliceDivisions/PoliceDivisions";
 import CodeEnforcement from "./Departments/Police/PoliceDivisions/CodeEnforcement";
+import TransparencyPolicy from "./Government/TransparencyPolicy";
+
 const App = () => {
 	return (
 		<>
@@ -38,6 +39,17 @@ const App = () => {
 				<nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
 					<div className='container-fluid justify-content-center'>
 						<ul className='navbar-nav'>
+							<NavRoot text='Government'>
+								<NavDropDownItem text='Agendas And Minutes' to='/AgendasAndMinutes'></NavDropDownItem>
+								<NavDropDownItem text='Commissions' to='/'>
+									<NavDropDownSub text='Arts Council' to='/ArtsCouncil'></NavDropDownSub>
+									<NavDropDownSub text='IT Commission' to='/ITCommission'></NavDropDownSub>
+									<NavDropDownSub text='Beautification Committee' to='/BeautificationCommittee'></NavDropDownSub>
+								</NavDropDownItem>
+								<NavDropDownItem text='Elected Officials' to='/Elected'></NavDropDownItem>
+								<NavDropDownItem text='Organization Chart' to='/OrgChart'></NavDropDownItem>
+								<NavDropDownItem text='Transparency Policy' to='/TransparencyPolicy'></NavDropDownItem>
+							</NavRoot>
 							<NavRoot text='Departments'>
 								<NavDropDownItem text='Landing Page' to='/departmentLandingPage'></NavDropDownItem>
 								<NavDropDownItem text='Executive' to='/Executive'></NavDropDownItem>
@@ -48,20 +60,10 @@ const App = () => {
 										<NavDropDownSub text='Crime Prevention' to='/CrimePrevention'></NavDropDownSub>
 									</NavDropDownItem>
 									<NavDropDownItem text='Explorers' to='/PoliceExplorers'></NavDropDownItem>
-									
 								</NavDropDownItem>
 								<NavDropDownItem text='Human Resources' to='/HumanResources'></NavDropDownItem>
 							</NavRoot>
-							<NavRoot text='Government'>
-								<NavDropDownItem text='Agendas And Minutes' to='/AgendasAndMinutes'></NavDropDownItem>
-								<NavDropDownItem text='Commissions' to='/'>
-									<NavDropDownSub text='Arts Council' to='/ArtsCouncil'></NavDropDownSub>
-									<NavDropDownSub text='IT Commission' to='/ITCommission'></NavDropDownSub>
-									<NavDropDownSub text='Beautification Committee' to='/BeautificationCommittee'></NavDropDownSub>
-								</NavDropDownItem>
-								<NavDropDownItem text='Elected Officials' to='/Elected'></NavDropDownItem>
-								<NavDropDownItem text='Organization Chart' to='/OrgChart'></NavDropDownItem>
-							</NavRoot>
+
 							<NavRoot text='Front Door' to='/FrontDoor'></NavRoot>
 						</ul>
 					</div>
@@ -85,6 +87,7 @@ const App = () => {
 						<Route exact path='/PoliceDivisions' component={PoliceDivisions} />
 						<Route exact path='/CodeEnforcement' component={CodeEnforcement} />
 						<Route exact path='/FrontDoor' component={FrontDoor} />
+						<Route exact path='/TransparencyPolicy' component={TransparencyPolicy}/>
 					</LastUpdated>
 				</Container>
 			</GenerateHTML>

@@ -1,8 +1,13 @@
 import React from "react";
 import { createRef, useState, useEffect } from "react";
 import { Button } from "reactstrap";
+import parserhtml from "prettier/parser-html";
+import prettier from "prettier/standalone";
 
 const GenerateHTML = (props) => {
+
+
+	
 	const header = `
     <head>
     <meta charset="utf-8" />
@@ -11,16 +16,15 @@ const GenerateHTML = (props) => {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <title>React App</title>
     </head>`;
 
 	const page = createRef();
 	useEffect(() => {
+	
 		addNewlines(page.current.innerHTML);
 	}, [page]);
+
 	const handleToggle = () => {
 		const temp = !toggled;
 		setToggled(temp);
@@ -30,38 +34,40 @@ const GenerateHTML = (props) => {
 	const [toggled, setToggled] = useState(false);
 
 	const addNewlines = (str) => {
-		let tabs = 0;
-		var total = "";
-		const regex2 = /(<.*?>)|([^<]*)/gm;
-		const array = str.split(regex2);
+		let withHeader = header + str;
+		let formatted = prettier.format(withHeader, { useTabs: true, printWidth: 150, semi: false, parser: "html", plugins: [parserhtml] });
 
-		var filtered = array.filter((el) => {
-			if (el !== undefined && el !== "") {
-				return true;
-			}
-			return false;
-		});
+		setHTML(formatted);
+		// let tabs = 0;
+		// var total = "";
+		// const regex2 = /(<.*?>)|([^<]*)/gm;
+		// const array = str.split(regex2);
 
-		filtered.forEach((str, index) => {
-			str = str.trim();
-			if (str[1] === "/") {
-				tabs--;
-				const temp = "\t".repeat(tabs) + str + "\n";
+		// var filtered = array.filter((el) => {
+		// 	if (el !== undefined && el !== "") {
+		// 		return true;
+		// 	}
+		// 	return false;
+		// });
 
-				total = total + temp;
-			} else {
-				if (!str.includes("<")) {
-					const temp = "\t".repeat(tabs) + str + "\n";
-					total = total + temp;
-				} else {
-					const temp = "\t".repeat(tabs) + str + "\n";
-					tabs++;
-					total = total + temp;
-				}
-			}
-		});
+		// filtered.forEach((str, index) => {
+		// 	str = str.trim();
+		// 	if (str[1] === "/") {
+		// 		tabs--;
+		// 		const temp = "\t".repeat(tabs) + str + "\n";
 
-		setHTML(total);
+		// 		total = total + temp;
+		// 	} else {
+		// 		if (!str.includes("<")) {
+		// 			const temp = "\t".repeat(tabs) + str + "\n";
+		// 			total = total + temp;
+		// 		} else {
+		// 			const temp = "\t".repeat(tabs) + str + "\n";
+		// 			tabs++;
+		// 			total = total + temp;
+		// 		}
+		// 	}
+		// });
 	};
 
 	return (
@@ -73,13 +79,8 @@ const GenerateHTML = (props) => {
 			</Button>
 			{toggled ? (
 				<code>
-
-				
-				<p style={{ whiteSpace: "break-spaces",fontSize:"1rem"}}>
-					{header}
-
-					{"\n" + HTML}
-				</p></code>
+					<p style={{ whiteSpace: "break-spaces", fontSize: "1rem" }}>{"\n" + HTML}</p>
+				</code>
 			) : (
 				<p></p>
 			)}
