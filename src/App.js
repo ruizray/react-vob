@@ -27,8 +27,13 @@ import FinanceLandingPage from "./Departments/Finance/FinanceLandingPage";
 import FireLandingPage from "./Departments/Fire/FireLandingPage";
 import SmokeDetectors from "./Departments/Fire/SmokeDetectors";
 import CitizensOfTheYear from "./Residents/CitizensOfTheYear";
-
+import firebase from "firebase/app";
+import { getApp } from "./scripts/firebase";
 const App = () => {
+	
+	useEffect(() => {
+		getApp();
+	},[]);
 	return (
 		<>
 			<div>
@@ -74,8 +79,8 @@ const App = () => {
 								</NavDropDownItem>
 								<NavDropDownItem text='Human Resources' to='/HumanResources'></NavDropDownItem>
 							</NavRoot>
-							<NavRoot text='Residents' >
-								<NavDropDownItem text='Articles' to="/Articles">
+							<NavRoot text='Residents'>
+								<NavDropDownItem text='Articles' to='/Articles'>
 									<NavDropDownItem text='2020 Citizens Of The Year' to='/CitizensOfTheYear'></NavDropDownItem>
 								</NavDropDownItem>
 							</NavRoot>
