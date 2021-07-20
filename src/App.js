@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import { Container } from "reactstrap";
 import { Route, NavLink } from "react-router-dom";
 import "./css/stylesReact.css";
@@ -27,13 +27,11 @@ import FinanceLandingPage from "./Departments/Finance/FinanceLandingPage";
 import FireLandingPage from "./Departments/Fire/FireLandingPage";
 import SmokeDetectors from "./Departments/Fire/SmokeDetectors";
 import CitizensOfTheYear from "./Residents/CitizensOfTheYear";
-import firebase from "firebase/app";
-import { getApp } from "./scripts/firebase";
+import sanityClient from "./client";
+
 const App = () => {
+	const [allPostsData, setAllPosts] = useState(null);
 	
-	useEffect(() => {
-		getApp();
-	},[]);
 	return (
 		<>
 			<div>
