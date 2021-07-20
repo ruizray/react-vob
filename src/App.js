@@ -32,6 +32,27 @@ import sanityClient from "./client";
 const App = () => {
 	const [allPostsData, setAllPosts] = useState(null);
 	
+	useEffect(() => {
+		sanityClient
+		  .fetch(
+			`*[_type == "post"]{
+			title,
+			slug,
+			mainImage{
+			  asset->{
+			  _id,
+			  url
+			}
+		  }
+		}`
+		  )
+		  .then((data) => {
+			console.log(data)  
+			setAllPosts(data)})
+		  .catch(console.error);
+	  }, []);
+
+
 	return (
 		<>
 			<div>
