@@ -5,6 +5,13 @@ export default {
 	type: "document",
 	fields: [
 		{
+			name:"path",
+			title:"Path",
+			type:'string',
+			readOnly:true
+		
+		},
+		{
 			name: "title",
 			title: "Title",
 			type: "string",
@@ -14,8 +21,12 @@ export default {
 			title: "Slug",
 			type: "slug",
 			options: {
-				source: "title",
+				source: (doc) => `${doc.path}${doc.title}`,
 				maxLength: 96,
+				slugify: input => input
+                         .toLowerCase()
+                         .replace(/\s+/g, "-")
+                         .slice(0, 200)
 			},
 		},
         {

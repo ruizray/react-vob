@@ -5,41 +5,64 @@ import S from "@sanity/desk-tool/structure-builder";
 export default () =>
 	S.list({
 		id: "root",
-		title: "Base",
+		title: "Content Editor",
 		items: [
 			S.listItem({
 				title: "Pages",
 				id: "pages",
 				child: () =>
 					S.list({
-						title: "/path",
+						title: "root",
 						id: "path",
 						items: [
 							S.listItem({
 								id: "government",
-								title: "/government",
-								child: () =>
+								title: "Government",
+								child: (government) =>
 									S.list({
-										title: "/government/",
-										id: "pages",
+										title: "/government",
+										id: "government",
 										items: [
-											S.listItem({
-												id: "landingPage",
-												title: "LandingPage",
-												child: (child) => {
-													console.log(child);
-													return S.document().schemaType("page").documentId("governmentLandingPage");
+											S.documentListItem({
+												title: "Landing Page",
+												id: "governmentLandingPage",
+												schemaType: "page",
+												child: (test) => {
+													console.log(government);
+
+													return S.document({
+														title: "/government",
+														schemaType: "page",
+													}).initialValueTemplate("governmentTemplate", { path: government });
 												},
 											}),
 											S.listItem({
-												id: "governmentPage",
-												title: "Governent Page",
-												child: (department) =>
-													S.documentList({ title: "Police", id: "policeDocumentList" })
-														.filter('_type == "employee" && department == "Police"')
-														.params({ department })
-														.initialValueTemplates([S.initialValueTemplateItem("policeEmployee")]),
+												id: "agendas_minutes",
+												title: "Agendas and Minutes",
+												child: (agendas_minutes) => {
+													console.log(government, agendas_minutes);
+													var path = government + "/" + agendas_minutes + "/";
+													console.log(path);
+													return S.documentList({ title: "/agendas_minutes", id: "agendas_minutes" })
+														.filter('_type == "page" && path match ["government", "/agendas_minutes/"]')
+														.params({ type: "page", path })
+														.initialValueTemplates([S.initialValueTemplateItem("governmentTemplate", { path })]);
+												},
 											}),
+											S.documentListItem({
+												title: "Elected Officals",
+												id: "elected",
+												schemaType: "page",
+												child: (elected) => {
+													console.log(government);
+													var path = government + "/" + elected + "/";
+													return S.document({
+														title: "/government",
+														schemaType: "page",
+													}).initialValueTemplate("governmentTemplate", { path });
+												},
+											}),
+											
 										],
 									}),
 							}),
