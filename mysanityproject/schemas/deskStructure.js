@@ -19,7 +19,6 @@ export default () =>
 								id: "government",
 								title: "/government",
 								child: () =>
-								
 									S.list({
 										title: "/government/",
 										id: "pages",
