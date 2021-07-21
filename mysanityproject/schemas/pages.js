@@ -18,15 +18,6 @@ export default {
 				maxLength: 96,
 			},
 		},
-
-		{
-			name: "mainImage",
-			title: "Main image",
-			type: "image",
-			options: {
-				hotspot: true,
-			},
-		},
         {
 			name: "mainComponents",
 			title: "Main Components",

@@ -18,7 +18,7 @@ export default {
 				{ type: "CTA" },
 				{
 					name: "mainImage",
-					title: "Main image",
+					title: "Image",
 					type: "image",
 					options: {
 						hotspot: true,
@@ -26,7 +26,7 @@ export default {
 				},
 				{
 					name: "mainSectionParagraph",
-					title: "Main Section Paragraph",
+					title: "Paragraph",
 					type: "paragraph",
 				},
 			],
@@ -36,14 +36,17 @@ export default {
 
 	preview: {
 		select: {
-			title: "title",
+			title: "header",
 			author: "author.name",
 			media: "mainImage",
+			type:"type",
+			test: "mainComponent"
 		},
 		prepare(selection) {
-			const { author } = selection;
+			const { title, media } = selection;
 			return Object.assign({}, selection, {
-				subtitle: author && `by ${author}`,
+				title: title,
+				media: media,
 			});
 		},
 	},

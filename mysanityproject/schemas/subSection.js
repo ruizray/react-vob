@@ -34,14 +34,23 @@ export default {
 
 	preview: {
 		select: {
-			title: "title",
-			author: "author.name",
-			media: "mainImage",
+			title: "subHeader",
+		
+			media: "subImage",
+			type:"type",
+			subcomponent:"subComponents"
+			
 		},
 		prepare(selection) {
-			const { author } = selection;
+			const { title, media } = selection;
+			console.log(selection)
+			if(selection){
+
+			}
 			return Object.assign({}, selection, {
-				subtitle: author && `by ${author}`,
+				title: title,
+				subtitle: "Subsection",
+				media: media,
 			});
 		},
 	},

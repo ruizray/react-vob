@@ -1,17 +1,19 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default  {
 	name: "CTA",
-	title: "Call-To-ACtion",
+	title: "Call-To-Action",
 	type: "object",
 	fields: [
 		{
-			name: "firstName",
-			title: "First Name",
+			name: "CTAbody",
+			title: "Body Text",
 			type: "string",
-			validation: (Rule) => Rule.required(),
+		
 		},
 		{
-			name: "lastName",
-			title: "Last Name",
+			name: "buttonText",
+			title: "Button Text",
+			description:"Text that will be displayed inside the button",
 			type: "string",
 		},
 		{ name: "title", title: "Title", type: "string" },
@@ -54,8 +56,8 @@ export default  {
 		prepare(selection) {
 			const { firstName, lastName, title } = selection;
 			return Object.assign({}, selection, {
-				title: `${firstName} ${lastName} `,
-                subtitle:  `${title}`
+				title: `${firstName}`,
+                subtitle:  "Call-to-Action"
 			});
 		},
 	},

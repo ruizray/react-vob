@@ -50,13 +50,14 @@ export default {
 			firstName: "firstName",
 			lastName: "lastName",
 			title: "title",
-			media: "mainImage",
+			media: "image",
 		},
 		prepare(selection) {
-			const { firstName, lastName, title } = selection;
+			const { firstName, lastName, title , media} = selection;
 			return Object.assign({}, selection, {
 				title: `${firstName} ${lastName} `,
-                subtitle:  `${title}`
+                subtitle:  `${title}`,
+				media:media,
 			});
 		},
 	},
