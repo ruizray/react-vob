@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
 	name: "employee",
 	title: "Employee",
@@ -21,8 +22,8 @@ export default {
 			type: "string",
 		},
 		{
-			title: "Facebook",
-			name: "facebook",
+			name: "fax",
+			title: "Fax",
 			type: "string",
 		},
 		{
@@ -30,7 +31,7 @@ export default {
 			title: "Department",
 			type: "string",
 			options: {
-				list: ["Police", "Fire"],
+				list: ["Police", "Fire", "Executive", "Public Works"],
 			},
 		},
 		{

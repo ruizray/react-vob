@@ -35,16 +35,15 @@ const App = () => {
 	useEffect(() => {
 		sanityClient
 		  .fetch(
-			`*[_type == "post"]{
-			title,
-			slug,
-			mainImage{
-			  asset->{
-			  _id,
-			  url
+			`*[_type == "page"]{
+				title,
+				slug,
+				
+				mainComponents,
+				contacts[]->
 			}
-		  }
-		}`
+
+		  `
 		  )
 		  .then((data) => {
 			console.log(data)  

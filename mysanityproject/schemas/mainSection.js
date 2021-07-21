@@ -10,8 +10,8 @@ export default {
 			type: "string",
 		},
 		{
-			name: "mainComponents",
-			title: "Main Components",
+			name: "mainComponent",
+			title: "Main Component",
 			type: "array",
 			of: [
 				{ type: "subSection" },
@@ -27,7 +27,7 @@ export default {
 				{
 					name: "mainSectionParagraph",
 					title: "Main Section Paragraph",
-					type: "blockContent",
+					type: "paragraph",
 				},
 			],
 		},

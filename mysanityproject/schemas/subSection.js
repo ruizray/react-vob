@@ -17,7 +17,7 @@ export default {
 				{ type: "CTA" },
 				{
 					name: "subImage",
-					title: "Sub Section image",
+					title: "Image",
 					type: "image",
 					options: {
 						hotspot: true,
@@ -25,8 +25,8 @@ export default {
 				},
 				{
 					name: "subSectionParagraph",
-					title: "Sub Section Paragraph",
-					type: "blockContent",
+					title: "Paragraph",
+					type: "paragraph",
 				},
 			],
 		},
