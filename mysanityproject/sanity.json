@@ -12,7 +12,8 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "content-model-graph"
   ],
   "env": {
     "development": {
@@ -34,6 +35,5 @@
       "name": "part:@sanity/desk-tool/structure",
       "path": "./schemas/deskStructure"
     }
-    
   ]
 }

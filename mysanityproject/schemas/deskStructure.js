@@ -20,22 +20,12 @@ export default () =>
 								title: "Government",
 								child: (government) =>
 									S.list({
+										defaultLayout: "default",
 										title: "/government",
 										id: "government",
-										items: [
-											S.documentListItem({
-												title: "Landing Page",
-												id: "governmentLandingPage",
-												schemaType: "page",
-												child: (test) => {
-													console.log(government);
-
-													return S.document({
-														title: "/government",
-														schemaType: "page",
-													}).initialValueTemplate("governmentTemplate", { path: government });
-												},
-											}),
+										 
+										items:  [
+										
 											S.listItem({
 												id: "agendas_minutes",
 												title: "Agendas and Minutes",
@@ -49,6 +39,7 @@ export default () =>
 														.initialValueTemplates([S.initialValueTemplateItem("governmentTemplate", { path })]);
 												},
 											}),
+											
 											S.documentListItem({
 												title: "Elected Officals",
 												id: "elected",
@@ -62,7 +53,6 @@ export default () =>
 													}).initialValueTemplate("governmentTemplate", { path });
 												},
 											}),
-											
 										],
 									}),
 							}),
@@ -107,5 +97,7 @@ export default () =>
 						],
 					}),
 			}),
+
+			S.documentTypeListItem('navigation')
 		],
 	});
