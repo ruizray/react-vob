@@ -136,7 +136,10 @@ const ContactCardSideBar = (props) => {
 			</>
 		);
 	} else {
-		const { title, name, email, phone, fax, id } = props.person;
+		const { title, firstName, lastName, email, phone, fax, id } = props.person;
+		const name = firstName + " " +  lastName;
+		const idSlug = id.current;
+		console.log(props, title, email, id)
 		return (
 			<>
 				<Card className='w-100 border my-1 hover-shadow'>
@@ -149,9 +152,9 @@ const ContactCardSideBar = (props) => {
 										<span
 											role='button'
 											data-mdb-toggle='collapse'
-											href={"#" + id}
+											href={"#" + idSlug}
 											aria-expanded='false'
-											aria-controls={id}
+											aria-controls={idSlug}
 											className='ms-auto float-right material-icons border rounded-pill caret'>
 											expand_more
 										</span>
@@ -167,7 +170,7 @@ const ContactCardSideBar = (props) => {
 									</ListGroupItem>
 								)}
 							</div>
-							<div className='collapse' id={id} style={{ borderLeft: "none", borderRight: "none" }}>
+							<div className='collapse' id={idSlug} style={{ borderLeft: "none", borderRight: "none" }}>
 								{phone && (
 									<ListGroupItem className='text-muted ps-0'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>

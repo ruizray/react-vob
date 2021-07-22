@@ -28,29 +28,41 @@ import FireLandingPage from "./Departments/Fire/FireLandingPage";
 import SmokeDetectors from "./Departments/Fire/SmokeDetectors";
 import CitizensOfTheYear from "./Residents/CitizensOfTheYear";
 import sanityClient from "./client";
-
+import OnePost from "./OnePost";
 const App = () => {
 	const [allPostsData, setAllPosts] = useState(null);
-	
+
 	useEffect(() => {
 		sanityClient
-		  .fetch(
-			`*[_type == "page"]{
-				title,
-				slug,
-				
-				mainComponents,
-				contacts[]->
-			}
-
-		  `
-		  )
-		  .then((data) => {
-			console.log(data)  
-			setAllPosts(data)})
-		  .catch(console.error);
-	  }, []);
-
+			.fetch(
+				`//groq
+		  *[_type == 'navigation'][0] {
+		   ...,
+		   sections[]{
+			 ...,
+			 target->{title, slug, _id},
+			 links[]{
+			   ...,
+			   target->{title, slug, _id},
+			   children[]{
+				 ...,
+				 target->{title, slug, _id},
+				 children[]{
+					...,
+					target->{title, slug, _id}
+				 }
+			   }
+			 }
+		   }
+		 }
+		 `
+			)
+			.then((data) => {
+				console.log(data);
+				setAllPosts(data);
+			})
+			.catch(console.error);
+	}, []);
 
 	return (
 		<>
@@ -67,10 +79,40 @@ const App = () => {
 				<nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
 					<div className='container-fluid justify-content-center'>
 						<ul className='navbar-nav'>
+							{allPostsData &&
+								allPostsData.sections.map((level1) => (
+									<NavRoot text={level1.title}>
+										{level1.links &&
+											level1.links.map((level2) => {
+												console.log("/" + level2.target.slug.current);
+												return (
+													<NavDropDownItem text={level2.title} to={"/" + level2.target.slug.current}>
+														{level2.children &&
+															level2.children.map((level3) => {
+																return (
+																	<NavDropDownItem text={level3.title} to={"/" + level3.target.slug.current}>
+																		{level3.children &&
+																			level3.children.map((level4) => {
+																				return (
+																					<NavDropDownItem
+																						text={level4.title}
+																						to={
+																							"/" + level4.target.slug.current
+																						}></NavDropDownItem>
+																				);
+																			})}
+																	</NavDropDownItem>
+																);
+															})}
+													</NavDropDownItem>
+												);
+											})}
+									</NavRoot>
+								))}
 							<NavRoot text='Government'>
 								<NavDropDownItem text='Agendas And Minutes' to='/AgendasAndMinutes'></NavDropDownItem>
 								<NavDropDownItem text='Commissions' to='/'>
-									<NavDropDownSub text='Arts Council' to='/ArtsCouncil'></NavDropDownSub>
+									<NavDropDownSub text='Arts Council' to='/ArtsCouncil/'></NavDropDownSub>
 									<NavDropDownSub text='IT Commission' to='/ITCommission'></NavDropDownSub>
 									<NavDropDownSub text='Beautification Committee' to='/BeautificationCommittee'></NavDropDownSub>
 								</NavDropDownItem>
@@ -82,8 +124,8 @@ const App = () => {
 								<NavDropDownItem text='Landing Page' to='/departmentLandingPage'></NavDropDownItem>
 								<NavDropDownItem text='Executive' to='/Executive'></NavDropDownItem>
 								<NavDropDownItem text='Police' to='/Police'>
-									<NavDropDownItem text='Divisions' to='/Police'>
-										<NavDropDownSub text='Animal Control' to='/AnimalControl'></NavDropDownSub>
+									<NavDropDownItem text='Divisions' to='/Divisions/'>
+										<NavDropDownSub text='Animal Control' to='/AnimalControl/'></NavDropDownSub>
 										<NavDropDownSub text='Code Enforcement' to='/CodeEnforcement'></NavDropDownSub>
 										<NavDropDownSub text='Crime Prevention' to='/CrimePrevention'></NavDropDownSub>
 									</NavDropDownItem>
@@ -107,13 +149,58 @@ const App = () => {
 						</ul>
 					</div>
 				</nav>
+
+				{/* <nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
+					<div className='container-fluid justify-content-center'>
+						<ul className='navbar-nav'>
+							<NavRoot text='Government'>
+								<NavDropDownItem text='Agendas And Minutes' to='/AgendasAndMinutes'></NavDropDownItem>
+								<NavDropDownItem text='Commissions' to='/'>
+									<NavDropDownSub text='Arts Council' to='/ArtsCouncil/'></NavDropDownSub>
+									<NavDropDownSub text='IT Commission' to='/ITCommission'></NavDropDownSub>
+									<NavDropDownSub text='Beautification Committee' to='/BeautificationCommittee'></NavDropDownSub>
+								</NavDropDownItem>
+								<NavDropDownItem text='Elected Officials' to='/Elected'></NavDropDownItem>
+								<NavDropDownItem text='Organization Chart' to='/OrgChart'></NavDropDownItem>
+								<NavDropDownItem text='Transparency Policy' to='/TransparencyPolicy'></NavDropDownItem>
+							</NavRoot>
+							<NavRoot text='Departments'>
+								<NavDropDownItem text='Landing Page' to='/departmentLandingPage'></NavDropDownItem>
+								<NavDropDownItem text='Executive' to='/Executive'></NavDropDownItem>
+								<NavDropDownItem text='Police' to='/Police'>
+									<NavDropDownItem text='Divisions' to='/Divisions/'>
+										<NavDropDownSub text='Animal Control' to='/AnimalControl/'></NavDropDownSub>
+										<NavDropDownSub text='Code Enforcement' to='/CodeEnforcement'></NavDropDownSub>
+										<NavDropDownSub text='Crime Prevention' to='/CrimePrevention'></NavDropDownSub>
+									</NavDropDownItem>
+									<NavDropDownItem text='Explorers' to='/PoliceExplorers'></NavDropDownItem>
+								</NavDropDownItem>
+								<NavDropDownItem text='Finance' to='/Finance'>
+									<NavDropDownItem text='IMRF' to='/IMRF'></NavDropDownItem>
+								</NavDropDownItem>
+								<NavDropDownItem text='Fire' to='/Fire'>
+									<NavDropDownItem text='Smoke Detectors' to='/SmokeDetectors'></NavDropDownItem>
+								</NavDropDownItem>
+								<NavDropDownItem text='Human Resources' to='/HumanResources'></NavDropDownItem>
+							</NavRoot>
+							<NavRoot text='Residents'>
+								<NavDropDownItem text='Articles' to='/Articles'>
+									<NavDropDownItem text='2020 Citizens Of The Year' to='/CitizensOfTheYear'></NavDropDownItem>
+								</NavDropDownItem>
+							</NavRoot>
+
+							<NavRoot text='Front Door' to='/FrontDoor'></NavRoot>
+						</ul>
+					</div>
+				</nav> */}
 			</div>
 			<GenerateHTML>
 				<Container>
 					<LastUpdated>
 						<Route exact path='/departmentLandingPage' component={LandingPage} />
-						<Route exact path='/AgendasAndMinutes' component={AgendasAndMinutes} />
-						<Route exact path='/Executive' component={ExecutiveDepartment} />
+						<Route component={OnePost} path='/:slug' />
+						<Route path='/AgendasAndMinutes' component={AgendasAndMinutes} />
+						<Route exact path='/Executive2' component={ExecutiveDepartment} />
 						<Route exact path='/HumanResources' component={HumanResources} />
 						<Route exact path='/IMRF' component={IMRF} />
 						<Route exact path='/Fire' component={FireLandingPage} />
@@ -125,7 +212,7 @@ const App = () => {
 						<Route exact path='/ITCommission' component={ITCommission} />
 						<Route exact path='/BeautificationCommittee' component={BeautificationCommittee} />
 						<Route exact path='/MayorMary' component={MayorMaryProfile} />
-						<Route exact path='/AnimalControl' component={AnimalControl} />
+						<Route path='/AnimalControl/' component={AnimalControl} />
 						<Route exact path='/Police' component={PoliceLandingPage} />
 						<Route exact path='/PoliceDivisions' component={PoliceDivisions} />
 						<Route exact path='/CodeEnforcement' component={CodeEnforcement} />

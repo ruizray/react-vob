@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-export default  {
+export default {
 	name: "CTA",
 	title: "Call-To-Action",
 	type: "object",
@@ -8,56 +8,28 @@ export default  {
 			name: "CTAbody",
 			title: "Body Text",
 			type: "string",
-		
+			description: "Provide a description of the link",
 		},
 		{
 			name: "buttonText",
 			title: "Button Text",
-			description:"Text that will be displayed inside the button",
+			description: "Text that will be displayed inside the button",
 			type: "string",
 		},
-		{ name: "title", title: "Title", type: "string" },
-		{
-			name: "email",
-			title: "Email",
-			type: "string",
-		},
-		{
-			title: "Facebook",
-			name: "facebook",
-			type: "string",
-		},
-		{
-			name: "department",
-			title: "Department",
-			type: "string",
-			options: {
-				list: ["Police", "Fire"],
-			},
-		},
-		{
-			name: "image",
-			title: "Image",
-			type: "image",
-			options: {
-				hotspot: true,
-			},
-		},
-		
+		{ name: "CTAlink", title: "Link", description: "Where the link will redirect to", type: "string" },
 	],
 
 	preview: {
 		select: {
-			firstName: "firstName",
-			lastName: "lastName",
+			buttonText:"buttonText",
 			title: "title",
 			media: "mainImage",
 		},
 		prepare(selection) {
-			const { firstName, lastName, title } = selection;
+			const { firstName, buttonText } = selection;
 			return Object.assign({}, selection, {
-				title: `${firstName}`,
-                subtitle:  "Call-to-Action"
+				title: buttonText,
+				subtitle: "Call-to-Action",
 			});
 		},
 	},

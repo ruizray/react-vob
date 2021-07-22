@@ -1,24 +1,25 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
 	name: "navigation",
-	title: "Navigation",
 	type: "document",
+	title: "Navigation",
 	fields: [
-   
-    {
-			name: "contacts",
-			title: "Contacts",
-			type: "array",
-			of: [{ type: "page",}],
+		{
+			type: "string",
+			name: "name",
+			title: "Name",
 		},
 		{
+			type: "string",
 			name: "title",
 			title: "Title",
-			type: "string",
 		},
 		{
-			name: "description",
-			title: "Description",
-			type: "text",
+			type: "array",
+			name: "sections",
+			title: "Sections",
+			editModal: "fullscreen",
+			of: [{ type: "navigation.section" }],
 		},
 	],
 };

@@ -15,6 +15,20 @@ export default {
 			title: "Last Name",
 			type: "string",
 		},
+		{
+			name: "id",
+			title: "Id",
+			type: "slug",
+			description: "Need for collapsible components",
+			options: {
+				source: (doc)=> `${doc.lastName}-${doc.firstName}`,
+				maxLength: 96,
+				slugify: input => input
+                         .toLowerCase()
+                         .replace(/\s+/g, "-")
+                         .slice(0, 200)
+			},
+		},
 		{ name: "title", title: "Title", type: "string" },
 		{
 			name: "email",

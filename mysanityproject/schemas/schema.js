@@ -12,6 +12,8 @@ import mainSection from "./mainSection";
 import employee from "./employee";
 import subSection from "./subSection";
 import CTA from "./CTA";
+import navigationLink from "./navigationLink";
+import navigationSection from "./navigationSection";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
 	// We name our schema
@@ -30,6 +32,8 @@ export default createSchema({
 		mainSection,
 		employee,
 		navigation,
+		navigationLink,
+		navigationSection,
 		// When added to this list, object types can be used as
 		// { type: 'typename' } in other document schemas
     
