@@ -39,7 +39,7 @@ const ExecutiveDepartment = () => {
 					</QuoteWithPicture>
 				</Col>
 				<Col md={3} id='fadeInRight'>
-					<ContactSideBar people></ContactSideBar>
+					<ContactSideBar people={people}></ContactSideBar>
 				
 				</Col>
 			</Row>

@@ -137,6 +137,12 @@ const ContactCardSideBar = (props) => {
 		);
 	} else {
 		const { title, name, email, phone, fax, id } = props.person;
+<<<<<<< Updated upstream
+=======
+		
+		const idSlug = id
+		console.log(props, title, email, id)
+>>>>>>> Stashed changes
 		return (
 			<>
 				<Card className='w-100 border my-1 hover-shadow'>
@@ -208,7 +214,7 @@ const ContactSideBar = ({ people }) => {
 		<>
 			{Object.keys(people).map((person) => {
 				console.log(person)
-				return <ContactCardSideBar person={people[person]} />;
+				return <ContactCardSideBar person={people[person]} key={people[person].id} />;
 			})}
 		</>
 	);
