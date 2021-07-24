@@ -3,13 +3,7 @@ export default {
 	title: "Navigation",
 	type: "document",
 	fields: [
-   
-    {
-			name: "contacts",
-			title: "Contacts",
-			type: "array",
-			of: [{ type: "page",}],
-		},
+
 		{
 			name: "title",
 			title: "Title",
@@ -19,6 +13,13 @@ export default {
 			name: "description",
 			title: "Description",
 			type: "text",
+		},
+		{
+			type: "array",
+			name: "sections",
+			title: "Sections",
+			editModal: "fullscreen",
+			of: [{ type: "navigation.section" }],
 		},
 	],
 };

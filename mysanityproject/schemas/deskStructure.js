@@ -1,8 +1,15 @@
 // /deskStructure.js
 import S from "@sanity/desk-tool/structure-builder";
-
+import client from "part:@sanity/base/client";
+import React, { useState, useEffect } from "react";
+import { Col, Row , Container} from "reactstrap";
+import { ContactCardProfile, ContactSideBar } from "../../src/components/ContactInformation";
+import { ContentCard, ContentCardSubsection } from "../../src/components/ContentCard";
+import "../../src/css/stylesReact.css";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () =>
+
+
 	S.list({
 		id: "root",
 		title: "Content Editor",
@@ -23,9 +30,8 @@ export default () =>
 										defaultLayout: "default",
 										title: "/government",
 										id: "government",
-										 
-										items:  [
-										
+
+										items: [
 											S.listItem({
 												id: "agendas_minutes",
 												title: "Agendas and Minutes",
@@ -39,7 +45,7 @@ export default () =>
 														.initialValueTemplates([S.initialValueTemplateItem("governmentTemplate", { path })]);
 												},
 											}),
-											
+
 											S.documentListItem({
 												title: "Elected Officals",
 												id: "elected",
@@ -56,9 +62,16 @@ export default () =>
 										],
 									}),
 							}),
+							S.listItem({
+								id: "tester",
+								title: "Government",
+								child: (government) =>
+									S.documentTypeList("page")
+							}),
 						],
 					}),
 			}),
+			
 			S.listItem({
 				title: "Directory",
 				id: "directory",
@@ -82,22 +95,22 @@ export default () =>
 								child: (department) =>
 									S.documentList({ title: "Fire", id: "fireDocumentList" })
 										.filter('_type == "employee" && department == "Fire"')
-										.params({ department })
-										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee")]),
+										.params({ type:"employee" , department:"Fire"  })
+										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", {department:"Fire"})]),
 							}),
 							S.listItem({
 								title: "Executive",
 								id: "executiveEmployee",
-								child: (department) =>
+								child: () =>
 									S.documentList({ title: "Executive", id: "executiveDocumentList" })
 										.filter('_type == "employee" && department == "Executive"')
-										.params({ department })
+								
 										.initialValueTemplates([S.initialValueTemplateItem("executiveEmployee")]),
 							}),
 						],
 					}),
 			}),
 
-			S.documentTypeListItem('navigation')
+			S.documentTypeListItem("navigation"),
 		],
 	});

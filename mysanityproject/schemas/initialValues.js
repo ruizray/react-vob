@@ -19,10 +19,13 @@ export default [
 		id: "fireEmployee",
 		title: "Fire Employee",
 		schemaType: "employee",
+		parameters: [ {name:"department" , type:"string"}],
 
-		value: {
-			department: "Fire",
-		},
+		value: (params) => ({
+			department: params.department,
+			
+		}),
+	
 	}),
 
 	T.template({

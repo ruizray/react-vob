@@ -33,11 +33,17 @@ export default {
 			name: "mainComponents",
 			title: "Main Components",
 			type: "array",
-			of: [{type:"mainSection"}],
+			of: [{type:"paragraph"}],
 		},
 		{
 			name: "contacts",
 			title: "Contacts",
+			type: "array",
+			of: [{ type: "reference", to: { type: "employee" } }],
+		},
+		{
+			name: "tags",
+			title: "Path",
 			type: "array",
 			of: [{ type: "reference", to: { type: "employee" } }],
 		},

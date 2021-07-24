@@ -98,6 +98,7 @@ const ContactCardTree = (props) => {
 };
 
 const ContactCardSideBar = (props) => {
+	console.log(props);
 	if (props.Members) {
 		const [...Members] = props.Members;
 		return (
@@ -136,13 +137,15 @@ const ContactCardSideBar = (props) => {
 			</>
 		);
 	} else {
-		const { title, name, email, phone, fax, id } = props.person;
-<<<<<<< Updated upstream
-=======
-		
-		const idSlug = id
-		console.log(props, title, email, id)
->>>>>>> Stashed changes
+		var { title, name, email, phone, fax, id, firstName, lastName } = props.person;
+		if (firstName) {
+			name = firstName + " " + lastName;
+			id = props.person.id.current;
+		} else {
+			const idSlug = id;
+		}
+
+		console.log(props, title, email, id);
 		return (
 			<>
 				<Card className='w-100 border my-1 hover-shadow'>
@@ -209,15 +212,24 @@ const ContactCardSideBar = (props) => {
 };
 
 const ContactSideBar = ({ people }) => {
-	console.log(Object.keys(people));
-	return (
-		<>
-			{Object.keys(people).map((person) => {
-				console.log(person)
-				return <ContactCardSideBar person={people[person]} key={people[person].id} />;
-			})}
-		</>
-	);
+	console.log(people);
+	if (people.contacts) {
+		return (
+			<>
+				{people.contacts.map((person) => {
+					return <ContactCardSideBar person={person}></ContactCardSideBar>;
+				})}
+			</>
+		);
+	}else{
+		return (
+			<>
+				{people.map((person) => {
+					return <ContactCardSideBar person={person}></ContactCardSideBar>;
+				})}
+			</>
+		);
+	}
 };
 
 export { ContactCardSideBar, ContactCardProfile, ContactCardTree, ContactSideBar };

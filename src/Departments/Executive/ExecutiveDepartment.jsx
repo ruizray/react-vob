@@ -6,7 +6,7 @@ import { ContactSideBar } from "../../components/ContactInformation";
 import {ContentCard} from "../../components/ContentCard";
 const ExecutiveDepartment = () => {
 	const { Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA } = villageDirectory.Executive;
-	const people = { Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA }
+	const people = [ Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA ]
 	return (
 		<>
 			<Row className='gx-3'>

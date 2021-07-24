@@ -15,6 +15,11 @@ export default {
 	type: "object",
 	fields: [
 		{
+			name: "header",
+			title: "Header",
+			type: "string",
+		},
+		{
 			title: "Block Content",
 			name: "blockContent",
 			type: "array",
@@ -50,6 +55,11 @@ export default {
 										name: "href",
 										type: "url",
 									},
+									{
+										title: "URL",
+										name: "CTA",
+										type: "CTA",
+									},
 								],
 							},
 						],
@@ -62,17 +72,22 @@ export default {
 					type: "image",
 					options: { hotspot: true },
 				},
+				{
+					type: "CTA",
+					
+				},
 			],
 		},
 	],
 	preview: {
 		select: {
-
+			title:"header"
 		},
 		prepare(selection) {
-
+const {title} = selection
 			return Object.assign({}, selection, {
-				title: "Paragraph",
+				
+				title: title,
      
 			});
 		},

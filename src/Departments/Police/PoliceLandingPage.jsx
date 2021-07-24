@@ -7,7 +7,7 @@ import CallToAction from "../../components/CallToAction";
 import QuoteWithPicture from "./../../components/QuoteWithPicture";
 const PoliceLandingPage = () => {
 	const { AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence } = villageDirectory.Police;
-	const people = {AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence}
+	const people = [AnimalControl, PoliceChief, PoliceAdministration, AfterHours, Investigations, CodeEnforcement, Evidence]
 	return (
 		<>
 			<Row className='gx-3'>
