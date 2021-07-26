@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Row } from "reactstrap";
 import { ContentCard } from "../../components/ContentCard";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContactSideBar } from "../../components/ContactInformation";
-import CallToAction from "./../../components/CallToAction";
 const FireLandingPage = (props) => {
 	const {
 		FireAdministration,

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Row, Col } from "reactstrap";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContactCardSideBar } from "../../components/ContactInformation";
-import CallToAction from "../../components/CallToAction";
 import { ContentCard, ContentCardSubsection } from "../../components/ContentCard";
 import ScrollSpy from "../../components/ScrollSpy";
 const BeautificationCommittee = () => {

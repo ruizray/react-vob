@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardImg, CardTitle, Row, Col } from "reactstrap";
+import { Card, CardBody, CardImg, CardTitle} from "reactstrap";
 
 const LinkCard = (props) => {
 	return (
@@ -39,11 +39,14 @@ const TwoLinkCard = (props) => {
 					</CardTitle>
 					{props.buttons &&
 						props.buttons.map((button) => (
-							<a href={button.link} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark ripple w-100 mb-2 mt-auto' >
+							<a
+								href={button.link}
+								data-mdb-ripple-color='dark'
+								className='btn btn-outline-light border border-2 text-dark ripple w-100 mb-2 mt-auto'>
 								{button.text}
 							</a>
 						))}
-					
+
 					{/* <div className='align-items-end d-flex h-100 w-100'>
 						<a href={props.link} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark ripple w-100'>
 							Current
@@ -63,24 +66,33 @@ const TwoLinkCard = (props) => {
 	);
 };
 
-const FrontDoorLinkCard = (props) => {
-	const { imgLink, title, buttonLink } = props;
+const FrontDoorLinkCard = ({ imgLink, title, buttonLink,buttonText, button, icon, children }) => {
 	return (
 		<>
-			<Card className='card-raised h-100 border'>
-				<CardImg src={imgLink}></CardImg>
-				<CardBody className=' flex-column d-flex h-100 w-100 p-3'>
-					<CardTitle tag={"h4"} className='mb-2'>
-						{title}
-					</CardTitle>
-					{props.children}
-					<div className='align-items-end d-flex h-100 w-100'>
-						<a href={buttonLink} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark ripple'>
-							Visit
-						</a>
-					</div>
-				</CardBody>
-			</Card>
+			<a href={buttonLink} style={{ color: "inherit" }} className=''>
+				<Card className='card-raised h-100 border ripple'>
+					{imgLink && <CardImg src={imgLink}></CardImg>}
+
+					<CardBody className=' flex-column d-flex h-100 w-100 py-3 px-3'>
+						{icon && (
+							<i className='material-icons icon-lg ' style={{ fontSize: "2rem" }}>
+								{icon}
+							</i>
+						)}
+						<CardTitle tag={"h5"} className='mb-1'>
+							{title}
+						</CardTitle>
+						<p style={{ fontSize: "14px", lineHeight: "initial", marginBottom: "1px" }} className='text-muted mb-2'>
+							{children}
+						</p>
+						{button && (
+							<div href={buttonLink} data-mdb-ripple-color='dark' className='mt-2 text-primary ripple mt-auto '>
+								{buttonText}
+							</div>
+						)}
+					</CardBody>
+				</Card>
+			</a>
 		</>
 	);
 };

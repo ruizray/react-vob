@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
-import { LinkCard, TwoLinkCard } from "../components/LinkCard";
+import { TwoLinkCard } from "../components/LinkCard";
 
 const LandingPage = () => {
 	return (

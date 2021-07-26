@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Card, CardBody, CardImg, ListGroup, ListGroupItem } from "reactstrap";
-import { ContactCardSideBar, ContactSideBar } from "../../components/ContactInformation";
+import {  ContactSideBar } from "../../components/ContactInformation";
 import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContentCard } from "../../components/ContentCard";
 import CallToAction from "../../components/CallToAction";

@@ -1,8 +1,9 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
-const CallToAction = (props) => {
+import PropTypes from "prop-types";
+const CallToAction = ({ buttonText, buttonLink, color,children }) => {
 	let border = " CTA-primary";
-	const { buttonText, buttonLink, color } = props;
+
 	if (color) {
 		border = " CTA-" + color;
 	}
@@ -10,7 +11,7 @@ const CallToAction = (props) => {
 	return (
 		<Card className={"border w-100 text-center my-4" + border}>
 			<CardBody>
-				{props.children}
+				{children}
 				<a href={buttonLink} className= "stretched-link">
 				<button  style={{ width: "fit-content" }} color='primary' className='btn btn-primary align-self-center '>
 					{buttonText}
@@ -22,3 +23,8 @@ const CallToAction = (props) => {
 };
 
 export default CallToAction;
+CallToAction.propTypes = {
+	buttonText: PropTypes.string,
+	buttonLink: PropTypes.string,
+	color: PropTypes.string,
+};

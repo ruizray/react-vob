@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Row } from "reactstrap";
 import { ContentCard, ContentCardImage, ContentCardSubsection } from "../components/ContentCard";
 import ScrollSpy from "./../components/ScrollSpy";

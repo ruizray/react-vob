@@ -126,7 +126,7 @@ const App = () => {
 					</div>
 				</nav>
 
-				{/* <nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
+				<nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
 					<div className='container-fluid justify-content-center'>
 						<ul className='navbar-nav'>
 							<NavRoot text='Government'>
@@ -179,10 +179,10 @@ const App = () => {
 							<NavRoot text='Front Door' to='/FrontDoor'></NavRoot>
 						</ul>
 					</div>
-				</nav> */}
+				</nav>
 			</div>
 			<GenerateHTML>
-				<Container>
+				<Container className="customCSS">
 					<LastUpdated>
 						<Route exact path='/departmentLandingPage' component={LandingPage} />
 						{/* <Route component={OnePost} path='/:slug' /> */}
@@ -229,7 +229,7 @@ const App = () => {
 export default App;
 
 const NavRoot = (props) => {
-	const { id, text, to, key } = props;
+	const { id, text, to } = props;
 	if (to) {
 		return (
 			<li key={id} className='nav-item dropdown'>

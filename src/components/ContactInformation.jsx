@@ -141,9 +141,7 @@ const ContactCardSideBar = (props) => {
 		if (firstName) {
 			name = firstName + " " + lastName;
 			id = props.person.id.current;
-		} else {
-			const idSlug = id;
-		}
+		} 
 
 		console.log(props, title, email, id);
 		return (

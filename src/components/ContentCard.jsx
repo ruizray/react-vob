@@ -1,53 +1,48 @@
 import React from "react";
 import { CardBody, Card, CardTitle } from "reactstrap";
-const ContentCard = (props) => {
-	const { header, id } = props;
-
+import PropTypes from "prop-types";
+const ContentCard = ({ header, id, children }) => {
 	return (
 		<section id={id} className='sectionMain'>
 			<CardBody className=' clamped w-100 my-0 py-1'>
 				{/* <i className='material-icons icon-lg text-dark'>{icon}</i> */}
 				<h1 className='display-6'>{header}</h1>
-				{props.children}
+				{children}
 			</CardBody>
 		</section>
 	);
 };
 
-const ContentCardSubsection = (props) => {
-	const { subHeader, id } = props;
-
+const ContentCardSubsection = ({ subHeader, id, children }) => {
 	return (
 		<section id={id} className='subsection'>
 			<h4 style={{ fontWeight: "500", color: "#014b82", marginBottom: "0.25rem" }}>{subHeader}</h4>
-			{props.children}
+			{children}
 		</section>
 	);
 };
 
 const ContentCardImage = ({ src, caption, alt, imageStyle }) => {
-	
 	return (
-		<figure class='figure w-100' style={ { textAlign: "center" }}>
+		<figure class='figure w-100' style={{ textAlign: "center" }}>
 			<img src={src} class={"figure-img img-fluid shadow-3 mb-3 " + imageStyle} alt={alt} />
-			{caption && (<figcaption class='figure-caption'>{"Pictured: " + caption}</figcaption>)}
+			{caption && <figcaption class='figure-caption'>{"Pictured: " + caption}</figcaption>}
 		</figure>
 	);
 };
 
-const FrontDoorCard = (props) => {
-	const { header, icon, buttonText, buttonLink } = props;
-	const str = header.replace(/\s/g, "");
+const FrontDoorCard = ({ header, icon, buttonText, buttonLink, children }) => {
+	// const str = header.replace(/\s/g, "");
 	return (
 		<Card className='card-raised ripple h-100 border'>
-			<CardBody className=' flex-column d-flex h-100 w-100 p-3'>
-				<i className='material-icons icon-lg ' style={{ fontSize: "3rem" }}>
+			<CardBody className=' flex-column d-flex h-100 w-100 py-3 px-2'>
+				<i className='material-icons icon-lg ' style={{ fontSize: "1rem" }}>
 					{icon}
 				</i>
 				<CardTitle tag={"h4"} className='mb-2'>
 					{header}
 				</CardTitle>
-				{props.children}
+				{children}
 				<div className='align-items-end d-flex h-100 w-100'>
 					<a href={buttonLink} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark stretched-link'>
 						{buttonText}
@@ -58,3 +53,23 @@ const FrontDoorCard = (props) => {
 	);
 };
 export { ContentCard, ContentCardSubsection, FrontDoorCard, ContentCardImage };
+ContentCard.propTypes = {
+	header: PropTypes.string,
+	id: PropTypes.string,
+};
+ContentCardSubsection.propTypes = {
+	subHeader: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+};
+ContentCardImage.propTypes = {
+	src: PropTypes.string,
+	caption: PropTypes.string,
+	alt: PropTypes.string,
+	imageStyle: PropTypes.string,
+};
+FrontDoorCard.propTypes = {
+	header: PropTypes.string,
+	icon: PropTypes.string,
+	buttonText: PropTypes.string,
+	buttonLink: PropTypes.string,
+};
