@@ -1,4 +1,4 @@
-import { React} from "react";
+import { React, useState, useEffect } from "react";
 import { Container } from "reactstrap";
 import { Route, NavLink } from "react-router-dom";
 import "./css/stylesReact.css";
@@ -30,43 +30,43 @@ import CitizensOfTheYear from "./Residents/CitizensOfTheYear";
 import EmergencyMedicalSerices from "./Departments/Fire/Fire Divisions/EmergencyMedicalServices";
 import FirePreventionBureau from "./Departments/Fire/Fire Divisions/FirePreventionBureau";
 import FireTraining from "./Departments/Fire/Fire Divisions/FireTraining";
-import ITDepartmentLandingPage from './Departments/IT/ITDepartmentLandingPage';
+import ITDepartmentLandingPage from "./Departments/IT/ITDepartmentLandingPage";
 import sanityClient from "./client";
 import OnePost from "./OnePost";
 const App = () => {
-	
+	const [postData, setPostData] = useState(null);
 
-	// useEffect(() => {
-	// 	sanityClient
-	// 		.fetch(
-	// 			`//groq
-	// 	  *[_type == 'navigation'][0] {
-	// 	   ...,
-	// 	   sections[]{
-	// 		 ...,
-	// 		 target->{title, slug, _id},
-	// 		 links[]{
-	// 		   ...,
-	// 		   target->{title, slug, _id},
-	// 		   children[]{
-	// 			 ...,
-	// 			 target->{title, slug, _id},
-	// 			 children[]{
-	// 				...,
-	// 				target->{title, slug, _id}
-	// 			 }
-	// 		   }
-	// 		 }
-	// 	   }
-	// 	 }
-	// 	 `
-	// 		)
-	// 		.then((data) => {
-	// 			console.log(data);
-	// 			setAllPosts(data);
-	// 		})
-	// 		.catch(console.error);
-	// }, []);
+	useEffect(() => {
+		sanityClient
+			.fetch(
+				`//groq
+		  *[_type == 'navigation'] {
+		   ...,
+		   sections[]{
+			 ...,
+			 target->{title, slug, _id},
+			 links[]{
+			   ...,
+			   target->{title, slug, _id},
+			   children[]{
+				 ...,
+				 target->{title, slug, _id},
+				 children[]{
+					...,
+					target->{title, slug, _id}
+				 }
+			   }
+			 }
+		   }
+		 }
+		 `
+			)
+			.then((data) => {
+				console.log(data);
+				setPostData(data);
+			})
+			.catch(console.error);
+	}, []);
 
 	return (
 		<>
@@ -80,26 +80,35 @@ const App = () => {
 						/>
 					</div>
 				</div>
-				{/* <nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
+				<nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
 					<div className='container-fluid justify-content-center'>
 						<ul className='navbar-nav'>
-							{allPostsData &&
-								allPostsData.sections.map((level1) => (
-									<NavRoot text={level1.title}>
-										{level1.links &&
-											level1.links.map((level2) => {
-												console.log("/" + level2.target.slug.current);
+							{postData &&
+								postData.map((level1) => (
+									<NavRoot key={level1._key} text={level1.title}>
+										{level1.sections &&
+											level1.sections.map((level2) => {
+												/* Fire, Police, Executive etc */
+
 												return (
-													<NavDropDownItem text={level2.title} to={"/" + level2.target.slug.current}>
-														{level2.children &&
-															level2.children.map((level3) => {
+													<NavDropDownItem
+														text={level2.title}
+														key={level2._key}
+														to={"/preview/" + level2.target.slug.current}>
+														{level2.links &&
+															level2.links.map((level3) => {
+																/* Commissions, Smoke Detectors, etc */
 																return (
-																	<NavDropDownItem text={level3.title} to={"/" + level3.target.slug.current}>
-																		{level3.children &&
-																			level3.children.map((level4) => {
+																	<NavDropDownItem
+																		text={level3.target.title}
+																		key={level3._key}
+																		to={"/preview/" + level3.target.slug.current}>
+																		{level3.links &&
+																			level3.links.map((level4) => {
 																				return (
 																					<NavDropDownItem
 																						text={level4.title}
+																						key={level4._key}
 																						to={
 																							"/" + level4.target.slug.current
 																						}></NavDropDownItem>
@@ -113,12 +122,11 @@ const App = () => {
 											})}
 									</NavRoot>
 								))}
-							
 						</ul>
 					</div>
-				</nav> */}
+				</nav>
 
-				<nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
+				{/* <nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
 					<div className='container-fluid justify-content-center'>
 						<ul className='navbar-nav'>
 							<NavRoot text='Government'>
@@ -171,7 +179,7 @@ const App = () => {
 							<NavRoot text='Front Door' to='/FrontDoor'></NavRoot>
 						</ul>
 					</div>
-				</nav>
+				</nav> */}
 			</div>
 			<GenerateHTML>
 				<Container>
@@ -221,10 +229,10 @@ const App = () => {
 export default App;
 
 const NavRoot = (props) => {
-	const { id, text, to } = props;
+	const { id, text, to, key } = props;
 	if (to) {
 		return (
-			<li className='nav-item dropdown'>
+			<li key={id} className='nav-item dropdown'>
 				<NavLink className='mx-2' style={{ color: "#4f4f4f" }} to={to}>
 					{text}
 				</NavLink>
@@ -232,12 +240,12 @@ const NavRoot = (props) => {
 		);
 	} else {
 		return (
-			<li className='nav-item dropdown'>
+			<li key={id} className='nav-item dropdown'>
 				<div className='dropdown-toggle mx-2' href={to} id={id} role='button' data-mdb-toggle='dropdown' aria-expanded='false'>
 					{text}
 				</div>
 				{props.children && (
-					<ul style={{ fontSize: "1.5rem" }} className='dropdown-menu' aria-labelledby={id}>
+					<ul key={"LI"+id} style={{ fontSize: "1.5rem" }} className='dropdown-menu' aria-labelledby={id}>
 						{props.children}
 					</ul>
 				)}
@@ -250,7 +258,7 @@ const NavDropDownItem = (props) => {
 	const { to, text } = props;
 	return (
 		<li>
-			<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to={to}>
+			<NavLink key={to} className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to={to}>
 				{!props.children ? text : text + " »"}
 			</NavLink>
 			{props.children && <ul className='dropdown-menu dropdown-submenu'>{props.children}</ul>}

@@ -11,9 +11,11 @@ const CallToAction = (props) => {
 		<Card className={"border w-100 text-center my-4" + border}>
 			<CardBody>
 				{props.children}
-				<button href={buttonLink} style={{ width: "fit-content" }} color='primary' className='btn btn-primary stretched-link align-self-center '>
+				<a href={buttonLink} className= "stretched-link">
+				<button  style={{ width: "fit-content" }} color='primary' className='btn btn-primary align-self-center '>
 					{buttonText}
 				</button>
+				</a>
 			</CardBody>
 		</Card>
 	);

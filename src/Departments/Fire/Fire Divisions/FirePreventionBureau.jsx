@@ -112,7 +112,7 @@ const FirePreventionBureau = (props) => {
 								purchase smoke alarms.
 							</li>
 						</ul>
-						<ContentCardSubsection subheader='Where should smoke alarms be installed?'>
+						<ContentCardSubsection id="WhereToInstall" subheader='Where should smoke alarms be installed?'>
 							<ul>
 								<li> Install a smoke alarm in (or immediately outside) each bedroom in the home.</li>
 								<li>Install an additional smoke alarm in each major living space.</li>
@@ -142,7 +142,7 @@ const FirePreventionBureau = (props) => {
 							wireless mesh network. Any power loss by the radios are reported automatically to the Wescom Dispatch Center, which is
 							operated by 911 dispatchers, 24 hours a day. There is no third party processing the alarm.
 						</p>
-						<ContentCardSubsection subheader='How Wireless Alarm Monitoring affects you'>
+						<ContentCardSubsection id="WirelessAlarmEffects" subHeader='How Wireless Alarm Monitoring affects you'>
 							<ul>
 								<li>Eliminates the need for expensive dedicated phone lines</li>
 								<li>Reduces the number of false alarms from phone line ground faults</li>

@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+import React from "react";
 export default {
 	name: "employee",
 	title: "Employee",
@@ -71,7 +72,7 @@ export default {
 			return Object.assign({}, selection, {
 				title: `${firstName} ${lastName} `,
                 subtitle:  `${title}`,
-				media:media,
+				media:media ? media : <i class=" material-icons text-center" style={{verticalAlign:"middle", fontSize:"xxx-large"}}>person</i>
 			});
 		},
 	},

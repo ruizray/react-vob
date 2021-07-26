@@ -1,16 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
+
 export default {
 	name: "page",
 	title: "Page",
 	type: "document",
 	fields: [
-		{
-			name:"path",
-			title:"Path",
-			type:'string',
-			readOnly:true
-		
-		},
 		{
 			name: "title",
 			title: "Title",
@@ -21,19 +15,24 @@ export default {
 			title: "Slug",
 			type: "slug",
 			options: {
-				source: (doc) => `${doc.path}${doc.title}`,
+				source: "title",
 				maxLength: 96,
-				slugify: input => input
-                         .toLowerCase()
-                         .replace(/\s+/g, "-")
-                         .slice(0, 200)
+				slugify: (input) => input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
 			},
 		},
-        {
+		{
+			name: "scrollspy",
+			title: "Scrollspy",
+			type: "boolean",
+		},
+		{
 			name: "mainComponents",
 			title: "Main Components",
 			type: "array",
-			of: [{type:"paragraph"}],
+			options: {
+				editModal: "fullscreen",
+			},
+			of: [{ type: "paragraph" }],
 		},
 		{
 			name: "contacts",
@@ -52,24 +51,19 @@ export default {
 			title: "Published at",
 			type: "datetime",
 		},
-		{
-			name: "body",
-			title: "Body",
-			type: "paragraph",
-		},
 	],
 
 	preview: {
 		select: {
-			title: "title",
-			author: "author.name",
-			media: "mainImage",
+			test: "title",
+			subtitle: "slug.current",
 		},
 		prepare(selection) {
-			const { author } = selection;
-			return Object.assign({}, selection, {
-				subtitle: author && `by ${author}`,
-			});
+			const { test, subtitle } = selection;
+			return {
+				title:test,
+				subtitle:subtitle && `${subtitle}`,
+			}
 		},
 	},
 };

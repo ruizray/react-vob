@@ -3612,6 +3612,11 @@ decamelize@^1.0.0, decamelize@^1.1.1:
   resolved "https://registry.npmjs.org/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
+decamelize@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/decamelize/-/decamelize-5.0.0.tgz#88358157b010ef133febfd27c18994bd80c6215b"
+  integrity sha512-U75DcT5hrio3KNtvdULAWnLiAPbFUC4191ldxMmj4FA/mRuBnmDwU0boNfPyFRhnan+Jm+haLeSn3P0afcBn4w==
+
 decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
@@ -4556,6 +4561,11 @@ framesync@5.3.0:
   integrity sha512-oc5m68HDO/tuK2blj7ZcdEBRx3p1PjrgHazL8GYEpvULhrtGIFbQArN6cQS2QhW8mitffaB+VYzMjDqBxxQeoA==
   dependencies:
     tslib "^2.1.0"
+
+framework7-icons@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/framework7-icons/-/framework7-icons-4.0.2.tgz#bd6ad936422efc12341e8fbe69975b7d557afc66"
+  integrity sha512-YxEe5RwH86P/5ysPOyG4e4tfFTwnkQUDdzRpoa/eyPVXPIlVWoSmet2NialmvpGlHXRb+oHP32k0Ka5K0Ex6oQ==
 
 fresh@0.5.2:
   version "0.5.2"
@@ -6066,6 +6076,11 @@ mem@^1.1.0:
   integrity sha1-Xt1StIXKHZAP5kiVUFOZoN+kX3Y=
   dependencies:
     mimic-fn "^1.0.0"
+
+"memoize-one@>=3.1.1 <6":
+  version "5.2.1"
+  resolved "https://registry.npmjs.org/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
+  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
 
 memoize-one@^3.1.1:
   version "3.1.1"
@@ -7904,6 +7919,11 @@ react-icons@3.10.0:
   dependencies:
     camelcase "^5.0.0"
 
+react-icons@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
+  integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
+
 react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -8015,6 +8035,19 @@ react-tiny-virtual-list@^2.0.5:
   integrity sha512-MDiy2xyqfvkWrRiQNdHFdm36lfxmcLLKuYnUqcf9xIubML85cmYCgzBJrDsLNZ3uJQ5LEHH9BnxGKKSm8+C0Bw==
   dependencies:
     prop-types "^15.5.7"
+
+react-virtualized-auto-sizer@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/react-virtualized-auto-sizer/-/react-virtualized-auto-sizer-1.0.5.tgz#9eeeb8302022de56fbd7a860b08513120ce36509"
+  integrity sha512-kivjYVWX15TX2IUrm8F1jaCEX8EXrpy3DD+u41WGqJ1ZqbljWpiwscV+VxOM1l7sSIM1jwi2LADjhhAJkJ9dxA==
+
+react-window@^1.8.6:
+  version "1.8.6"
+  resolved "https://registry.npmjs.org/react-window/-/react-window-1.8.6.tgz#d011950ac643a994118632665aad0c6382e2a112"
+  integrity sha512-8VwEEYyjz6DCnGBsd+MgkD0KJ2/OXFULyDtorIiTz+QzwoP94tBoA7CnbtyXMm+cCeAUER5KJcPtWl9cpKbOBg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
 
 react@16.13.1:
   version "16.13.1"
@@ -8484,6 +8517,18 @@ sanity-plugin-content-model-graph@^1.1.1:
     react-icons "3.10.0"
     styled-components "5.1.0"
     viz.js "2.1.2"
+
+sanity-plugin-icon-picker@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/sanity-plugin-icon-picker/-/sanity-plugin-icon-picker-2.0.1.tgz#d3b2dc64d047a1d5feb9a9bd9e72c9ee694a4f0f"
+  integrity sha512-yXSmWkxnzzPVTyLCaCwCeEOGPCqVUxN0DQ/s3wRHhgdEh9zVxTZgW5UMxByvje1uqjTL4XwFUecQgfPN8km/9A==
+  dependencies:
+    "@sanity/icons" "^1.1.3"
+    decamelize "^5.0.0"
+    framework7-icons "^4.0.2"
+    react-icons "^4.2.0"
+    react-virtualized-auto-sizer "^1.0.5"
+    react-window "^1.8.6"
 
 sax@~1.2.4:
   version "1.2.4"

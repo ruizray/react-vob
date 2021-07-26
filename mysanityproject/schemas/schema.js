@@ -14,6 +14,7 @@ import subSection from "./subSection";
 import CTA from "./CTA";
 import navigationLink from "./navigationLink";
 import navigationSection from "./navigationSection";
+import customImage from "./customImage";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
 	// We name our schema
@@ -33,14 +34,10 @@ export default createSchema({
 			navigation,
 			navigationLink,
 			navigationSection,
+		customImage,
 		// When added to this list, object types can be used as
 		// { type: 'typename' } in other document schemas
     
 		paragraph,
-		{
-			title: "test",
-			name: "greeting",
-			type: "string",
-		},
 	]),
 });

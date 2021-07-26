@@ -9,6 +9,24 @@
  *    type: 'blockContent'
  *  }
  */
+import React from "react";
+import { Link } from "react-router-dom";
+const iconRender = (props) => {
+	console.log(props);
+	if (props.children.text === " ") {
+		return <></>;
+	} else {
+		return (
+			<>
+				<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+					{props.icon}
+				</i>
+				{props.text}
+			</>
+		);
+	}
+};
+
 export default {
 	title: "Paragraph",
 	name: "paragraph",
@@ -23,6 +41,7 @@ export default {
 			title: "Block Content",
 			name: "blockContent",
 			type: "array",
+			editModal: "fullscreen",
 			of: [
 				{
 					title: "Block",
@@ -31,9 +50,7 @@ export default {
 					// correspond with HTML tags, but you can set any title or value
 					// you want and decide how you want to deal with it where you want to
 					// use your content.
-					styles: [
-						{ title: "Normal", value: "normal" },
-					],
+					styles: [{ title: "Normal", value: "normal" }],
 					lists: [{ title: "Bullet", value: "bullet" }],
 					// Marks let you mark up inline text in the block editor.
 					marks: {
@@ -42,6 +59,14 @@ export default {
 						decorators: [
 							{ title: "Strong", value: "strong" },
 							{ title: "Emphasis", value: "em" },
+
+							{
+								title: "Icon",
+								value: "icon",
+								blockEditor: {
+									render: iconRender,
+								},
+							},
 						],
 						// Annotations can be any object structure – e.g. a link or a footnote.
 						annotations: [
@@ -55,10 +80,25 @@ export default {
 										name: "href",
 										type: "url",
 									},
+								],
+							},
+							{
+								title: "Icon with Text",
+								name: "iconWithText",
+								type: "object",
+								blockEditor: {
+									render: iconRender,
+								},
+								fields: [
 									{
-										title: "URL",
-										name: "CTA",
-										type: "CTA",
+										title: "icon",
+										name: "icon",
+										type: "string",
+									},
+									{
+										title: "Text",
+										name: "text",
+										type: "text",
 									},
 								],
 							},
@@ -74,21 +114,24 @@ export default {
 				},
 				{
 					type: "CTA",
-					
+				},
+				{
+					type: "customImage",
+				},
+				{
+					type: "subSection",
 				},
 			],
 		},
 	],
 	preview: {
 		select: {
-			title:"header"
+			title: "header",
 		},
 		prepare(selection) {
-const {title} = selection
+			const { title } = selection;
 			return Object.assign({}, selection, {
-				
 				title: title,
-     
 			});
 		},
 	},
