@@ -15,6 +15,12 @@ export default () =>
 				child: () =>
 				S.documentTypeList("page")
 			}),
+			S.listItem({
+				title: "Landing Pages",
+				id: "landingPages",
+				child: () =>
+				S.documentTypeList("landingPage")
+			}),
 			
 			S.listItem({
 				title: "Directory",

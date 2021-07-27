@@ -15,6 +15,8 @@ import CTA from "./CTA";
 import navigationLink from "./navigationLink";
 import navigationSection from "./navigationSection";
 import customImage from "./customImage";
+import linkCard from "./linkCard";
+import landingPage from "./landingPage";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
 	// We name our schema
@@ -26,18 +28,20 @@ export default createSchema({
 	types: schemaTypes.concat([
 		// The following are document types which will appear
 		// in the studio.
-			subSection,
-			CTA,
-			pages,
-			mainSection,
-			employee,
-			navigation,
-			navigationLink,
-			navigationSection,
+		subSection,
+		CTA,
+		pages,
+		mainSection,
+		employee,
+		navigation,
+		navigationLink,
+		navigationSection,
+		linkCard,
+		landingPage,
 		customImage,
 		// When added to this list, object types can be used as
 		// { type: 'typename' } in other document schemas
-    
+
 		paragraph,
 	]),
 });

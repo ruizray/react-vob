@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 
 import T from "@sanity/base/initial-value-template-builder";
-import { string } from "prop-types";
+
 
 export default [
 	...T.defaults(),

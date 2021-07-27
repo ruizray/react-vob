@@ -17,7 +17,7 @@ export default {
 			type: "reference",
 			name: "target",
 			title: "Landing Page",
-			to: [{ type: "page" }],
+			to: [{ type: "page" }, {type:"landingPage"}],
 			description: "No target page turns the item into a subheading.",
 			// _weak: true // enable if you don't want reference integrity checks
 		},

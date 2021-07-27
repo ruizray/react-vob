@@ -38,12 +38,13 @@ const TwoLinkCard = (props) => {
 						{props.title}
 					</CardTitle>
 					{props.buttons &&
-						props.buttons.map((button) => (
+						props.buttons.map((button, index) => (
 							<a
-								href={button.link}
+								href={button.link || button.url}
 								data-mdb-ripple-color='dark'
+								key={index}
 								className='btn btn-outline-light border border-2 text-dark ripple w-100 mb-2 mt-auto'>
-								{button.text}
+								{button.text || button.linkText}
 							</a>
 						))}
 

@@ -4,7 +4,6 @@ import { Route, NavLink } from "react-router-dom";
 import "./css/stylesReact.css";
 import "./css/OrgChart.css";
 
-import LandingPage from "./Departments/LandingPage";
 import ExecutiveDepartment from "./Departments/Executive/ExecutiveDepartment";
 import GenerateHTML from "./components/generateHTML";
 import OrgChart from "./OrgChart/OrgChart";
@@ -33,6 +32,7 @@ import FireTraining from "./Departments/Fire/Fire Divisions/FireTraining";
 import ITDepartmentLandingPage from "./Departments/IT/ITDepartmentLandingPage";
 import sanityClient from "./client";
 import OnePost from "./OnePost";
+import LandingPage from "./LandingPage";
 const App = () => {
 	const [postData, setPostData] = useState(null);
 
@@ -42,9 +42,10 @@ const App = () => {
 				`//groq
 		  *[_type == 'navigation'] {
 		   ...,
+		   target->{slug},
 		   sections[]{
 			 ...,
-			 target->{title, slug, _id},
+			 target->{title, slug, _id, _type},
 			 links[]{
 			   ...,
 			   target->{title, slug, _id},
@@ -85,42 +86,57 @@ const App = () => {
 						<ul className='navbar-nav'>
 							{postData &&
 								postData.map((level1) => (
-									<NavRoot key={level1._key} text={level1.title}>
-										{level1.sections &&
-											level1.sections.map((level2) => {
-												/* Fire, Police, Executive etc */
+									<>
+										<NavRoot key={level1._key} text={level1.title}>
+											{level1.target && (
+												<NavDropDownItem
+													text={level1.title + " Landing Page"}
+													key={level1._key}
+													to={"/preview2/" + level1.target.slug.current}></NavDropDownItem>
+											)}
+											{level1.sections &&
+												level1.sections.map((level2) => {
+													/* Fire, Police, Executive etc */
 
-												return (
-													<NavDropDownItem
-														text={level2.title}
-														key={level2._key}
-														to={"/preview/" + level2.target.slug.current}>
-														{level2.links &&
-															level2.links.map((level3) => {
-																/* Commissions, Smoke Detectors, etc */
-																return (
-																	<NavDropDownItem
-																		text={level3.target.title}
-																		key={level3._key}
-																		to={"/preview/" + level3.target.slug.current}>
-																		{level3.links &&
-																			level3.links.map((level4) => {
-																				return (
-																					<NavDropDownItem
-																						text={level4.title}
-																						key={level4._key}
-																						to={
-																							"/" + level4.target.slug.current
-																						}></NavDropDownItem>
-																				);
-																			})}
-																	</NavDropDownItem>
-																);
-															})}
-													</NavDropDownItem>
-												);
-											})}
-									</NavRoot>
+													return (
+														<NavDropDownItem
+															text={level2.title}
+															key={level2._key}
+															to={() => {
+																console.log(level2)
+																if (level2.target._type === "landingPage") {
+																	return "/preview2/" + level2.target.slug.current;
+																} else {
+																	return "/preview/" + level2.target.slug.current;
+																}
+															}}>
+															{level2.links &&
+																level2.links.map((level3) => {
+																	/* Commissions, Smoke Detectors, etc */
+																	return (
+																		<NavDropDownItem
+																			text={level3.target.title}
+																			key={level3._key}
+																			to={"/preview/" + level3.target.slug.current}>
+																			{level3.links &&
+																				level3.links.map((level4) => {
+																					return (
+																						<NavDropDownItem
+																							text={level4.title}
+																							key={level4._key}
+																							to={
+																								"/" + level4.target.slug.current
+																							}></NavDropDownItem>
+																					);
+																				})}
+																		</NavDropDownItem>
+																	);
+																})}
+														</NavDropDownItem>
+													);
+												})}
+										</NavRoot>
+									</>
 								))}
 						</ul>
 					</div>
@@ -182,7 +198,7 @@ const App = () => {
 				</nav>
 			</div>
 			<GenerateHTML>
-				<Container className="customCSS">
+				<Container className='customCSS'>
 					<LastUpdated>
 						<Route exact path='/departmentLandingPage' component={LandingPage} />
 						{/* <Route component={OnePost} path='/:slug' /> */}
@@ -219,6 +235,7 @@ const App = () => {
 						<Route exact path='/PoliceDivisions' component={PoliceDivisions} />
 						<Route exact path='/CodeEnforcement' component={CodeEnforcement} />
 						<Route component={OnePost} path='/preview/:slug' />
+						<Route component={LandingPage} path='/preview2/:slug' />
 					</LastUpdated>
 				</Container>
 			</GenerateHTML>
@@ -245,7 +262,7 @@ const NavRoot = (props) => {
 					{text}
 				</div>
 				{props.children && (
-					<ul key={"LI"+id} style={{ fontSize: "1.5rem" }} className='dropdown-menu' aria-labelledby={id}>
+					<ul key={"LI" + id} style={{ fontSize: "1.5rem" }} className='dropdown-menu' aria-labelledby={id}>
 						{props.children}
 					</ul>
 				)}
