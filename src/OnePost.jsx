@@ -10,6 +10,8 @@ import ScrollSpy from "./components/ScrollSpy";
 
 export default function OnePost() {
 	const [postData, setPostData] = useState(null);
+	
+
 	const { slug } = useParams();
 
 	useEffect(() => {
@@ -27,22 +29,25 @@ export default function OnePost() {
 			.then((data) => {
 				console.log("DATA from sanity", data);
 				setPostData(data[0]);
-
 			})
 			.catch(console.error);
 	}, [slug]);
 
+
+
 	const serializers = {
 		types: {
 			block: (props) => {
-				console.log("%c Block", "color:green", props);
-				return <p>{props.children}</p>;
+				console.log("%c Block", "color:green", props.node.markDefs);
+				if (props.node.markDefs.length > 0 && props.node.markDefs[0].subheader === true) {
+					return <p className='lead mb-1 text-muted'>{props.children}</p>;
+				} else {
+					return <p>{props.children}</p>;
+				}
 			},
 			CTA: (props) => {
 				console.log("%c CTA ", "color:purple", props);
-
 				const { CTAbody, buttonText, buttonLink } = props.node;
-
 				return (
 					<CallToAction buttonText={buttonText} buttonLink={buttonLink}>
 						<p>{CTAbody}</p>
@@ -81,24 +86,40 @@ export default function OnePost() {
 		},
 	};
 
-	if (!postData) return <div>Loading...</div>;
+	if (!postData)
+		return (
+			<Row className='gx-3'>
+				<Col md={3}> </Col>
+				<Col id='fadeInTop' md={6}>
+					<div
+						style={{ width: "6rem", height: "6rem", marginRight: "auto", marginLeft: "auto", display: "block" }}
+						className='spinner-border'
+						role='status'>
+						<span className='visually-hidden'>Loading...</span>
+					</div>
+				</Col>
+				<Col md={3} id='fadeInRight'></Col>
+			</Row>
+		);
 
 	return (
 		<div>
 			<Row className='gx-3'>
-				<Col md={3}>{postData.scrollspy && <ScrollSpy></ScrollSpy>} </Col>
+				<Col md={3}>{postData.scrollspy && <ScrollSpy ></ScrollSpy>} </Col>
 				<Col id='fadeInTop' md={6}>
 					{postData.mainComponents &&
 						postData.mainComponents.map((mainComponentContainer) => {
 							console.log(mainComponentContainer);
+						
 							return (
 								<ContentCard id={mainComponentContainer._key} icon='front_hand' header={mainComponentContainer.header}>
-									<BlockContent blocks={mainComponentContainer.blockContent} serializers={serializers} />
+									<BlockContent test={mainComponentContainer._key} blocks={mainComponentContainer.blockContent} serializers={serializers} />
 								</ContentCard>
 							);
 						})}
 				</Col>
 				<Col md={3} id='fadeInRight'>
+					
 					{postData.contacts && <ContactSideBar people={postData.contacts}></ContactSideBar>}
 				</Col>
 			</Row>

@@ -40,6 +40,7 @@ export default {
 				},
 			],
 		},
+		
 	],
 	preview: {
 		select: {
@@ -50,7 +51,7 @@ export default {
 			const { icon, text } = selection;
 			return Object.assign({}, selection, {
 				title: text,
-				media: (icon && 
+				media: icon && (
 					<i class=' material-icons text-center' style={{ verticalAlign: "middle", fontSize: "xx-large" }}>
 						{icon}
 					</i>

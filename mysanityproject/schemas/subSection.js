@@ -1,5 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from "react";
+import styles from "../variableOverrides.css"
+const IconSubheaderWrapper = ({ condition, wrapper, children }) => {
+	return condition ? wrapper(children) : children;
+};
+
 const iconRender = (props) => {
 	console.log(props);
 	if (props.children.text === " ") {
@@ -7,14 +12,19 @@ const iconRender = (props) => {
 	} else {
 		return (
 			<>
-				<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
-					{props.icon}
-				</i>
-				{props.text}
+				<IconSubheaderWrapper condition={props.subheader} wrapper={(children) => <span className={styles.lead}>{children}</span>}>
+					<span style={{ backgroundColor: "white" }}>
+						<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+							{props.icon}
+						</i>
+						{props.text}
+					</span>
+				</IconSubheaderWrapper>
 			</>
 		);
 	}
 };
+
 export default {
 	name: "subSection",
 	title: "Sub Section",
@@ -46,7 +56,7 @@ export default {
 						decorators: [
 							{ title: "Strong", value: "strong" },
 							{ title: "Emphasis", value: "em" },
-							
+
 							{
 								title: "Icon",
 								value: "icon",
@@ -83,6 +93,11 @@ export default {
 										type: "string",
 									},
 									{
+										title: "Subheader",
+										name: "subheader",
+										type: "boolean",
+									},
+									{
 										title: "Text",
 										name: "text",
 										type: "text",
@@ -105,17 +120,14 @@ export default {
 				{
 					type: "customImage",
 				},
-			]	
-		}
+			],
+		},
 	],
-
-	
 
 	preview: {
 		select: {
 			title: "header",
-			subcomponent:"subComponents"
-			
+			subcomponent: "subComponents",
 		},
 		prepare(selection) {
 			const { title } = selection;

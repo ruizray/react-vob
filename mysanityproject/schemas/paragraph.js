@@ -1,16 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
-/**
- * This is the schema definition for the rich text fields used for
- * for this blog studio. When you import it in schemas.js it can be
- * reused in other parts of the studio with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
- */
+
 import React from "react";
-import { Link } from "react-router-dom";
+import styles from "../variableOverrides.css";
+const IconSubheaderWrapper = ({ condition, wrapper, children }) => {
+	return condition ? wrapper(children) : children;
+};
+
 const iconRender = (props) => {
 	console.log(props);
 	if (props.children.text === " ") {
@@ -18,10 +13,14 @@ const iconRender = (props) => {
 	} else {
 		return (
 			<>
-				<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
-					{props.icon}
-				</i>
-				{props.text}
+				<IconSubheaderWrapper condition={props.subheader} wrapper={(children) => <span className={styles.lead}>{children}</span>}>
+					<span style={{ backgroundColor: "white" }}>
+						<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+							{props.icon}
+						</i>
+						{props.text}
+					</span>
+				</IconSubheaderWrapper>
 			</>
 		);
 	}
@@ -41,7 +40,9 @@ export default {
 			title: "Block Content",
 			name: "blockContent",
 			type: "array",
-			editModal: "fullscreen",
+			options: {
+				editModal: "fullscreen",
+			},
 			of: [
 				{
 					title: "Block",
@@ -59,14 +60,6 @@ export default {
 						decorators: [
 							{ title: "Strong", value: "strong" },
 							{ title: "Emphasis", value: "em" },
-
-							{
-								title: "Icon",
-								value: "icon",
-								blockEditor: {
-									render: iconRender,
-								},
-							},
 						],
 						// Annotations can be any object structure – e.g. a link or a footnote.
 						annotations: [
@@ -91,9 +84,14 @@ export default {
 								},
 								fields: [
 									{
-										title: "icon",
+										title: "Icon",
 										name: "icon",
 										type: "string",
+									},
+									{
+										title: "Subheader",
+										name: "subheader",
+										type: "boolean",
 									},
 									{
 										title: "Text",
@@ -108,10 +106,7 @@ export default {
 				// You can add additional types here. Note that you can't use
 				// primitive types such as 'string' and 'number' in the same array
 				// as a block type.
-				{
-					type: "image",
-					options: { hotspot: true },
-				},
+
 				{
 					type: "CTA",
 				},

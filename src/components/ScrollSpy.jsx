@@ -22,7 +22,7 @@ const ScrollSpy = () => {
 		body.setAttribute("data-mdb-target", "#scrollspy1");
 		body.setAttribute("data-mdb-offset", "0");
 	}, []);
-
+	if (!ScrollSpy) return <div>Loading...</div>;
 	return (
 		<div id='scrollspy1' data-mdb-sticky-boundary='true' className='sticky-top pt-4'>
 			<ul className='nav flex-column nav-pills menu-sidebar scrollspy mt-4'>

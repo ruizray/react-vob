@@ -45,10 +45,10 @@ const App = () => {
 		   target->{slug},
 		   sections[]{
 			 ...,
-			 target->{title, slug, _id, _type},
+			 target->{title, slug, header, _id, _type},
 			 links[]{
 			   ...,
-			   target->{title, slug, _id},
+			   target->{title, slug, _id, _type, header},
 			   children[]{
 				 ...,
 				 target->{title, slug, _id},
@@ -97,36 +97,72 @@ const App = () => {
 											{level1.sections &&
 												level1.sections.map((level2) => {
 													/* Fire, Police, Executive etc */
-
+													var path = "/";
 													return (
 														<NavDropDownItem
 															text={level2.title}
 															key={level2._key}
 															to={() => {
-																console.log(level2)
+																console.log(level2);
 																if (level2.target._type === "landingPage") {
+																	path += "/" + level2.target.slug.current;
 																	return "/preview2/" + level2.target.slug.current;
 																} else {
+																	path += "/" + level2.target.slug.current;
 																	return "/preview/" + level2.target.slug.current;
 																}
 															}}>
 															{level2.links &&
+																level2.links.length > 0 &&
 																level2.links.map((level3) => {
 																	/* Commissions, Smoke Detectors, etc */
 																	return (
 																		<NavDropDownItem
-																			text={level3.target.title}
+																			text={level3.target.title || level3.target.header}
 																			key={level3._key}
-																			to={"/preview/" + level3.target.slug.current}>
-																			{level3.links &&
-																				level3.links.map((level4) => {
+																			to={() => {
+																				console.log("Level 3", level3);
+																				if (level3.target._type === "landingPage") {
+																					path += "/" + level3.target.slug.current;
+																					return "/preview2/" + level3.target.slug.current;
+																				} else {
+																					path += "/" + level3.target.slug.current;
+																					return "/preview/" + level3.target.slug.current;
+																				}
+																			}}>
+																			{level3.children &&
+																				level3.children.map((level4) => {
+																					console.log("LEVEL 4", level4);
 																					return (
 																						<NavDropDownItem
-																							text={level4.title}
+																							text={
+																								level4.target.title ||
+																								level4.target.header
+																							}
 																							key={level4._key}
-																							to={
-																								"/" + level4.target.slug.current
-																							}></NavDropDownItem>
+																							to={() => {
+																								console.log("Level 4", level3);
+																								if (
+																									level4.target._type ===
+																									"landingPage"
+																								) {
+																									path +=
+																										"/" +
+																										level4.target.slug.current;
+																									return (
+																										"/preview2/" +
+																										level4.target.slug.current
+																									);
+																								} else {
+																									path +=
+																										"/" +
+																										level4.target.slug.current;
+																									return (
+																										"/preview/" +
+																										level4.target.slug.current
+																									);
+																								}
+																							}}></NavDropDownItem>
 																					);
 																				})}
 																		</NavDropDownItem>
@@ -200,7 +236,6 @@ const App = () => {
 			<GenerateHTML>
 				<Container className='customCSS'>
 					<LastUpdated>
-						<Route exact path='/departmentLandingPage' component={LandingPage} />
 						{/* <Route component={OnePost} path='/:slug' /> */}
 						{/* GOVERNMENT PAGES */}
 						<Route exact path='/Elected' component={ElectedOfficials} />

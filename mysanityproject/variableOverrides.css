@@ -1,1 +1,10 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: .25rem!important;
+    color: #98a6ad !important;
+}

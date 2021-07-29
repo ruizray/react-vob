@@ -1,16 +1,20 @@
 .customCSS p {
 	margin-top: 0;
-	margin-bottom: 1rem;
+	margin-bottom: 0.75rem;
 	line-height: 1.875rem;
 	font-size: 1.125rem;
 	font-weight: 300;
 }
 
-.customCSS ul li,
-.customCSS ol li {
+
+
+.customCSS .card-body ul li,
+.customCSS .card-body ol li {
 	list-style-position: outside;
 	margin-bottom: auto;
 	margin-top: auto;
+	font-size: 1.125rem;
+	font-weight: 300;
 }
 
 .customCSS h1,

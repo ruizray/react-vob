@@ -37,6 +37,11 @@ export default {
 			type: "string",
 		},
 		{
+			name: "phone",
+			title: "Phone Number",
+			type: "string",
+		},
+		{
 			name: "fax",
 			title: "Fax",
 			type: "string",
@@ -58,6 +63,8 @@ export default {
 			},
 		},
 		
+		
+		
 	],
 
 	preview: {
@@ -70,7 +77,7 @@ export default {
 		prepare(selection) {
 			const { firstName, lastName, title , media} = selection;
 			return Object.assign({}, selection, {
-				title: `${firstName} ${lastName} `,
+				title: firstName && lastName && `${firstName} ${lastName} `,
                 subtitle:  `${title}`,
 				media:media ? media : <i class=" material-icons text-center" style={{verticalAlign:"middle", fontSize:"xxx-large"}}>person</i>
 			});

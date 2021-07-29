@@ -5,6 +5,7 @@ export default {
 	title: "Page",
 	type: "document",
 	fields: [
+		
 		{
 			name: "title",
 			title: "Title",

@@ -215,7 +215,7 @@ const ContactSideBar = ({ people }) => {
 		return (
 			<>
 				{people.contacts.map((person) => {
-					return <ContactCardSideBar person={person}></ContactCardSideBar>;
+					return <ContactCardSideBar  person={person}></ContactCardSideBar>;
 				})}
 			</>
 		);
@@ -223,7 +223,7 @@ const ContactSideBar = ({ people }) => {
 		return (
 			<>
 				{people.map((person) => {
-					return <ContactCardSideBar person={person}></ContactCardSideBar>;
+					return <ContactCardSideBar key={person.id._current} person={person}></ContactCardSideBar>;
 				})}
 			</>
 		);

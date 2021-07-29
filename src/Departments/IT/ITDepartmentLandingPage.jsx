@@ -5,8 +5,7 @@ import { villageDirectory } from "../../scripts/DepartmentInfo";
 import { ContactSideBar } from "../../components/ContactInformation";
 import { ContentCard } from "../../components/ContentCard";
 const ITDepartmentLandingPage = () => {
-	const { Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA } = villageDirectory.Executive;
-	const people = { Mayor, VillageHall, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA };
+
 	return (
 		<>
 			<Row className='gx-3'>
@@ -102,7 +101,7 @@ const ITDepartmentLandingPage = () => {
 					</QuoteWithPicture>
 				</Col>
 				<Col md={3} id='fadeInRight'>
-					<ContactSideBar people={people}></ContactSideBar>
+				
 				</Col>
 			</Row>
 		</>

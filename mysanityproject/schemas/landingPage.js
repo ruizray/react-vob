@@ -28,6 +28,12 @@ export default {
 				
 			],
 		},
+		{
+			title: "Contact Cards",
+			name: "contactCards",
+			type: "array",
+			of: [{ type: "employee" }],
+		},
 
 	],
 
