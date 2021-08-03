@@ -12,8 +12,19 @@ export default {
 			validation: (Rule) => Rule.required(),
 		},
 		{
+			name: "middleInitial",
+			title: "Middle Initial",
+			type: "string",
+		},
+		{
 			name: "lastName",
 			title: "Last Name",
+			type: "string",
+		},
+
+		{
+			name: "nickname",
+			title: "Nick Name",
 			type: "string",
 		},
 		{
@@ -22,12 +33,9 @@ export default {
 			type: "slug",
 			description: "Need for collapsible components",
 			options: {
-				source: (doc)=> `${doc.lastName}-${doc.firstName}`,
+				source: (doc) => `${doc.lastName}-${doc.firstName}`,
 				maxLength: 96,
-				slugify: input => input
-                         .toLowerCase()
-                         .replace(/\s+/g, "-")
-                         .slice(0, 200)
+				slugify: (input) => input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
 			},
 		},
 		{ name: "title", title: "Title", type: "string" },
@@ -41,6 +49,12 @@ export default {
 			title: "Phone Number",
 			type: "string",
 		},
+
+		{
+			name: "cell",
+			title: "Cell Phone",
+			type: "string",
+		},
 		{
 			name: "fax",
 			title: "Fax",
@@ -51,20 +65,29 @@ export default {
 			title: "Department",
 			type: "string",
 			options: {
-				list: ["Police", "Fire", "Executive", "Public Works"],
+				list: ["Police", "Fire", "Executive", "Public Works", "Commission"],
 			},
 		},
 		{
-			name: "image",
-			title: "Image",
-			type: "image",
+			name: "imageUrl",
+			title: "Image Url",
+			type: "string",
+		},
+		{
+			name: "codeBlock",
+			title: "Card Icon Code",
+			type: "code",
 			options: {
-				hotspot: true,
+				language: "html",
 			},
 		},
-		
-		
-		
+		{
+			name: "biographies",
+			Title: "Bio",
+			type: "array",
+			of: [{ type: "paragraph" }],
+		},
+
 	],
 
 	preview: {
@@ -75,11 +98,17 @@ export default {
 			media: "image",
 		},
 		prepare(selection) {
-			const { firstName, lastName, title , media} = selection;
+			const { firstName, lastName, title, media } = selection;
 			return Object.assign({}, selection, {
 				title: firstName && lastName && `${firstName} ${lastName} `,
-                subtitle:  `${title}`,
-				media:media ? media : <i class=" material-icons text-center" style={{verticalAlign:"middle", fontSize:"xxx-large"}}>person</i>
+				subtitle: `${title}`,
+				media: media ? (
+					media
+				) : (
+					<i class=' material-icons text-center' style={{ verticalAlign: "middle", fontSize: "xxx-large" }}>
+						person
+					</i>
+				),
 			});
 		},
 	},

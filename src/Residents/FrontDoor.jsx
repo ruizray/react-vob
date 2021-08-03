@@ -68,7 +68,7 @@ const FrontDoor = (props) => {
 								title='Water Bill'
 								icon='water_drop'
 								button
-								buttonText='Visit'
+								buttonText='Pay Now'
 								buttonLink='https://amwater.com/ilaw/customer-service-billing/billing-payment-info#10029194-pay-online'>
 								Visit the Illinois American Water online payment portal
 							</FrontDoorLinkCard>
@@ -81,8 +81,8 @@ const FrontDoor = (props) => {
 								title='Public Notices'
 								icon='post_add'
 								button
-								buttonText='Pay Now'
-								buttonLink='https://bolingbrook-il.dacragov.com/il/bolingbrook/payment'>
+								buttonText='View'
+								buttonLink='https://www.bolingbrook.com/publicnotices'>
 								View all public notices from the village.
 							</FrontDoorLinkCard>
 						</Col>
@@ -91,17 +91,19 @@ const FrontDoor = (props) => {
 								title='Village Directory'
 								icon='groups'
 								button
-								buttonText='Pay Now'
-								buttonLink='https://selfservice.bolingbrook.com/MSSLive/login.aspx?ReturnUrl=%2fMSSLive%2fcitizens%2fdefault.aspx'></FrontDoorLinkCard>
+								buttonText='View'
+								buttonLink='https://selfservice.bolingbrook.com/MSSLive/login.aspx?ReturnUrl=%2fMSSLive%2fcitizens%2fdefault.aspx'>
+									Get into contact with anyone at the village.
+								</FrontDoorLinkCard>
 						</Col>
 						<Col md={6} lg={4} className='mb-3'>
 							<FrontDoorLinkCard
 								title='Village Board Meetings'
-								icon='water_drop'
+								icon='gavel'
 								button
-								buttonText='Visity'
+								buttonText='View'
 								buttonLink='https://www.bolingbrook.com/villageboardmeetings'>
-
+									Missed a Village Board Meeting? Get the most updated information here.
 								</FrontDoorLinkCard>
 						</Col>
 					</Row>
@@ -111,42 +113,42 @@ const FrontDoor = (props) => {
 						<FrontDoorLinkCard
 							title='Service Requests'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg'
-							buttonLink='test'>
+							buttonLink='http://www.bolingbrook.com/servicerequests'>
 							Report Potholes, downed mailboxes, etc.
 						</FrontDoorLinkCard>
-
+{/* 
 						<FrontDoorLinkCard
 							title='Online Payments'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/payment_Web.jpg'
-							buttonLink=''>
+							buttonLink='http://www.bolingbrook.com/online_payments'>
 							Pay a utility bill online here
-						</FrontDoorLinkCard>
+						</FrontDoorLinkCard> */}
 
 						<FrontDoorLinkCard
 							title='Online Permitting'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/express.png'
-							buttonLink='google.com'>
+							buttonLink='http://www.bolingbrook.com/onlinepermits'>
 							Apply for Express Permits Online
 						</FrontDoorLinkCard>
 
 						<FrontDoorLinkCard
 							title='Sign Up for Brook Police News'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_(1)_Web.jpg'
-							buttonLink=''>
+							buttonLink='https://www.bolingbrook.com/police_news'>
 							Get the latest news from the Bolingbrook Police Department
 						</FrontDoorLinkCard>
 
 						<FrontDoorLinkCard
 							title='Sign Up For Brook Alerts'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/alerts_Web(1).png'
-							buttonLink=''>
+							buttonLink='https://www.bolingbrook.com/alerts'>
 							Get the latest news directly from the Village of Bolingbrook.
 						</FrontDoorLinkCard>
 
 						<FrontDoorLinkCard
 							title='Overnight Parking / Vacation Watch'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Parking_Web.jpg'
-							buttonLink=''>
+							buttonLink='https://www.bolingbrook.com/onstreetparking'>
 							Register a car for on-street parking or request a vacation watch for a house
 						</FrontDoorLinkCard>
 					</Row>

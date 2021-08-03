@@ -300,7 +300,7 @@ export const villageDirectory = {
 	},
 	Police: {
 		AnimalControl: {
-			name: "Main Line",
+			name: "Animal Control",
 			id: "AnimalControl",
 			title: "Animal Control",
 			phone: "(630) 226-8500",
@@ -315,7 +315,7 @@ export const villageDirectory = {
 			name: "Mike Rompa",
 			id: "PoliceChief",
 			phone: "(630) 226-8412",
-			email: "mayormary@bolingbrook.com",
+			email: "mrompa@bolingbrook.com",
 			title: "Chief of Police",
 			image: {
 				backgroundImage: "url(https://bolingbrookil.govoffice3.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/940.jpg)",
@@ -337,7 +337,7 @@ export const villageDirectory = {
 			title: "Investigations",
 		},
 		CodeEnforcement: {
-			name: "Main Line",
+			name: "Code Enforcement",
 			id: "CodeEnforcement",
 			phone: "(630) 226-8760",
 			title: "Code Enforcement",
@@ -360,6 +360,12 @@ export const villageDirectory = {
 			phone: "(630) 226-8600",
 			email: "police@bolingbrook.com",
 			title: "Police Administration",
+		},
+		PoliceRecords: {
+			name: "Police Records",
+			id: "PoliceRecords",
+			phone: "(630) 226-8660",
+			title: "Police Records",
 		},
 	},
 
@@ -438,6 +444,56 @@ export const villageDirectory = {
 			title: "Secretary",
 		},
 	},
+
+	PublicServices: {
+		PublicServicesAdministration: {
+			name: "Public Services Administration",
+			id: "PublicServicesAdministration",
+			phone: "(630) 226-8800",
+			email: "publicworks@bolingbrook.com",
+			title: "Public Services Administration",
+		},
+		DirectorOfPublicWorks: {
+			name: "Ken Enda",
+			id: "KenEnda",
+			phone: "(630) 226-8870",
+			email:"kenda@bolingbrook.com",
+			title:"Director Of Public Works"
+		},
+		BuildingComissioner: {
+			name: "Steve Touloumis",
+			phone: "630-226-8471",
+			email: "stouloumis@bolingbrook.com",
+			title: "Building Commmissioner",
+		},
+		PlanningAndZoningAdministrator: {
+			name: "Matt Eastman",
+			phone: "(630) 226-8486",
+			email: "meastman@bolingbrook.com",
+			title:"Planning and Zoning Admin"
+		},
+		VillageEngineer: {
+			name: "Tom Pawlowicz",
+			phone: "(630) 226-8851",
+			email: "tpawlowicz@bolingbrook.com",
+			title:"Village Engineer"
+		},
+	},
+	Finance:{
+		Administration:{
+			name:"Finance Administration",
+			phone:"(630) 226-8540",
+			fax:"(630) 226-8549",
+			email:"finance@bolingbrook.com",
+			title:"Finance Administration",
+		},
+		Director:{
+			name:"Rosa Cojulun",
+			phone:"(630) 226-8431",
+			email:"rcojulun@bolingbrook.com",
+			title:"Finance Director",
+		}
+	}
 };
 
 export const organizationChart = [

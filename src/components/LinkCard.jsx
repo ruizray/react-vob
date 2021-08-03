@@ -83,7 +83,7 @@ const FrontDoorLinkCard = ({ imgLink, title, buttonLink,buttonText, button, icon
 						<CardTitle tag={"h5"} className='mb-1'>
 							{title}
 						</CardTitle>
-						<p style={{ fontSize: "14px", lineHeight: "initial", marginBottom: "1px" }} className='text-muted mb-2'>
+						<p style={{ fontSize: "14px", lineHeight: "initial", marginBottom: "1px" }} className='text-muted mb-0'>
 							{children}
 						</p>
 						{button && (

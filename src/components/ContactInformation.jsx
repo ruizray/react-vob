@@ -3,23 +3,16 @@ import { Card, CardTitle, CardBody, CardSubtitle, ListGroup, ListGroupItem, Unco
 import { NavLink } from "react-router-dom";
 
 const ContactCardProfile = (props) => {
-	const { title, name, email, phone, image, profilePath } = props.person;
-	const { backgroundPositionY, backgroundImage, backgroundSize, backgroundPositionX } = image;
+	var { title, name, email, phone, codeBlock, id } = props.person;
+	if (props.person.firstName) {
+		
+		name = props.person.firstName + " " + props.person.lastName;
+	}
 
 	return (
 		<Card className='text-center border w-100 mt-3 pt-3 hover-zoom hover-shadow  h-100'>
 			<CardBody>
-				<div className='mb-3 member-thumb mx-auto'>
-					<div
-						className='avatar'
-						style={{
-							backgroundSize,
-							backgroundPositionY,
-							backgroundPositionX,
-							backgroundImage,
-						}}
-					/>
-				</div>
+				{codeBlock && <div dangerouslySetInnerHTML={{ __html: codeBlock.code }}></div>}
 				<div>
 					<h3>{name}</h3>
 					<h3 className='text-muted'>{title}</h3>
@@ -41,7 +34,7 @@ const ContactCardProfile = (props) => {
 						{email}
 					</h5>
 				)}
-				<NavLink className='stretched-link' to={profilePath}>
+				<NavLink className='stretched-link' to={id ? "/profile/" + id.current : "/"}>
 					<button type='button' className='btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light'>
 						View Profile
 					</button>
@@ -99,6 +92,7 @@ const ContactCardTree = (props) => {
 
 const ContactCardSideBar = (props) => {
 	console.log(props);
+
 	if (props.Members) {
 		const [...Members] = props.Members;
 		return (
@@ -141,31 +135,33 @@ const ContactCardSideBar = (props) => {
 		if (firstName) {
 			name = firstName + " " + lastName;
 			id = props.person.id.current;
-		} 
+		}
 
 		console.log(props, title, email, id);
 		return (
 			<>
-				<Card className='w-100 border my-1 hover-shadow'>
+				<Card className={props.noShadow ? "w-100 border my-1" : "w-100 border my-1 hover-shadow"}>
 					<CardBody className='h-100 w-100 py-1'>
 						<ListGroup flush={true} className='ps-0 list-group-flush '>
 							<div className='list-group-flush'>
 								<ListGroupItem className='px-0'>
 									<CardTitle tag={"h5"} className='mb-0 d-flex'>
 										<span className='text-truncate'>{title}</span>
-										<span
-											role='button'
-											data-mdb-toggle='collapse'
-											href={"#" + id}
-											aria-expanded='false'
-											aria-controls={id}
-											className='ms-auto float-right material-icons border rounded-pill caret'>
-											expand_more
-										</span>
+										{!props.shown && (
+											<span
+												role='button'
+												data-mdb-toggle='collapse'
+												href={"#" + id}
+												aria-expanded='false'
+												aria-controls={id}
+												className='ms-auto float-right material-icons border rounded-pill caret'>
+												expand_more
+											</span>
+										)}
 									</CardTitle>
 								</ListGroupItem>
 
-								{name && (
+								{name && name !== title && (
 									<ListGroupItem className='text-muted ps-0'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
 											person
@@ -174,7 +170,7 @@ const ContactCardSideBar = (props) => {
 									</ListGroupItem>
 								)}
 							</div>
-							<div className='collapse' id={id} style={{ borderLeft: "none", borderRight: "none" }}>
+							<div className={props.shown ? "collapse show" : "collapse"} id={id} style={{ borderLeft: "none", borderRight: "none" }}>
 								{phone && (
 									<ListGroupItem className='text-muted ps-0'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
@@ -215,11 +211,11 @@ const ContactSideBar = ({ people }) => {
 		return (
 			<>
 				{people.contacts.map((person) => {
-					return <ContactCardSideBar  person={person}></ContactCardSideBar>;
+					return <ContactCardSideBar person={person}></ContactCardSideBar>;
 				})}
 			</>
 		);
-	}else{
+	} else {
 		return (
 			<>
 				{people.map((person) => {

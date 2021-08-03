@@ -55,6 +55,15 @@ export default () => {
 										.params({ type: "employee", department: "Executive" })
 										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Executive" })]),
 							}),
+							S.listItem({
+								title: "Commissions",
+								id: "commissionEmployee",
+								child: () =>
+									S.documentList({ title: "Commission", id: "commissionDocumentList" })
+										.filter('_type == "employee" && department == "Commission"')
+										.params({ type: "employee", department: "Commission" })
+										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Commission" })]),
+							}),
 						],
 					}),
 			}),

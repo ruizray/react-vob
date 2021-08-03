@@ -37,6 +37,12 @@ export default {
 			type: "string",
 		},
 		{
+			name: "headerIcon",
+			title: "Header Icon",
+			type: "string",
+		},
+
+		{
 			title: "Block Content",
 			name: "blockContent",
 			type: "array",
@@ -116,6 +122,14 @@ export default {
 				{
 					type: "subSection",
 				},
+				{
+					name: 'codeBlock',
+					title: 'Code Block',
+					type: 'code',
+					options: {
+					  language: 'html'
+					}
+				  }
 			],
 		},
 	],

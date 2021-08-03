@@ -10,7 +10,6 @@ import ScrollSpy from "./components/ScrollSpy";
 
 export default function OnePost() {
 	const [postData, setPostData] = useState(null);
-	
 
 	const { slug } = useParams();
 
@@ -33,10 +32,12 @@ export default function OnePost() {
 			.catch(console.error);
 	}, [slug]);
 
-
-
 	const serializers = {
 		types: {
+			codeBlock: (props) => {
+				console.log("%c CodeBlock", "color:yellow", props);
+				return <div dangerouslySetInnerHTML={{ __html: props.node.code }}></div>;
+			},
 			block: (props) => {
 				console.log("%c Block", "color:green", props.node.markDefs);
 				if (props.node.markDefs.length > 0 && props.node.markDefs[0].subheader === true) {
@@ -105,21 +106,24 @@ export default function OnePost() {
 	return (
 		<div>
 			<Row className='gx-3'>
-				<Col md={3}>{postData.scrollspy && <ScrollSpy ></ScrollSpy>} </Col>
+				<Col md={3}>{postData.scrollspy && <ScrollSpy></ScrollSpy>} </Col>
 				<Col id='fadeInTop' md={6}>
 					{postData.mainComponents &&
 						postData.mainComponents.map((mainComponentContainer) => {
 							console.log(mainComponentContainer);
-						
+
 							return (
 								<ContentCard id={mainComponentContainer._key} icon='front_hand' header={mainComponentContainer.header}>
-									<BlockContent test={mainComponentContainer._key} blocks={mainComponentContainer.blockContent} serializers={serializers} />
+									<BlockContent
+										test={mainComponentContainer._key}
+										blocks={mainComponentContainer.blockContent}
+										serializers={serializers}
+									/>
 								</ContentCard>
 							);
 						})}
 				</Col>
 				<Col md={3} id='fadeInRight'>
-					
 					{postData.contacts && <ContactSideBar people={postData.contacts}></ContactSideBar>}
 				</Col>
 			</Row>
