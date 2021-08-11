@@ -1,24 +1,39 @@
-import React from "react";
-import { Row, Col } from "reactstrap";
-import { ContactCardSideBar } from "../components/ContactInformation";
-import { villageDirectory } from "../scripts/DepartmentInfo";
-
+import React, { useEffect, useState } from "react";
+import sanityClient from "./../client";
 const VillageDirectory = (props) => {
-	const { Mayor, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA } = villageDirectory.Executive;
-	const Executive = [Mayor, CoAdministrator1, CoAdministrator2, Clerk, Attorney, FOIA];
+	const [employees, setEmployees] = useState(null);
+	useEffect(() => {
+		sanityClient
+			.fetch(
+				`*[_type == "employee" && department!= "Commission" ]| order(order asc){
+					"name" : firstName + " "+ lastName,
+					department,
+					phone,
+					title,
+					email,
+					id,
+					_rev
+				  }`
+			)
+			.then((data) => {
+				console.log(data);
+				var sorted = {};
+				data.forEach((element) => {
+					if (sorted[element.department]) {
+						sorted[element.department].employees.push(element);
+					} else {
+						sorted[element.department] = {};
+						sorted[element.department].employees = [];
+						sorted[element.department].id = element._rev;
+						sorted[element.department].employees.push(element);
+					}
+				});
+				console.log(sorted);
+				setEmployees(sorted);
+			})
+			.catch(console.error);
+	}, []);
 
-	const { PoliceAdministration, PoliceChief, AfterHours, AnimalControl, CodeEnforcement, Evidence, PoliceRecords, Investigations } = villageDirectory.Police;
-	const Police = [PoliceAdministration, PoliceChief, AfterHours, AnimalControl, CodeEnforcement, Evidence, PoliceRecords, Investigations];
-
-	const { FireAdministration, FireChief, FireMarshal } = villageDirectory.Fire;
-	const Fire = [FireAdministration, FireChief, FireMarshal];
-
-	const { PublicServicesAdministration, DirectorOfPublicWorks, BuildingComissioner, PlanningAndZoningAdministrator, VillageEngineer } =
-		villageDirectory.PublicServices;
-	const publicServices = [PublicServicesAdministration, DirectorOfPublicWorks, BuildingComissioner, PlanningAndZoningAdministrator, VillageEngineer];
-
-    const {Director, Administration} = villageDirectory.Finance
-    const Finance = [Director, Administration]
 	return (
 		<>
 			<ul className='nav nav-tabs nav-fill mb-3' id='ex1' role='tablist'>
@@ -145,7 +160,10 @@ const VillageDirectory = (props) => {
 								</tr>
 							</thead>
 							<tbody style={{ verticalAlign: "middle" }}>
-								{Executive && Executive.map((employee) => <TableRow employee={employee}></TableRow>)}
+								{employees &&
+									employees["Executive"].employees.map((employee) => (
+										<TableRow key={employee.id.current} employee={employee}></TableRow>
+									))}
 							</tbody>
 						</table>
 					</div>
@@ -162,7 +180,10 @@ const VillageDirectory = (props) => {
 								</tr>
 							</thead>
 							<tbody style={{ verticalAlign: "middle" }}>
-								{Police && Police.map((employee) => <TableRow employee={employee}></TableRow>)}
+								{employees &&
+									employees["Police"].employees.map((employee) => (
+										<TableRow key={employee.id.current} employee={employee}></TableRow>
+									))}
 							</tbody>
 						</table>
 					</div>
@@ -179,7 +200,8 @@ const VillageDirectory = (props) => {
 								</tr>
 							</thead>
 							<tbody style={{ verticalAlign: "middle" }}>
-								{Fire && Fire.map((employee) => <TableRow employee={employee}></TableRow>)}
+								{employees &&
+									employees["Fire"].employees.map((employee) => <TableRow key={employee.id.current} employee={employee}></TableRow>)}
 							</tbody>
 						</table>
 					</div>
@@ -196,7 +218,10 @@ const VillageDirectory = (props) => {
 								</tr>
 							</thead>
 							<tbody style={{ verticalAlign: "middle" }}>
-								{publicServices && publicServices.map((employee) => <TableRow employee={employee}></TableRow>)}
+								{employees &&
+									employees["Public Services"].employees.map((employee) => (
+										<TableRow key={employee.id.current} employee={employee}></TableRow>
+									))}
 							</tbody>
 						</table>
 					</div>
@@ -213,7 +238,10 @@ const VillageDirectory = (props) => {
 								</tr>
 							</thead>
 							<tbody style={{ verticalAlign: "middle" }}>
-								{Finance && Finance.map((employee) => <TableRow employee={employee}></TableRow>)}
+								{employees &&
+									employees["Finance"].employees.map((employee) => (
+										<TableRow key={employee.id.current} employee={employee}></TableRow>
+									))}
 							</tbody>
 						</table>
 					</div>
@@ -236,9 +264,8 @@ const TableRow = ({ employee }) => {
 		<tr>
 			{employee.title && <th scope='row'>{employee.title}</th>}
 			{employee.name && <td className='text-truncate'>{employee.name}</td>}
-			{employee.phone && <td style={{ whiteSpace: "nowrap" }}>{employee.phone}</td>}
+			{employee.phone ? <td style={{ whiteSpace: "nowrap" }}>{employee.phone}</td> : <td style={{ whiteSpace: "nowrap" }}> </td>}
 			{employee.email ? <td style={{ whiteSpace: "nowrap" }}>{employee.email}</td> : <td style={{ whiteSpace: "nowrap" }}> </td>}
-		
 		</tr>
 	);
 };

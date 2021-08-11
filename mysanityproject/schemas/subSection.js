@@ -118,7 +118,7 @@ export default {
 					type: "CTA",
 				},
 				{
-					type: "customImage",
+					type: "imageCarousel",
 				},
 			],
 		},

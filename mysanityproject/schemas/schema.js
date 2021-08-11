@@ -14,7 +14,7 @@ import subSection from "./subSection";
 import CTA from "./CTA";
 import navigationLink from "./navigationLink";
 import navigationSection from "./navigationSection";
-import customImage from "./customImage";
+import imageCarousel from "./customImage";
 import linkCard from "./linkCard";
 import landingPage from "./landingPage";
 // Then we give our schema to the builder and provide the result to Sanity
@@ -38,7 +38,7 @@ export default createSchema({
 		navigationSection,
 		linkCard,
 		landingPage,
-		customImage,
+		imageCarousel,
 		// When added to this list, object types can be used as
 		// { type: 'typename' } in other document schemas
 

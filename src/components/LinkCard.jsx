@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardImg, CardTitle} from "reactstrap";
+import { Card, CardBody, CardImg, CardTitle } from "reactstrap";
 
 const LinkCard = (props) => {
 	return (
@@ -25,16 +25,19 @@ const LinkCard = (props) => {
 };
 
 const TwoLinkCard = (props) => {
-	console.log(props.buttons);
+	console.log(props);
 
 	return (
 		<>
 			<Card className='card-raised h-100 border'>
-				<CardBody className=' flex-column d-flex h-100 w-100 p-4 text-center pb-3'>
-					<i className='w-100 material-icons icon-lg  text-center' style={{ fontSize: "8rem" }}>
-						{props.icon}
-					</i>
-					<CardTitle tag={"h4"} className='py-3'>
+				<CardBody className={props.imageLink ? 'flex-column d-flex h-100 w-100 px-0 pt-0 text-center pb-3':'flex-column d-flex h-100 w-100 p-4 text-center pb-3'}>
+					{props.icon && (
+						<i className='w-100 material-icons icon-lg text-primary text-center' style={{ fontSize: "8rem" }}>
+							{props.icon}
+						</i>
+					)}
+					{props.imageLink && <img style={{maxHeight:"160px", objectFit:"cover"}} src={props.imageLink}></img>}
+					<CardTitle tag={"h4"} className='py-3 mx-2'>
 						{props.title}
 					</CardTitle>
 					{props.buttons &&
@@ -43,31 +46,19 @@ const TwoLinkCard = (props) => {
 								href={button.link || button.url}
 								data-mdb-ripple-color='dark'
 								key={index}
-								className='btn btn-outline-light border border-2 text-dark ripple w-100 mb-2 mt-auto'>
+								className={props.imageLink ? "border border-2 btn btn-outline-light mb-2 mx-3 ripple ripple-surface ripple-surface-dark text-dark" : 'btn btn-outline-light border border-2 text-dark ripple w-100 mb-2 mt-auto'}>
 								{button.text || button.linkText}
 							</a>
 						))}
 
-					{/* <div className='align-items-end d-flex h-100 w-100'>
-						<a href={props.link} data-mdb-ripple-color='dark' className='btn btn-outline-light border border-2 text-dark ripple w-100'>
-							Current
-						</a>
-						<Row className=' gx-2 gy-2 align-items-end w-100'>
-							<Col lg={12}>
-								
-							</Col>
-							<Col lg={12}>
-							
-							</Col>
-						</Row>
-					</div> */}
+				
 				</CardBody>
 			</Card>
 		</>
 	);
 };
 
-const FrontDoorLinkCard = ({ imgLink, title, buttonLink,buttonText, button, icon, children }) => {
+const FrontDoorLinkCard = ({ imgLink, title, buttonLink, buttonText, button, icon, children }) => {
 	return (
 		<>
 			<a href={buttonLink} style={{ color: "inherit" }} className=''>
@@ -76,7 +67,7 @@ const FrontDoorLinkCard = ({ imgLink, title, buttonLink,buttonText, button, icon
 
 					<CardBody className=' flex-column d-flex h-100 w-100 py-3 px-3'>
 						{icon && (
-							<i className='material-icons icon-lg ' style={{ fontSize: "2rem" }}>
+							<i className='material-icons text-primary icon-lg ' style={{ fontSize: "2rem" }}>
 								{icon}
 							</i>
 						)}

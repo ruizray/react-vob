@@ -12,6 +12,16 @@ export default {
 			type: "string",
 		},
 		{
+			title:"Image Url",
+			name:"cardImage",
+			type: "string"
+		},
+		{
+			title:"Image Alt Text",
+			name:"cardImageAltText",
+			type:"string"
+		},
+		{
 			title: "Text",
 			name: "text",
 			type: "string",

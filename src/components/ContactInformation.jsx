@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 const ContactCardProfile = (props) => {
 	var { title, name, email, phone, codeBlock, id } = props.person;
 	if (props.person.firstName) {
-		
 		name = props.person.firstName + " " + props.person.lastName;
 	}
 
@@ -19,7 +18,7 @@ const ContactCardProfile = (props) => {
 				</div>
 				{phone && (
 					<h5 className='mb-2 text-muted'>
-						<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+						<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
 							phone
 						</i>
 						{phone}
@@ -58,7 +57,7 @@ const ContactCardTree = (props) => {
 
 						<CardBody className='p-1 my-2 h-100 '>
 							{title && (
-								<CardTitle className='text-truncate' tag={"h6"}>
+								<CardTitle tag={"h6"}>
 									{title}
 								</CardTitle>
 							)}
@@ -91,10 +90,8 @@ const ContactCardTree = (props) => {
 };
 
 const ContactCardSideBar = (props) => {
-	console.log(props);
-
-	if (props.Members) {
-		const [...Members] = props.Members;
+	if (props.members) {
+		const [...members] = props.members;
 		return (
 			<>
 				<Card className='w-100 border my-1 hover-shadow'>
@@ -103,24 +100,24 @@ const ContactCardSideBar = (props) => {
 							<div className='list-group-flush'>
 								<ListGroupItem className='px-0'>
 									<CardTitle tag={"h5"} className='mb-0 d-flex'>
-										<span className='text-truncate'>Members</span>
+										<span >Members</span>
 										<span
 											role='button'
 											id={"MembersToggle"}
-											className='ms-auto float-right material-icons border rounded-pill caret'>
+											className='m-auto float-right material-icons border rounded-pill caret'>
 											expand_more
 										</span>
 									</CardTitle>
 								</ListGroupItem>
 							</div>
 							<UncontrolledCollapse toggler={"MembersToggle"} style={{ borderLeft: "none", borderRight: "none" }}>
-								{Members.map((member) => {
+								{members.map((member) => {
 									return (
-										<ListGroupItem key={member} className='text-muted ps-0'>
+										<ListGroupItem key={member._key} className='text-muted ps-0'>
 											<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
 												person
 											</i>
-											{member}
+											{member.memberName}
 										</ListGroupItem>
 									);
 								})}
@@ -136,17 +133,15 @@ const ContactCardSideBar = (props) => {
 			name = firstName + " " + lastName;
 			id = props.person.id.current;
 		}
-
-		console.log(props, title, email, id);
 		return (
 			<>
 				<Card className={props.noShadow ? "w-100 border my-1" : "w-100 border my-1 hover-shadow"}>
-					<CardBody className='h-100 w-100 py-1'>
-						<ListGroup flush={true} className='ps-0 list-group-flush '>
+					<CardBody className='h-100 w-100 py-0'>
+						<ListGroup flush={true} className='ps-0 py-0'>
 							<div className='list-group-flush'>
 								<ListGroupItem className='px-0'>
 									<CardTitle tag={"h5"} className='mb-0 d-flex'>
-										<span className='text-truncate'>{title}</span>
+										<span >{title}</span>
 										{!props.shown && (
 											<span
 												role='button'
@@ -154,7 +149,7 @@ const ContactCardSideBar = (props) => {
 												href={"#" + id}
 												aria-expanded='false'
 												aria-controls={id}
-												className='ms-auto float-right material-icons border rounded-pill caret'>
+												className='ms-auto my-auto float-right material-icons border rounded-pill caret'>
 												expand_more
 											</span>
 										)}
@@ -162,7 +157,7 @@ const ContactCardSideBar = (props) => {
 								</ListGroupItem>
 
 								{name && name !== title && (
-									<ListGroupItem className='text-muted ps-0'>
+									<ListGroupItem className='text-muted ps-0 py-1'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
 											person
 										</i>
@@ -172,7 +167,7 @@ const ContactCardSideBar = (props) => {
 							</div>
 							<div className={props.shown ? "collapse show" : "collapse"} id={id} style={{ borderLeft: "none", borderRight: "none" }}>
 								{phone && (
-									<ListGroupItem className='text-muted ps-0'>
+									<ListGroupItem className='text-muted ps-0 py-1'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
 											phone
 										</i>
@@ -181,7 +176,7 @@ const ContactCardSideBar = (props) => {
 								)}
 
 								{email && (
-									<ListGroupItem className=' text-muted ps-0 text-truncate'>
+									<ListGroupItem className=' text-muted ps-0 py-1'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
 											mail
 										</i>
@@ -189,7 +184,7 @@ const ContactCardSideBar = (props) => {
 									</ListGroupItem>
 								)}
 								{fax && (
-									<ListGroupItem className=' text-muted ps-0 '>
+									<ListGroupItem className=' text-muted ps-0 py-1'>
 										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
 											local_printshop
 										</i>
@@ -205,25 +200,19 @@ const ContactCardSideBar = (props) => {
 	}
 };
 
-const ContactSideBar = ({ people }) => {
-	console.log(people);
-	if (people.contacts) {
-		return (
-			<>
-				{people.contacts.map((person) => {
-					return <ContactCardSideBar person={person}></ContactCardSideBar>;
+const ContactSideBar = ({ people, members }) => {
+	return (
+		<>
+		<h2 style={{textAlign:"center"}}>Contact Information</h2>
+			{people &&
+				people.map((person) => {
+					return <ContactCardSideBar key={person.id.current} person={person}></ContactCardSideBar>;
 				})}
-			</>
-		);
-	} else {
-		return (
-			<>
-				{people.map((person) => {
-					return <ContactCardSideBar key={person.id._current} person={person}></ContactCardSideBar>;
-				})}
-			</>
-		);
-	}
+			{members && members.length > 0 && <ContactCardSideBar key={members._key} members={members}></ContactCardSideBar>}
+		</>
+	);
 };
 
 export { ContactCardSideBar, ContactCardProfile, ContactCardTree, ContactSideBar };
+
+  

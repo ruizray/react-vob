@@ -3,10 +3,10 @@ import { CardBody, Card, CardTitle } from "reactstrap";
 import PropTypes from "prop-types";
 const ContentCard = ({ header, id, children }) => {
 	return (
-		<section id={id} className='sectionMain'>
+		<section id={id} key={id} className='sectionMain'>
 			<CardBody className=' clamped w-100 my-0 py-1'>
 				{/* <i className='material-icons icon-lg text-dark'>{icon}</i> */}
-				<h1 className='display-6'>{header}</h1>
+				<h2>{header}</h2>
 				{children}
 			</CardBody>
 		</section>
@@ -16,7 +16,9 @@ const ContentCard = ({ header, id, children }) => {
 const ContentCardSubsection = ({ subHeader, id, children }) => {
 	return (
 		<section id={id} className='subsection'>
-			<h4 style={{ fontWeight: "500", color: "#014b82", marginBottom: "0.25rem" }}>{subHeader}</h4>
+			<h4 style={{ fontWeight: "500", marginBottom: "0.25rem" , color:"navy"}} >
+				{subHeader}
+			</h4>
 			{children}
 		</section>
 	);
@@ -35,8 +37,8 @@ const FrontDoorCard = ({ header, icon, buttonText, buttonLink, children }) => {
 	// const str = header.replace(/\s/g, "");
 	return (
 		<Card className='card-raised ripple h-100 border'>
-			<CardBody className=' flex-column d-flex h-100 w-100 py-3 px-2'>
-				<i className='material-icons icon-lg ' style={{ fontSize: "1rem" }}>
+			<CardBody className='flex-column d-flex h-100 w-100 py-3 px-2'>
+				<i className='material-icons icon-lg' style={{ fontSize: "1rem" }}>
 					{icon}
 				</i>
 				<CardTitle tag={"h4"} className='mb-2'>

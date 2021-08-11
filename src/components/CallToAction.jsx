@@ -9,8 +9,8 @@ const CallToAction = ({ buttonText, buttonLink, color,children }) => {
 	}
 
 	return (
-		<Card className={"border w-100 text-center my-4" + border}>
-			<CardBody>
+		<Card className={"border mx-auto text-center my-4" + border}>
+			<CardBody className="p-2 py-3">
 				{children}
 				<a href={buttonLink} className= "stretched-link">
 				<button  style={{ width: "fit-content" }} color='primary' className='btn btn-primary align-self-center '>

@@ -64,6 +64,42 @@ export default () => {
 										.params({ type: "employee", department: "Commission" })
 										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Commission" })]),
 							}),
+							S.listItem({
+								title: "Human Resources",
+								id: "humanResources",
+								child: () =>
+									S.documentList({ title: "Human Resources", id: "humanResourcesDocuments" })
+										.filter('_type == "employee" && department == "Human Resources"')
+										.params({ type: "employee", department: "Human Resources" })
+										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Human Resources" })]),
+							}),
+							S.listItem({
+								title: "IT Department",
+								id: "ITDepartment",
+								child: () =>
+									S.documentList({ title: "IT Department", id: "ITDepartmentDocuments" })
+										.filter('_type == "employee" && department == "IT Department"')
+										.params({ type: "employee", department: "IT Department" })
+										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "IT Department" })]),
+							}),
+							S.listItem({
+								title: "Public Services",
+								id: "publicServices",
+								child: () =>
+									S.documentList({ title: "Public Services", id: "publicServicesDocuments" })
+										.filter('_type == "employee" && department == "Public Services"')
+										.params({ type: "employee", department: "Public Services" })
+										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Public Services" })]),
+							}),
+							S.listItem({
+								title: "Finance",
+								id: "finance",
+								child: () =>
+									S.documentList({ title: "Finance", id: "financeDocuments" })
+										.filter('_type == "employee" && department == "Finance"')
+										.params({ type: "employee", department: "Finance" })
+										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Finance" })]),
+							}),
 						],
 					}),
 			}),

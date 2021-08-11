@@ -1,43 +1,28 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-	name: "customImage",
-	title: "Image",
+	name: "imageCarousel",
+	title: "Image Carousel",
 	type: "object",
 	fields: [
-		{
-			name: "altText",
-			title: "Alt Text",
 
-			type: "string",
-		},
 		{
-			title: "Image Url",
-			name: "imageURL",
-			type: "url",
-			validation: (Rule) =>
-				Rule.uri({
-					scheme: ["http", "https", "mailto", "tel"],
-				}),
-		},
-		{
-			name: "styleAttributes",
-			title: "Style Attributes",
+			name: "images",
+			title: "Image Slides",
 			type: "array",
 			of: [
 				{
 					type: "object",
-					name: "style",
-					title: "Style",
+					name: "imageSlide",
+					title: "Image",
 					fields: [
 						{
-							name: "attribute",
-							title: "Attribute",
-
+							name: "caption",
+							title: "Caption",
 							type: "string",
 						},
-                        {
-							name: "value",
-							title: "Value",
+						{
+							name: "imageUrl",
+							title: "Image URL",
 							type: "string",
 						},
 					],

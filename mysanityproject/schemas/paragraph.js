@@ -6,6 +6,9 @@ const IconSubheaderWrapper = ({ condition, wrapper, children }) => {
 	return condition ? wrapper(children) : children;
 };
 
+const renderKBD = props => (
+	<kbd >{props.children}</kbd>
+  )
 const iconRender = (props) => {
 	console.log(props);
 	if (props.children.text === " ") {
@@ -66,6 +69,14 @@ export default {
 						decorators: [
 							{ title: "Strong", value: "strong" },
 							{ title: "Emphasis", value: "em" },
+							{
+								title: "Code",
+								value: "kbd",
+								blockEditor: {
+								
+									render: renderKBD,
+								},
+							},
 						],
 						// Annotations can be any object structure – e.g. a link or a footnote.
 						annotations: [
@@ -117,7 +128,7 @@ export default {
 					type: "CTA",
 				},
 				{
-					type: "customImage",
+					type: "imageCarousel",
 				},
 				{
 					type: "subSection",

@@ -1,13 +1,22 @@
-import React, { useEffect } from "react";
-const LastUpdated = (props) => {
-	var date = new Date();
-	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+import React, { useEffect, useState } from "react";
+const LastUpdated = ({ children, lastUpdated }) => {
+	const months = [" ", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+	const [updated, setUpdated] = useState();
+	useEffect(() => {
+		if(lastUpdated){
+			console.log("Last published", lastUpdated);
+			var dateFormat = lastUpdated.split("T");
+			dateFormat = dateFormat[0].split("-");
+			setUpdated(months[dateFormat[1][1]] + " " + dateFormat[2] + " " + dateFormat[0]);
+		}
+		
+	}, [lastUpdated]);
+
 	return (
 		<>
-			{props.children}
-			<p style={{ fontSize: 16, textAlign: "end" }}>
-				{"Page last updated on " + months[date.getMonth()].toString() + " " + date.getDate() + " " + date.getFullYear()}
-			</p>
+			{children}
+			<p style={{ fontSize: 16, textAlign: "end" }}>{"Page last updated on " + updated}</p>
 		</>
 	);
 };

@@ -12,6 +12,11 @@ export default {
 			validation: (Rule) => Rule.required(),
 		},
 		{
+			name:"order",
+			title:"Order",
+			type:"number"
+		},
+		{
 			name: "middleInitial",
 			title: "Middle Initial",
 			type: "string",
@@ -65,7 +70,7 @@ export default {
 			title: "Department",
 			type: "string",
 			options: {
-				list: ["Police", "Fire", "Executive", "Public Works", "Commission"],
+				list: ["Police", "Fire", "Executive", "Public Works", "Commission", "Human Resources", "IT Department", "Public Services", "Finance"],
 			},
 		},
 		{

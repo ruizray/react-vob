@@ -1,407 +1,363 @@
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
-	<link href="https://ruizray.github.io/VOBStyles.css" rel="stylesheet" />
-
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="theme-color" content="#000000" />
-	<meta name="description" content="Web site created using create-react-app" />
-	<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
-	<title>React App</title>
+	<!---- Bootstrap Imports -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+		integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+		crossorigin="anonymous"
+	></script>
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+		crossorigin="anonymous"
+	/>
+	<!------- Fonts Imports ----------->
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Judson:400,700" rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+		rel="stylesheet"
+	/>
 </head>
-<body>
-	<noscript>You need to enable JavaScript to run this app.</noscript>
-	<div id="root" class="customCSS">
-		<div class="container">
-			
-			<div class="customCSS container">
-				<div>
-					<div class="gx-3 row">
-						<div class="col-md-3">
-							<div id="scrollspy1" data-mdb-sticky-boundary="true" class="sticky-top pt-4">
-								<ul class="nav flex-column nav-pills menu-sidebar scrollspy mt-4">
-									<li class="nav-item">
-										<a class="nav-link scrollspy-level-1" href="#52ddbae382d2">Welcome</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link scrollspy-level-1" href="#80f813d85a72">Adult Programs</a>
-										<ul class="nav flex-column ps-3">
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#dc8c953f851d">Neighborhood Watch</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#e807cbd249ee">Burglary Prevention</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#840d3793d840"
-													>Club Drugs, Ecstasy, Rave Parties</a
-												>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#86410c49e3c6"
-													>Crime Prevention Through Environmental Design</a
-												>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#84d0edd1dd6e">Bank Security</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#840f6e283c87"
-													>Auto Theft Prevention</a
-												>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#9e77b62728b9"
-													>Shoplifting Prevention</a
-												>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#1085bef7ea61">Robbery Prevention</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#917595e8e478">Workplace Violence</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#f509a90e7f77"
-													>Senior Citizen Safety</a
-												>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#5ae9c33f21c0"
-													>Vacation Check Request</a
-												>
-											</li>
-										</ul>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link scrollspy-level-1" href="#b5a27406ad61">Kids Programs</a>
-										<ul class="nav flex-column ps-3">
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#200eec7787a6">Tours</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#43d7c2701b13">Scout Programs</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#f6303b5d58f0">Latch Key</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#5f05e1c335b3">Child Safety Days</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#781db161835a">Stranger Danger</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#cb85db5ae753">Bicycle Safety</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#6d7f3c650adc"
-													>McGruff the Crime Dog</a
-												>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#eed0d4ab984a">Safety Patrol</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link scrollspy-level-2" href="#5ec4a05e58d4">Officer Friendly</a>
-											</li>
-										</ul>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link scrollspy-level-1" href="#8b75a47dfe4b">Vehicle Burglary</a>
-									</li>
-								</ul>
+
+<div id="content" class="container-fluid">
+	<div class="row gx">
+		<div class="col-lg-2">
+			<div class="accordion" id="accordionFlushExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="flush-headingOne">
+						<button
+							class="accordion-button collapsed"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#flush-collapseOne"
+							aria-expanded="false"
+							aria-controls="flush-collapseOne"
+						>
+							<strong> Online Payments</strong>
+						</button>
+					</h2>
+					<div
+						id="flush-collapseOne"
+						class="accordion-collapse collapse"
+						aria-labelledby="flush-headingOne"
+						data-bs-parent="#accordionFlushExample"
+					>
+						<div style="padding: 0px" class="accordion-body">
+							<div style="border-radius: 0px; border-top: 0px; border-bottom: 0px" class="list-group list-group-flush">
+								<a
+									href="https://selfservice.bolingbrook.com/MSSLive/login.aspx?ReturnUrl=%2fMSSLive%2fcitizens%2fdefault.aspx"
+									class="list-group-item list-group-item-action"
+									aria-current="true"
+								>
+									Utility Billing
+								</a>
+								<a href="https://bolingbrook-il.dacragov.com/il/bolingbrook/payment" class="list-group-item list-group-item-action"
+									>Parking Ticket</a
+								>
+								<a href="https://amwater.com/ilaw/" class="list-group-item list-group-item-action">Water Bill</a>
+								<a href="https://www.govpaynow.com/gps/user/cyg/plc/a003pt" class="list-group-item list-group-item-action"
+									>Landlord License Payment</a
+								>
+								<a href="http://www.willcountytreasurer.com/" class="list-group-item list-group-item-action"
+									>Property Taxes (Will County Treasurer) item</a
+								>
 							</div>
 						</div>
-						<div id="fadeInTop" class="col-md-6">
-							<section id="52ddbae382d2" class="sectionMain">
-								<div class="clamped w-100 my-0 py-1 card-body">
-									<h1 class="display-6">Welcome</h1>
-									<p>
-										The Bolingbrook Police Department Crime Prevention Unit offers numerous programs and
-										services of benefit to the citizens of Bolingbrook. A partial list of programs and
-										services is listed below:
-									</p>
-								</div>
-							</section>
-							<section id="80f813d85a72" class="sectionMain">
-								<div class="clamped w-100 my-0 py-1 card-body">
-									<h1 class="display-6">Adult Programs</h1>
-									<p></p>
-									<section id="dc8c953f851d" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Neighborhood Watch
-										</h4>
-										<p>
-											The Bolingbrook Police Department Crime Prevention Unit is seeking new areas in
-											which to start a Neighborhood Watch Program. Neighborhood Watch is a cooperative
-											effort within each community, where neighbors agree to watch each other's homes and
-											property. Starting one in your area is simple:
-										</p>
-										<ul>
-											<li>
-												Contact your neighbors and see if they are willing to participate in the program.
-												If 70% of your neighbors agree to participate, you will be eligible to have
-												Neighborhood Watch signs posted on your street to let everyone know that the
-												neighborhood is watching them.
-											</li>
-											<li>Call the Crime Prevention Office and set up a meeting in one of your homes.</li>
-											<li>
-												Learn more about the program at the meeting, as well as some of the steps you can
-												take to make your neighborhood safer.
-											</li>
-										</ul>
-										<p>
-											With the warm weather approaching, the time to get this effective program going is
-											now! If you currently have a Neighborhood Watch Program in your area or if you are a
-											Block Captain, call and set up an appointment for a follow-up meeting or to meet
-											your Crime Prevention Officer. Neighborhood Watch is presented on request of local
-											neighborhood groups. We currently have approximately 100 groups encompassing about
-											2200 homes. If you have an existing Watch Program in your area and have not met with
-											the Crime Prevention Unit in the past two years, PLEASE call to update your area's
-											program!
-										</p>
-									</section>
-									<section id="e807cbd249ee" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Burglary Prevention
-										</h4>
-										<p>
-											Presented on request to neighborhood groups, civic organizations, church groups etc.
-											Operation Identification - Ongoing program providing engraving kits to residents
-											free of charge that they may utilize to mark their valuables. You must call for
-											availability of our engravers. Residential and Commercial Security Surveys -
-											Presented on request. A member of the Crime Prevention Unit will come to your home
-											or business and evaluate your need for additional security. This takes anywhere from
-											30 minutes and up dependent on your particular needs. This is a FREE service! Bad
-											Checks / Counterfeit Currency - Presented on request to any business or bank in
-											Bolingbrook upon their request.
-										</p>
-									</section>
-									<section id="840d3793d840" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Club Drugs, Ecstasy, Rave Parties
-										</h4>
-										<p>
-											Our Crime Prevention Unit has spoken at national conventions, and consulted for a
-											popular Chicago talk show on this topic! This is a (2) two-hour program discussing
-											the current trends in drug use in our society. Participants will learn many
-											tell-tale signs associated with this type of drug (many signs are very obvious to
-											the casual observer) This is intended for groups only due to the amount of time
-											involved.
-										</p>
-									</section>
-									<section id="86410c49e3c6" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Crime Prevention Through Environmental Design
-										</h4>
-										<p>
-											A program whereby we work with the Community Development Department in reviewing all
-											new development proposed for the village. New development is reviewed and a written
-											report is generated outlining the recommendations of the police department. We also
-											meet formally with developers to discuss recommendations and rectify concerns before
-											the project is forwarded to the plan commission for approval.
-										</p>
-									</section>
-									<section id="84d0edd1dd6e" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Bank Security
-										</h4>
-										<p>
-											In-service training for bank personnel to acquaint them with sound security
-											procedures and inform them of police department expectations and procedures.
-										</p>
-									</section>
-									<section id="840f6e283c87" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Auto Theft Prevention
-										</h4>
-										<p>Presented on request.</p>
-									</section>
-									<section id="9e77b62728b9" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Shoplifting Prevention
-										</h4>
-										<p>Presented to individual businesses on request.</p>
-									</section>
-									<section id="1085bef7ea61" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Robbery Prevention
-										</h4>
-										<p>Presented to individual businesses on request.</p>
-									</section>
-									<section id="917595e8e478" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Workplace Violence
-										</h4>
-										<p>Presented at any business in Bolingbrook on request.</p>
-									</section>
-									<section id="f509a90e7f77" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Senior Citizen Safety
-										</h4>
-										<p>
-											Many topics including personal safety, shopping safety, con-artists, etc. are
-											discussed with seniors upon request. This is best done for groups but we will be
-											happy to speak to anyone who has concerns.
-										</p>
-									</section>
-									<section id="5ae9c33f21c0" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Vacation Check Request
-										</h4>
-										<p>
-											This program allows residents to notify the police department that they will be out
-											of town and provides the department with notification information should officers
-											observe a problem at the residence. If you are going out of town, please visit
-											<a href="https://www.frontlinepss.com/bolingbrook"
-												>https://www.frontlinepss.com/bolingbrook</a
-											>
-											to request a vacation watch on your home.
-										</p>
-									</section>
-								</div>
-							</section>
-							<section id="b5a27406ad61" class="sectionMain">
-								<div class="clamped w-100 my-0 py-1 card-body">
-									<h1 class="display-6">Kids Programs</h1>
-									<p>
-										These programs are meant primarily for elementary aged children but are generally
-										presented outside of the school setting.
-									</p>
-									<section id="200eec7787a6" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Tours
-										</h4>
-										<p>
-											Tours of the police facility are offered on request. This gives us the opportunity
-											to show them the various functions that take place at the police department. Tours
-											are free, take from 30-45 minutes, and typically are offered to groups only.
-										</p>
-									</section>
-									<section id="43d7c2701b13" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Scout Programs
-										</h4>
-										<p>
-											An on-request program providing a speaker on a myriad of topics from safety to
-											babysitting to police work as a career. We also will assist scouts in working
-											towards a Crime Prevention Merit Badge.
-										</p>
-									</section>
-									<section id="f6303b5d58f0" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Latch Key
-										</h4>
-										<p>
-											Presented on a request basis to both children's groups and parents groups. Normally
-											presented in cooperation with scout groups, church groups and other organizations.
-										</p>
-									</section>
-									<section id="5f05e1c335b3" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Child Safety Days
-										</h4>
-										<p>
-											Presentations usually sponsored by local businesses, the library or civic
-											organizations. The time frame varies, and can include child fingerprinting,
-											interactive talks, videos or other media. This program is designed to teach safety
-											to younger children up through middle school age.
-										</p>
-									</section>
-									<section id="781db161835a" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Stranger Danger
-										</h4>
-										<p>
-											Presented on an annual basis to all kindergarten and second grade students upon
-											request of the schools. The program is also presented to day care centers, scout
-											groups, church groups etc. on request.
-										</p>
-									</section>
-									<section id="cb85db5ae753" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Bicycle Safety
-										</h4>
-										<p>
-											Presented annually to all third grade students upon request of the schools and on
-											request from other groups.
-										</p>
-									</section>
-									<section id="6d7f3c650adc" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											McGruff the Crime Dog
-										</h4>
-										<p>
-											Appearances when requested at elementary schools to reinforce various safety
-											programs presented throughout the year. Also available upon request to groups, block
-											parties etc. Please understand that due to inclement weather, and hot temperatures
-											(as in most of August), McGruff may not be available.
-										</p>
-									</section>
-									<section id="eed0d4ab984a" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Safety Patrol
-										</h4>
-										<p>
-											Provides training for elementary school safety patrols when requested by the school.
-										</p>
-									</section>
-									<section id="5ec4a05e58d4" class="subsection">
-										<h4 style="font-weight: 500; color: rgb(1, 75, 130); margin-bottom: 0.25rem;">
-											Officer Friendly
-										</h4>
-										<p>
-											When requested, meet with school, scout or other groups of young children on an
-											informal basis to explain police functions, police methods etc. Also gives children
-											the opportunity to ask questions to give them a better feel for the police.
-										</p>
-									</section>
-								</div>
-							</section>
-							<section id="8b75a47dfe4b" class="sectionMain">
-								<div class="clamped w-100 my-0 py-1 card-body">
-									<h1 class="display-6">Vehicle Burglary</h1>
-									<p>
-										One of the more frequent crimes reported to the police department is burglary to a
-										vehicle. Sometimes offenders enter a vehicle through an unlocked door or by breaking a
-										window looking for valuables that are left in plain view. Some of the most popular
-										items stolen are briefcases, cameras, cell phones, global positioning systems (GPS),
-										I-Passes, I-Pods, purses, radar detectors and wallets.
-									</p>
-									<p>
-										Here are some simple rules that can help deter and protect you from being a victim of
-										this crime:
-									</p>
-									<ul>
-										<li>
-											When you park your vehicle at home or away, close your windows and lock doors, even
-											if you’re going to be gone for a short time.
-										</li>
-										<li>Always park in a well-lit area.</li>
-										<li>
-											If you have a garage, use it! If you have to park your vehicle in your driveway
-											overnight, leave on exterior house lights. Good lighting is one of the most
-											efficient &amp; least expensive means of security.
-										</li>
-										<li>
-											Notify the police department of any suspicious people or activities in your
-											neighborhood.
-										</li>
-									</ul>
-								</div>
-							</section>
-						</div>
-						<div id="fadeInRight" class="col-md-3"></div>
 					</div>
 				</div>
-				<p style="font-size: 16px; text-align: end;">Page last updated on August 2 2021</p>
 			</div>
 		</div>
-	</div>
-</body>
+		<div class="col-lg-8">
+			<div data-bs-spy="scroll" style="position: relative" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+				<h3 class="overline" id="list-item-1">Main Categories</h3>
+				<section class="mb-5">
+					<div class="row gx-5 justify-content-center">
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised h-100" style="width: 100%">
+								<img
+									src="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg"
+									class="card-img-top"
+									alt="Service Request"
+								/>
+								<div class="card-body">
+									<h5 class="card-title">Service Requests</h5>
+									<p class="card-text">Report Potholes, downed mailboxes, etc.</p>
+									<a
+										class="fst-button text-decoration-none d-inline-flex align-items-center mt-auto"
+										href="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg"
+									>
+										Create Request
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised h-100" style="width: 100%">
+								<img
+									src="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/payment_Web.jpg"
+									class="card-img-top"
+									alt="Online Garbage Payment"
+								/>
+								<div class="card-body">
+									<h5 class="card-title">Garbage Online Payment</h5>
+									<p class="card-text">Pay a utility bill online here</p>
+									<a
+										class="fst-button text-decoration-none d-inline-flex align-items-center mt-auto"
+										href="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg"
+									>
+										Make a Payment
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised h-100" style="width: 100%">
+								<img
+									src="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/express.png"
+									class="card-img-top"
+									alt="Online Garbage Payment"
+								/>
+								<div class="card-body">
+									<h5 class="card-title">Online Permits</h5>
+									<p class="card-text">Apply for Express Permits Online</p>
+									<a
+										class="fst-button text-decoration-none d-inline-flex align-items-center mt-auto"
+										href="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg"
+									>
+										View Permits
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised h-100" style="width: 100%">
+								<img
+									src="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_(1)_Web.jpg"
+									class="card-img-top"
+									alt="Online Garbage Payment"
+								/>
+								<div class="card-body">
+									<h5 class="card-title">Sign Up for Brook Police News</h5>
+									<p class="card-text">Get the latest news from the Bolingbrook Police Department</p>
+									<a
+										class="fst-button text-decoration-none d-inline-flex align-items-center mt-auto"
+										href="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg"
+									>
+										Sign Up
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised h-100" style="width: 100%">
+								
+								<img
+									src="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/alerts_Web(1).png"
+									class="card-img-top"
+									alt="Brook Alerts"
+								/>
+								<div class="card-body">
+									<h5 class="card-title">Sign Up For Brook Alerts</h5>
+									<p class="card-text">Get the latest news directly from the Village of Bolingbrook.</p>
+									<a
+										class="fst-button text-decoration-none d-inline-flex align-items-center mt-auto"
+										href="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg"
+									>
+										Sign Up
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised h-100" style="width: 100%">
+								<img
+									src="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Parking_Web.jpg"
+									class="card-img-top"
+									alt="Overnight Parking"
+								/>
+								<div class="card-body">
+									<h5 class="card-title">Overnight Parking / Vacation Watch</h5>
+									<p class="card-text">Register a car for on-street parking or request a vacation watch for a house</p>
+									<a
+										class="fst-button text-decoration-none d-inline-flex align-items-center mt-auto"
+										href="https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg"
+									>
+										View
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+				<h3 class="overline" id="list-item-2">News and Events</h3>
+				<section class="mb-5">
+					<div class="row gx-5 justify-content-center">
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised ripple-primary h-100">
+								<div class="card-body flex-column d-flex h-100 p-4">
+									<i class="material-icons icon-lg text-primary">school</i>
+									<h2 class="display-6">School News</h2>
+									<p>Get information about whats happening in VVSD!</p>
+									<a class="stretched-link fst-button text-decoration-none d-inline-flex align-items-center mt-auto" href="#!">
+										Get Started
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised ripple-primary h-100">
+								<div class="card-body flex-column d-flex h-100 p-4">
+									<i class="material-icons icon-lg text-primary">date_range</i>
+									<h2 class="display-6">Village Calendar</h2>
+									<p>Get information about different meetings hosted by the village and different committees</p>
+									<a class="stretched-link fst-button text-decoration-none d-inline-flex align-items-center mt-auto" href="#!">
+										Get Started
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised ripple-primary h-100">
+								<div class="card-body flex-column d-flex h-100 p-4">
+									<i class="material-icons icon-lg text-primary">upcoming</i>
+									<h2 class="display-6" style="font-size: 2rem">Community Calendar</h2>
+									<p>See what events will be hosted around Bolingbrook!</p>
+									<a class="stretched-link fst-button text-decoration-none d-inline-flex align-items-center mt-auto" href="#!">
+										Get Started
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<h3 class="overline" id="list-item-3">Extra</h3>
+				<section class="mb-5">
+					<div class="row gx-5 justify-content-center">
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised ripple-primary h-100">
+								<div class="card-body flex-column d-flex h-100 p-4">
+									<i class="material-icons icon-lg text-primary">insert_drive_file</i>
+									<h2 class="display-6">Forms and Permits</h2>
+									<p>Get important Files</p>
+									<a class="stretched-link fst-button text-decoration-none d-inline-flex align-items-center mt-auto" href="#!">
+										Get Started
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 mb-5">
+							<div class="card card-raised ripple-primary h-100">
+								<div class="card-body flex-column d-flex h-100 p-4">
+									<i class="material-icons icon-lg text-primary">delete</i>
+									<h2 class="display-6" style="font-size: 2rem">Garbage and Refuse</h2>
+									<p>See what events will be hosted around Bolingbrook!</p>
+									<a class="stretched-link fst-button text-decoration-none d-inline-flex align-items-center mt-auto" href="#!">
+										Get Started
+										<i class="material-icons icon-sm ms-2">arrow_forward</i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- Divider-->
+
+		<div class="col-lg-2 mb-5 mb-lg-0">
+			<!-- Side column sticky navigation stick-->
+		</div>
+	</div>
+</div>
+
+<style>
+	#responsiveLink {
+		display: contents !important;
+	}
+
+	@media only screen and (min-width: 900px) {
+		.container,
+		.contentBG {
+			max-width: 100% !important;
+			width: auto !important;
+			margin-left: 0px !important;
+			margin-right: 0px !important;
+		}
+
+		.contentBG {
+			padding-left: 0px !important;
+		}
+
+		#content {
+			width: auto !important;
+			max-width: 100% !important;
+			margin-right: 15px !important;
+			margin-left: 15px !important;
+		}
+
+		#smallLink {
+			font-size: 1.25rem;
+			display: block;
+			color: #6c757d !important;
+		}
+
+		.card-link + .card-link {
+			margin-left: 0rem;
+		}
+	}
+
+	@media only screen and (max-width: 900px) {
+		.container,
+		.mainContent,
+		.contentBG {
+			max-width: 100% !important;
+			width: auto !important;
+			margin-left: 0px !important;
+			margin-right: 0px !important;
+			padding-right: 0px !important;
+			padding-left: 0px !important;
+		}
+
+		#content {
+			width: auto !important;
+			max-width: 100% !important;
+			margin-right: 15px !important;
+			margin-left: 15px !important;
+		}
+
+		#smallLink {
+			font-size: 1.25rem;
+			color: #007bff !important;
+		}
+	}
+
+	.socialFixed {
+		display: none;
+	}
+
+	.display-6 {
+		text-align: left !important;
+	}
+</style>

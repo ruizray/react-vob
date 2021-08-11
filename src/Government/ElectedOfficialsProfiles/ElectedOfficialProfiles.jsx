@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BlockContent from "@sanity/block-content-to-react";
 import { Row, CardImg, Card, CardBody, ListGroup, ListGroupItem, Col } from "reactstrap";
+import { ContentCard } from "../../components/ContentCard";
 import sanityClient from "./../../client";
 const ElectedOfficialsProfile = (props) => {
 	const [postData, setPostData] = useState(null);
@@ -134,16 +135,15 @@ const ElectedOfficialsProfile = (props) => {
 						postData.biographies.map((biography) => {
 							console.log(biography);
 							return (
-								<Card key={biography._key}  className='border card-raised ripple-primary mb-3'>
-									<CardBody className='flex-column d-flex p-4'>
-										{biography.headerIcon && <i className='material-icons icon-lg '>{biography.headerIcon}</i>}
-										{biography.header && <h2 className='display-6'>{biography.header}</h2>}
+								<>
+									<ContentCard header={biography.header} icon={biography.headerIcon}>
 										<BlockContent blocks={biography.blockContent} serializers={serializers} />
-									</CardBody>
-								</Card>
+									</ContentCard>
+								</>
 							);
 						})}
 				</Col>
+				<Col md={3}></Col>
 			</Row>
 		</>
 	);

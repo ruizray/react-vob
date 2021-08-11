@@ -13,8 +13,7 @@ export default {
 			type: "reference",
 			name: "target",
 			title: "Landing Page",
-			to: [{ type: "landingPage" }],
-			// _weak: true // enable if you don't want reference integrity checks
+			to: [{ type: "landingPage" }, {type:"page"}],
 		},
 		{
 			type: "array",

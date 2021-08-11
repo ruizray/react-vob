@@ -4,27 +4,16 @@ import { Route, NavLink } from "react-router-dom";
 import "./css/stylesReact.css";
 import "./css/OrgChart.css";
 
-import ExecutiveDepartment from "./Departments/Executive/ExecutiveDepartment";
 import GenerateHTML from "./components/generateHTML";
 import OrgChart from "./OrgChart/OrgChart";
-import ElectedOfficials from "./Government/ElectedOfficials";
-
 import AnimalControl from "./Departments/Police/PoliceDivisions/AnimalControl";
 import PoliceLandingPage from "./Departments/Police/PoliceLandingPage";
 import HumanResources from "./Departments/Human Resources/HumanResources";
-import AgendasAndMinutes from "./Government/AgendasAndMinutes";
-import ITCommission from "./Government/Commissions/ITCommission";
-import LastUpdated from "./components/LastUpdated";
+
 import FrontDoor from "./Residents/FrontDoor";
-
-import TransparencyPolicy from "./Government/TransparencyPolicy";
-import IMRF from "./Departments/Finance/IMRF";
-import FinanceLandingPage from "./Departments/Finance/FinanceLandingPage";
 import FireLandingPage from "./Departments/Fire/FireLandingPage";
-
 import CitizensOfTheYear from "./Residents/CitizensOfTheYear";
 
-import ITDepartmentLandingPage from "./Departments/IT/ITDepartmentLandingPage";
 import sanityClient from "./client";
 import OnePost from "./OnePost";
 import LandingPage from "./LandingPage";
@@ -60,7 +49,7 @@ const App = () => {
 		 `
 			)
 			.then((data) => {
-				// console.log(data);
+				console.log("APP DATA",data)
 				setPostData(data);
 			})
 			.catch(console.error);
@@ -82,172 +71,109 @@ const App = () => {
 					<div className='container-fluid justify-content-center'>
 						<ul className='navbar-nav'>
 							{postData &&
-								postData.map((level1) => (
-									<>
-										<NavRoot key={level1._key} text={level1.title}>
-											{level1.target && (
-												<NavDropDownItem
-													text={level1.title + " Landing Page"}
-													key={level1._key}
-													to={"/preview2/" + level1.target.slug.current}></NavDropDownItem>
-											)}
-											{level1.sections &&
-												level1.sections.map((level2) => {
-													/* Fire, Police, Executive etc */
-													var path = "/";
-													return (
-														<NavDropDownItem
-															text={level2.title}
-															key={level2._key}
-															to={() => {
-																// console.log(level2);
-																if (level2.target._type === "landingPage") {
-																	path += "/" + level2.target.slug.current;
-																	return "/preview2/" + level2.target.slug.current;
-																} else {
-																	path += "/" + level2.target.slug.current;
-																	return "/preview/" + level2.target.slug.current;
-																}
-															}}>
-															{level2.links &&
-																level2.links.length > 0 &&
-																level2.links.map((level3) => {
-																	/* Commissions, Smoke Detectors, etc */
-																	return (
-																		<NavDropDownItem
-																			text={level3.target.title || level3.target.header}
-																			key={level3._key}
-																			to={() => {
-																				// console.log("Level 3", level3);
-																				if (level3.target._type === "landingPage") {
-																					path += "/" + level3.target.slug.current;
-																					return "/preview2/" + level3.target.slug.current;
-																				} else {
-																					path += "/" + level3.target.slug.current;
-																					return "/preview/" + level3.target.slug.current;
-																				}
-																			}}>
-																			{level3.children &&
-																				level3.children.map((level4) => {
-																					// console.log("LEVEL 4", level4);
-																					return (
-																						<NavDropDownItem
-																							text={
-																								level4.target.title ||
-																								level4.target.header
-																							}
-																							key={level4._key}
-																							to={() => {
-																								// console.log("Level 4", level3);
-																								if (
-																									level4.target._type ===
-																									"landingPage"
-																								) {
-																									path +=
-																										"/" +
-																										level4.target.slug.current;
-																									return (
-																										"/preview2/" +
-																										level4.target.slug.current
-																									);
-																								} else {
-																									path +=
-																										"/" +
-																										level4.target.slug.current;
-																									return (
-																										"/preview/" +
-																										level4.target.slug.current
-																									);
+								postData.map((level1, index) => {
+									return (
+										<>
+											<NavRoot key={level1._rev} text={level1.title}>
+												{level1.target && (
+													<NavDropDownItem
+														text={level1.title + " Landing Page"}
+														to={"/preview2/" + level1.target.slug.current}
+														key={level1._rev + "test"}></NavDropDownItem>
+												)}
+												{level1.sections &&
+													level1.sections.map((level2) => {
+														/* Fire, Police, Executive etc */
+
+														return (
+															<NavDropDownItem
+																text={level2.title}
+																key={level2._key}
+																to={() => {
+																	if (level2.target._type === "landingPage") {
+																		return "/preview2/" + level2.target.slug.current;
+																	} else {
+																		return "/preview/" + level2.target.slug.current;
+																	}
+																}}>
+																{level2.links &&
+																	level2.links.length > 0 &&
+																	level2.links.map((level3) => {
+																		/* Commissions, Smoke Detectors, etc */
+
+																		return (
+																			<NavDropDownItem
+																				text={level3.target.title || level3.target.header}
+																				key={level3._key}
+																				to={() => {
+																					if (level3.target._type === "landingPage") {
+																						return "/preview2/" + level3.target.slug.current;
+																					} else {
+																						return "/preview/" + level3.target.slug.current;
+																					}
+																				}}>
+																				{level3.children &&
+																					level3.children.map((level4) => {
+																						return (
+																							<NavDropDownItem
+																								text={
+																									level4.target.title ||
+																									level4.target.header
 																								}
-																							}}></NavDropDownItem>
-																					);
-																				})}
-																		</NavDropDownItem>
-																	);
-																})}
-														</NavDropDownItem>
-													);
-												})}
-										</NavRoot>
-									</>
-								))}
+																								key={level4._key}
+																								to={() => {
+																									// console.log("Level 4", level3);
+																									if (
+																										level4.target._type ===
+																										"landingPage"
+																									) {
+																										return (
+																											"/preview2/" +
+																											level4.target.slug
+																												.current
+																										);
+																									} else {
+																										return (
+																											"/preview/" +
+																											level4.target.slug
+																												.current
+																										);
+																									}
+																								}}></NavDropDownItem>
+																						);
+																					})}
+																			</NavDropDownItem>
+																		);
+																	})}
+															</NavDropDownItem>
+														);
+													})}
+											</NavRoot>
+										</>
+									);
+								})}
 							<NavRoot text='Extra Pages'>
 								<NavDropDownItem text='Village Directory' to='/villageDirectory'></NavDropDownItem>
-								<NavDropDownItem text= "test" to="/Elected"></NavDropDownItem>
+								<NavDropDownItem text='test' to='/Elected'></NavDropDownItem>
+								<NavDropDownItem text='Front Door' to='/FrontDoor'></NavDropDownItem>
 							</NavRoot>
 						</ul>
 					</div>
 				</nav>
-
-				{/* <nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
-					<div className='container-fluid justify-content-center'>
-						<ul className='navbar-nav'>
-							<NavRoot text='Government'>
-			
-								<NavDropDownItem text='Elected Officials' to='/Elected'></NavDropDownItem>
-								<NavDropDownItem text='Organization Chart' to='/OrgChart'></NavDropDownItem>
-								<NavDropDownItem text='Transparency Policy' to='/TransparencyPolicy'></NavDropDownItem>
-							</NavRoot>
-							<NavRoot text='Departments'>
-					
-								<NavDropDownItem text='Executive' to='/Executive'></NavDropDownItem>
-							
-								<NavDropDownItem text='Finance' to='/Finance'>
-									<NavDropDownItem text='IMRF' to='/IMRF'></NavDropDownItem>
-								</NavDropDownItem>
-						
-							
-								
-				
-								<NavDropDownItem text='Human Resources' to='/HumanResources'></NavDropDownItem>
-							</NavRoot>
-							<NavRoot text='Residents'>
-								<NavDropDownItem text='Articles' to='/Articles'>
-									<NavDropDownItem text='2020 Citizens Of The Year' to='/CitizensOfTheYear'></NavDropDownItem>
-								</NavDropDownItem>
-							</NavRoot>
-
-							<NavRoot text='Front Door' to='/FrontDoor'></NavRoot>
-						</ul>
-					</div>
-				</nav> */}
 			</div>
 			<GenerateHTML>
 				<Container className='customCSS'>
-					<LastUpdated>
-						{/* <Route component={OnePost} path='/:slug' /> */}
-						{/* GOVERNMENT PAGES */}
-						<Route exact path='/Elected' component={ElectedOfficials} />
-
-						<Route exact path='/ITCommission' component={ITCommission} />
-
-						<Route path='/AgendasAndMinutes' component={AgendasAndMinutes} />
-
-						{/* DEPARTMENT PAGES */}
-						{/* IT DEPARTMENT */}
-						<Route exact path='/IT' component={ITDepartmentLandingPage} />
-						{/* EXECUTIVE DEPARTMENT */}
-						<Route exact path='/Executive' component={ExecutiveDepartment} />
-						<Route exact path='/HumanResources' component={HumanResources} />
-						<Route exact path='/IMRF' component={IMRF} />
-				
-						<Route exact path='/OrgChart' component={OrgChart} />
-						<Route exact path='/FrontDoor' component={FrontDoor} />
-						<Route exact path='/TransparencyPolicy' component={TransparencyPolicy} />
-						<Route exact path='/CitizensOfTheYear' component={CitizensOfTheYear} />
-						{/* FIRE DEPARTMENT  */}
-						<Route exact path='/Fire' component={FireLandingPage} />
-
-						{/* FINANCE DEPARTMENT */}
-						<Route exact path='/Finance' component={FinanceLandingPage} />
-						{/* POLICE DEPARTMENT */}
-						<Route exact path='/AnimalControl/' component={AnimalControl} />
-						<Route exact path='/Police' component={PoliceLandingPage} />
-						<Route path='/villageDirectory' component={VillageDirectory}></Route>
-						<Route component={OnePost} path='/preview/:slug' />
-						<Route component={LandingPage} path='/preview2/:slug' />
-						<Route component={ElectedOfficialsProfile} path="/profile/:id" ></Route>
-					</LastUpdated>
+					<Route exact path='/HumanResources' component={HumanResources} />
+					<Route exact path='/OrgChart' component={OrgChart} />
+					<Route exact path='/FrontDoor' component={FrontDoor} />
+					<Route exact path='/CitizensOfTheYear' component={CitizensOfTheYear} />
+					<Route exact path='/Fire' component={FireLandingPage} />
+					<Route exact path='/AnimalControl/' component={AnimalControl} />
+					<Route exact path='/Police' component={PoliceLandingPage} />
+					<Route path='/villageDirectory' component={VillageDirectory}></Route>
+					<Route component={OnePost} path='/preview/:slug' />
+					<Route component={LandingPage} path='/preview2/:slug' />
+					<Route component={ElectedOfficialsProfile} path='/profile/:id'></Route>
 				</Container>
 			</GenerateHTML>
 		</>
@@ -268,12 +194,12 @@ const NavRoot = (props) => {
 		);
 	} else {
 		return (
-			<li key={id} className='nav-item dropdown'>
+			<li key={"LI" + id} className='nav-item dropdown'>
 				<div className='dropdown-toggle mx-2' href={to} id={id} role='button' data-mdb-toggle='dropdown' aria-expanded='false'>
 					{text}
 				</div>
 				{props.children && (
-					<ul key={"LI" + id} style={{ fontSize: "1.5rem" }} className='dropdown-menu' aria-labelledby={id}>
+					<ul style={{ fontSize: "1.2rem" }} className='dropdown-menu' aria-labelledby={id}>
 						{props.children}
 					</ul>
 				)}
@@ -285,11 +211,15 @@ const NavRoot = (props) => {
 const NavDropDownItem = (props) => {
 	const { to, text } = props;
 	return (
-		<li>
-			<NavLink key={to} className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to={to}>
+		<li key={to}>
+			<NavLink className='dropdown-item' style={{ fontSize: "1.2rem", color: "rgba(0,0,0,.7)" }} to={to}>
 				{!props.children ? text : text + " »"}
 			</NavLink>
-			{props.children && <ul className='dropdown-menu dropdown-submenu'>{props.children}</ul>}
+			{props.children && (
+				<ul key={to + "UL"} className='dropdown-menu dropdown-submenu'>
+					{props.children}
+				</ul>
+			)}
 		</li>
 	);
 };
@@ -297,7 +227,7 @@ const NavDropDownItem = (props) => {
 const NavDropDownSub = (props) => {
 	const { to, text } = props;
 	return (
-		<li>
+		<li key={to}>
 			<NavLink className='dropdown-item' style={{ color: "rgba(0,0,0,.7)" }} to={to}>
 				{!props.children ? text : text + "»"}
 			</NavLink>
