@@ -37,30 +37,31 @@ const LandingPage = () => {
 
 	const serializers = {
 		types: {
-			codeBlock: (props) => {
-				console.log("%c CodeBlock", "color:yellow", props);
-				return <div key={props._key} dangerouslySetInnerHTML={{ __html: props.node.code }}></div>;
+			codeBlock: ({ _key, node }) => {
+				const { code } = node;
+				console.log("%c CodeBlock", "color:yellow", node);
+				return <div key={_key} dangerouslySetInnerHTML={{ __html: code }}></div>;
 			},
-			block: (props) => {
-				console.log("%c Block", "color:green", props.node.markDefs);
-				if (props.node.markDefs.length > 0 && props.node.markDefs[0].subheader === true) {
+			block: ({ node, _key, children }) => {
+				const { markDefs } = node;
+				console.log("%c Block", "color:green", markDefs);
+				if (markDefs.length > 0 && markDefs[0].subheader === true) {
 					return (
-						<p key={props._key} className='lead mb-1 text-muted'>
-							{props.children}
+						<p key={_key} className='lead mb-1 text-muted'>
+							{children}
 						</p>
 					);
 				} else {
-					return <p key={props._key}> {props.children}</p>;
+					return <p key={_key}> {children}</p>;
 				}
 			},
 
-			contactCardsContainer: (props) => {
-				console.log("Contact Cards Container", props);
+			contactCardsContainer: ({ node }) => {
+				const { contactCards } = node;
 				return (
 					<Row className=' d-flex justify-content-center align-items-center d-flex align-items-stretch '>
-						{props.node.contactCards &&
-							props.node.contactCards.map((contactCard) => {
-								console.log(contactCard);
+						{contactCards &&
+							contactCards.map((contactCard) => {
 								return (
 									<Col className='mt-2' lg={3}>
 										<ContactCardProfile type={3} person={contactCard}></ContactCardProfile>
@@ -70,67 +71,59 @@ const LandingPage = () => {
 					</Row>
 				);
 			},
-			linkCardsContainer: (props) => {
-				console.log("Link Cards", props);
+			linkCardsContainer: ({ node }) => {
+				const { linkCards } = node;
 				return (
 					<Row className=' d-flex justify-content-center align-items-center d-flex align-items-stretch '>
-						{props.node.linkCards &&
-							props.node.linkCards.map((linkCard, index) => {
-								console.log("INDEX:", index);
+						{linkCards &&
+							linkCards.map((linkCard, index) => {
+								const { text, icon, links, cardImage, cardImageAltText } = linkCard;
+
 								return (
 									<Col key={linkCard._key} className='mb-4 px-4' lg={3} md={6}>
-										<TwoLinkCard
-											title={linkCard.text}
-											icon={linkCard.icon}
-											buttons={linkCard.links}
-											imageLink={linkCard.cardImage}
-											imageAlt={linkCard.cardImageAltText}
-										/>
+										<TwoLinkCard title={text} icon={icon} buttons={links} imageLink={cardImage} imageAlt={cardImageAltText} />
 									</Col>
 								);
 							})}
 					</Row>
 				);
 			},
-			linkGroupContainer: (props) => {
-				console.log(props);
+			linkGroupContainer: ({ node }) => {
+				console.log(node);
+				const { linkGroups } = node;
 				const breakpointColumnsObj = {
 					default: 3,
 					1024: 2,
 					768: 1,
-				
-				  };
+				};
 				return (
 					<>
 						<Masonry breakpointCols={breakpointColumnsObj} className='my-masonry-grid' columnClassName='my-masonry-grid_column'>
-						{props.node.linkGroups &&
-								props.node.linkGroups.map((linkgroup, index) => {
+							{linkGroups &&
+								linkGroups.map((linkgroup, index) => {
+									const { groupName, link } = linkgroup;
 									return (
-								
-											<div className='card border'>
-												<h4 className='card-header px-3 py-2 mb-0 text-center '>{linkgroup.groupName}</h4>
-												<ul className='list-group list-group-flush text-center text-primary'>
-													{linkgroup &&
-														linkgroup.link.map((button, index) => {
-															return (
-																<a
-																	key={button._key}
-																	href={button.linkUrl}
-																	className='list-group-item list-group-item-action text-primary'
-																	aria-current='true'>
-																	{button.linkText}
-																</a>
-															);
-														})}
-												</ul>
-								
+										<div className='card border'>
+											<h4 className='card-header px-3 py-2 mb-0 text-center '>{groupName}</h4>
+											<ul className='list-group list-group-flush text-center text-primary'>
+												{linkgroup &&
+													link.map((button, index) => {
+														return (
+															<a
+																key={button._key}
+																href={button.linkUrl}
+																className='list-group-item list-group-item-action text-primary'
+																aria-current='true'>
+																{button.linkText}
+															</a>
+														);
+													})}
+											</ul>
 										</div>
 									);
 								})}
 						</Masonry>
-						<div className='row g-4'>
-							
-						</div>
+						<div className='row g-4'></div>
 					</>
 				);
 			},
@@ -140,19 +133,19 @@ const LandingPage = () => {
 			return <>{test.children}</>;
 		},
 		marks: {
-			strong: (props) => {
-				console.log("%c Strong mark found", "color:red", props);
+			strong: ({children, _key}) => {
+				console.log("%c Strong mark found", "color:red", children);
 				return (
-					<strong key={props._key} style={{ fontWeight: "bold" }}>
-						{props.children}
+					<strong key={_key} style={{ fontWeight: "bold" }}>
+						{children}
 					</strong>
 				);
 			},
-			kbd: (props) => {
-				console.log("%c KBD mark found", "color:gray", props);
+			kbd: ({children, _key}) => {
+				console.log("%c KBD mark found", "color:gray", children);
 				return (
-					<kbd key={props._key} style={{ fontWeight: "bold" }}>
-						{props.children}
+					<kbd key={_key} style={{ fontWeight: "bold" }}>
+						{children}
 					</kbd>
 				);
 			},

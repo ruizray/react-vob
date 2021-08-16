@@ -21,7 +21,8 @@ import VillageDirectory from "./Departments/VillageDirectory";
 import { ElectedOfficialsProfile } from "./Government/ElectedOfficialsProfiles/ElectedOfficialProfiles";
 const App = () => {
 	const [postData, setPostData] = useState(null);
-
+	const [width, setWidth] = useState(window.innerWidth);
+	const breakpoint = 1000;
 	useEffect(() => {
 		sanityClient
 			.fetch(
@@ -49,10 +50,19 @@ const App = () => {
 		 `
 			)
 			.then((data) => {
-				console.log("APP DATA",data)
+				console.log("APP DATA", data);
 				setPostData(data);
 			})
 			.catch(console.error);
+	}, []);
+
+	useEffect(() => {
+		const handleWindowResize = () => setWidth(window.innerWidth);
+		console.log(window.innerWidth);
+		window.addEventListener("resize", handleWindowResize);
+
+		// Return a function from the effect that removes the event listener
+		return () => window.removeEventListener("resize", handleWindowResize);
 	}, []);
 
 	return (
@@ -67,99 +77,7 @@ const App = () => {
 						/>
 					</div>
 				</div>
-				<nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
-					<div className='container-fluid justify-content-center'>
-						<ul className='navbar-nav'>
-							{postData &&
-								postData.map((level1, index) => {
-									return (
-										<>
-											<NavRoot key={level1._rev} text={level1.title}>
-												{level1.target && (
-													<NavDropDownItem
-														text={level1.title + " Landing Page"}
-														to={"/preview2/" + level1.target.slug.current}
-														key={level1._rev + "test"}></NavDropDownItem>
-												)}
-												{level1.sections &&
-													level1.sections.map((level2) => {
-														/* Fire, Police, Executive etc */
-
-														return (
-															<NavDropDownItem
-																text={level2.title}
-																key={level2._key}
-																to={() => {
-																	if (level2.target._type === "landingPage") {
-																		return "/preview2/" + level2.target.slug.current;
-																	} else {
-																		return "/preview/" + level2.target.slug.current;
-																	}
-																}}>
-																{level2.links &&
-																	level2.links.length > 0 &&
-																	level2.links.map((level3) => {
-																		/* Commissions, Smoke Detectors, etc */
-
-																		return (
-																			<NavDropDownItem
-																				text={level3.target.title || level3.target.header}
-																				key={level3._key}
-																				to={() => {
-																					if (level3.target._type === "landingPage") {
-																						return "/preview2/" + level3.target.slug.current;
-																					} else {
-																						return "/preview/" + level3.target.slug.current;
-																					}
-																				}}>
-																				{level3.children &&
-																					level3.children.map((level4) => {
-																						return (
-																							<NavDropDownItem
-																								text={
-																									level4.target.title ||
-																									level4.target.header
-																								}
-																								key={level4._key}
-																								to={() => {
-																									// console.log("Level 4", level3);
-																									if (
-																										level4.target._type ===
-																										"landingPage"
-																									) {
-																										return (
-																											"/preview2/" +
-																											level4.target.slug
-																												.current
-																										);
-																									} else {
-																										return (
-																											"/preview/" +
-																											level4.target.slug
-																												.current
-																										);
-																									}
-																								}}></NavDropDownItem>
-																						);
-																					})}
-																			</NavDropDownItem>
-																		);
-																	})}
-															</NavDropDownItem>
-														);
-													})}
-											</NavRoot>
-										</>
-									);
-								})}
-							<NavRoot text='Extra Pages'>
-								<NavDropDownItem text='Village Directory' to='/villageDirectory'></NavDropDownItem>
-								<NavDropDownItem text='test' to='/Elected'></NavDropDownItem>
-								<NavDropDownItem text='Front Door' to='/FrontDoor'></NavDropDownItem>
-							</NavRoot>
-						</ul>
-					</div>
-				</nav>
+				 <DesktopNav postData={postData}></DesktopNav>
 			</div>
 			<GenerateHTML>
 				<Container className='customCSS'>
@@ -234,3 +152,96 @@ const NavDropDownSub = (props) => {
 		</li>
 	);
 };
+
+const DesktopNav = (props) => {
+	const { postData } = props;
+	console.log(postData);
+	return (
+		<nav className='navbar navbar-expand-lg  mb-4' style={{ fontSize: "1.75rem" }}>
+			<div className='container-fluid justify-content-center'>
+				<ul className='navbar-nav'>
+					{postData &&
+						postData.map((level1, index) => {
+							return (
+								<>
+									<NavRoot key={level1._rev} text={level1.title}>
+										{level1.target && (
+											<NavDropDownItem
+												text={level1.title + " Landing Page"}
+												to={"/preview2/" + level1.target.slug.current}
+												key={level1._rev + "test"}></NavDropDownItem>
+										)}
+										{level1.sections &&
+											level1.sections.map((level2) => {
+												/* Fire, Police, Executive etc */
+
+												return (
+													<NavDropDownItem
+														text={level2.title}
+														key={level2._key}
+														to={() => {
+															if (level2.target._type === "landingPage") {
+																return "/preview2/" + level2.target.slug.current;
+															} else {
+																return "/preview/" + level2.target.slug.current;
+															}
+														}}>
+														{level2.links &&
+															level2.links.length > 0 &&
+															level2.links.map((level3) => {
+																/* Commissions, Smoke Detectors, etc */
+
+																return (
+																	<NavDropDownItem
+																		text={level3.target.title || level3.target.header}
+																		key={level3._key}
+																		to={() => {
+																			if (level3.target._type === "landingPage") {
+																				return "/preview2/" + level3.target.slug.current;
+																			} else {
+																				return "/preview/" + level3.target.slug.current;
+																			}
+																		}}>
+																		{level3.children &&
+																			level3.children.map((level4) => {
+																				return (
+																					<NavDropDownItem
+																						text={level4.target.title || level4.target.header}
+																						key={level4._key}
+																						to={() => {
+																							// console.log("Level 4", level3);
+																							if (level4.target._type === "landingPage") {
+																								return (
+																									"/preview2/" +
+																									level4.target.slug.current
+																								);
+																							} else {
+																								return (
+																									"/preview/" +
+																									level4.target.slug.current
+																								);
+																							}
+																						}}></NavDropDownItem>
+																				);
+																			})}
+																	</NavDropDownItem>
+																);
+															})}
+													</NavDropDownItem>
+												);
+											})}
+									</NavRoot>
+								</>
+							);
+						})}
+					<NavRoot text='Extra Pages'>
+						<NavDropDownItem text='Village Directory' to='/villageDirectory'></NavDropDownItem>
+						<NavDropDownItem text='test' to='/Elected'></NavDropDownItem>
+						<NavDropDownItem text='Front Door' to='/FrontDoor'></NavDropDownItem>
+					</NavRoot>
+				</ul>
+			</div>
+		</nav>
+	);
+};
+

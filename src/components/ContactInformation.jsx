@@ -56,13 +56,8 @@ const ContactCardTree = (props) => {
 						)}
 
 						<CardBody className='p-1 my-2 h-100 '>
-							{title && (
-								<CardTitle tag={"h6"}>
-									{title}
-								</CardTitle>
-							)}
+							{title && <CardTitle tag={"h6"}>{title}</CardTitle>}
 							{name && <CardSubtitle tag='h6'>{name}</CardSubtitle>}
-
 							{phone && (
 								<h6 className='mb-2 text-muted'>
 									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
@@ -71,7 +66,6 @@ const ContactCardTree = (props) => {
 									{phone}
 								</h6>
 							)}
-
 							{email && (
 								<h6 className='mb-2 text-muted text-truncate'>
 									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
@@ -89,45 +83,43 @@ const ContactCardTree = (props) => {
 	);
 };
 
+const MembersContactCard = ({ members }) => {
+	const [...membersList] = members;
+	return (
+		<>
+			<Card className='w-100 border my-1 hover-shadow'>
+				<CardBody className='h-100 w-100 py-1'>
+					<ListGroup className='ps-0 list-group-flush '>
+						<div className='list-group-flush'>
+							<ListGroupItem className='px-0'>
+								<CardTitle tag={"h5"} className='mb-0 d-flex'>
+									<span>Members</span>
+									<span role='button' id={"MembersToggle"} className='m-auto float-right material-icons border rounded-pill caret'>
+										expand_more
+									</span>
+								</CardTitle>
+							</ListGroupItem>
+						</div>
+						<UncontrolledCollapse toggler={"MembersToggle"} style={{ borderLeft: "none", borderRight: "none" }}>
+							{membersList.map((member) => {
+								return (
+									<ListGroupItem key={member._key} className='text-muted ps-0'>
+										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+											person
+										</i>
+										{member.memberName}
+									</ListGroupItem>
+								);
+							})}
+						</UncontrolledCollapse>
+					</ListGroup>
+				</CardBody>
+			</Card>
+		</>
+	);
+};
 const ContactCardSideBar = (props) => {
-	if (props.members) {
-		const [...members] = props.members;
-		return (
-			<>
-				<Card className='w-100 border my-1 hover-shadow'>
-					<CardBody className='h-100 w-100 py-1'>
-						<ListGroup className='ps-0 list-group-flush '>
-							<div className='list-group-flush'>
-								<ListGroupItem className='px-0'>
-									<CardTitle tag={"h5"} className='mb-0 d-flex'>
-										<span >Members</span>
-										<span
-											role='button'
-											id={"MembersToggle"}
-											className='m-auto float-right material-icons border rounded-pill caret'>
-											expand_more
-										</span>
-									</CardTitle>
-								</ListGroupItem>
-							</div>
-							<UncontrolledCollapse toggler={"MembersToggle"} style={{ borderLeft: "none", borderRight: "none" }}>
-								{members.map((member) => {
-									return (
-										<ListGroupItem key={member._key} className='text-muted ps-0'>
-											<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
-												person
-											</i>
-											{member.memberName}
-										</ListGroupItem>
-									);
-								})}
-							</UncontrolledCollapse>
-						</ListGroup>
-					</CardBody>
-				</Card>
-			</>
-		);
-	} else {
+
 		var { title, name, email, phone, fax, id, firstName, lastName } = props.person;
 		if (firstName) {
 			name = firstName + " " + lastName;
@@ -141,7 +133,7 @@ const ContactCardSideBar = (props) => {
 							<div className='list-group-flush'>
 								<ListGroupItem className='px-0'>
 									<CardTitle tag={"h5"} className='mb-0 d-flex'>
-										<span >{title}</span>
+										<span>{title}</span>
 										{!props.shown && (
 											<span
 												role='button'
@@ -197,13 +189,13 @@ const ContactCardSideBar = (props) => {
 				</Card>
 			</>
 		);
-	}
+	
 };
 
 const ContactSideBar = ({ people, members }) => {
 	return (
 		<>
-		<h2 style={{textAlign:"center"}}>Contact Information</h2>
+			<h2 style={{ textAlign: "center" }}>Contact Information</h2>
 			{people &&
 				people.map((person) => {
 					return <ContactCardSideBar key={person.id.current} person={person}></ContactCardSideBar>;
@@ -214,5 +206,3 @@ const ContactSideBar = ({ people, members }) => {
 };
 
 export { ContactCardSideBar, ContactCardProfile, ContactCardTree, ContactSideBar };
-
-  

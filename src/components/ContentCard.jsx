@@ -11,6 +11,7 @@ const ContentCard = ({ header, id, children }) => {
 			</CardBody>
 		</section>
 	);
+	
 };
 
 const ContentCardSubsection = ({ subHeader, id, children }) => {

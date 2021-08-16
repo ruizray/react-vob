@@ -4,7 +4,7 @@ import sanityClient from "./client";
 import { Row, Col, Card, CardBody, CardImg, ListGroup, ListGroupItem } from "reactstrap";
 import BlockContent from "@sanity/block-content-to-react";
 import { ContentCard, ContentCardSubsection } from "./components/ContentCard";
-import { ContactSideBar } from "./components/ContactInformation";
+import { ContactCardSideBar, ContactSideBar } from "./components/ContactInformation";
 import CallToAction from "./components/CallToAction";
 import ScrollSpy from "./components/ScrollSpy";
 import LastUpdated from "./components/LastUpdated";
@@ -241,6 +241,7 @@ export default function OnePost() {
 				</Col>
 				<Col md={3} id='fadeInRight'>
 					{postData.contacts && <ContactSideBar people={postData.contacts} members={postData.members}></ContactSideBar>}
+				
 				</Col>
 			</Row>
 		</LastUpdated>
