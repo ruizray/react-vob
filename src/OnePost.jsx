@@ -82,11 +82,11 @@ export default function OnePost() {
 									})}
 							</div>
 							<button className='carousel-control-prev' type='button' data-mdb-target='#carouselExampleCaptions' data-mdb-slide='prev'>
-								<span className='carousel-control-prev-icon' aria-hidden='true'></span>
+								<span className='material-icons' aria-hidden='true'>arrow_back_ios_new</span>
 								<span className='visually-hidden'>Previous</span>
 							</button>
 							<button className='carousel-control-next' type='button' data-mdb-target='#carouselExampleCaptions' data-mdb-slide='next'>
-								<span className='carousel-control-next-icon' aria-hidden='true'></span>
+								<span className='material-icons' aria-hidden='true'>arrow_forward_ios</span>
 								<span className='visually-hidden'>Next</span>
 							</button>
 						</div>

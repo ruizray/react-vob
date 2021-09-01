@@ -41,7 +41,17 @@ const FrontDoor = (props) => {
 					</Row>
 					<Row className='gx-2  mt-1 justify-content-center'>
 						<h1 className='display-6'>Online Payments</h1>
-						<Col md={12} lg={4} className='mb-3'>
+						<Col md={6} lg={4} className='mb-3'>
+							<FrontDoorLinkCard
+								title='Munis Self-Service'
+								icon='account_circle'
+								button
+								buttonText='Pay Now'
+								buttonLink='https://bolingbrook-il.dacragov.com/il/bolingbrook/payment'>
+							Login into our self service software to pay a bill online.
+							</FrontDoorLinkCard>
+						</Col>
+						<Col md={6} lg={4} className='mb-3'>
 							<FrontDoorLinkCard
 								title='Parking Ticket'
 								icon='directions_car'
@@ -54,14 +64,16 @@ const FrontDoor = (props) => {
 						</Col>
 						<Col md={6} lg={4} className='mb-3'>
 							<FrontDoorLinkCard
-								title='Utility Bill'
-								icon='delete'
+								title='Landlord License Payment'
+								icon='maps_home_work'
 								button
 								buttonText='Pay Now'
-								buttonLink='https://selfservice.bolingbrook.com/MSSLive/login.aspx?ReturnUrl=%2fMSSLive%2fcitizens%2fdefault.aspx'>
-								Utility bills are sent out through mail/e-mail on a quarterly basis. Bills are due and payable upon receipt.
+								buttonLink='https://bolingbrook-il.dacragov.com/il/bolingbrook/payment'>
+								Options available <strong>ONLY FOR PARKING TICKETS</strong>. If you were pulled over by police, you can NOT pay for that
+								ticket here.
 							</FrontDoorLinkCard>
 						</Col>
+						
 
 						<Col md={6} lg={4} className='mb-3'>
 							<FrontDoorLinkCard
@@ -73,10 +85,30 @@ const FrontDoor = (props) => {
 								Visit the Illinois American Water online payment portal
 							</FrontDoorLinkCard>
 						</Col>
+						<Col md={6} lg={4} className='mb-3'>
+							<FrontDoorLinkCard
+								title='Utility Bill'
+								icon='delete'
+								button
+								buttonText='Pay Now'
+								buttonLink='https://selfservice.bolingbrook.com/MSSLive/login.aspx?ReturnUrl=%2fMSSLive%2fcitizens%2fdefault.aspx'>
+								Utility bills are sent out through mail/e-mail on a quarterly basis. Bills are due and payable upon receipt.
+							</FrontDoorLinkCard>
+						</Col>
+						<Col md={6} lg={4} className='mb-3'>
+							<FrontDoorLinkCard
+								title='Utility Billing FAQ'
+								icon='delete'
+								button
+								buttonText='Pay Now'
+								buttonLink='https://www.bolingbrook.com/refusebilling'>
+								Frequently Asked Questions about utility billing
+							</FrontDoorLinkCard>
+						</Col>
 					</Row>
 					<Row className='gx-2  mt-1 justify-content-center'>
 						<h1 className='display-6'>Village Information</h1>
-						<Col md={12} lg={4} className='mb-3'>
+						<Col md={6} lg={4} className='mb-3'>
 							<FrontDoorLinkCard
 								title='Public Notices'
 								icon='post_add'
@@ -93,8 +125,18 @@ const FrontDoor = (props) => {
 								button
 								buttonText='View'
 								buttonLink='https://selfservice.bolingbrook.com/MSSLive/login.aspx?ReturnUrl=%2fMSSLive%2fcitizens%2fdefault.aspx'>
-									Get into contact with anyone at the village.
-								</FrontDoorLinkCard>
+								Get into contact with anyone at the village.
+							</FrontDoorLinkCard>
+						</Col>
+						<Col md={6} lg={4} className='mb-3'>
+							<FrontDoorLinkCard
+								title='Municipal Code'
+								icon='menu_book'
+								button
+								buttonText='View'
+								buttonLink='https://www.bolingbrook.com/villageboardmeetings'>
+								View all municipal codes.
+							</FrontDoorLinkCard>
 						</Col>
 						<Col md={6} lg={4} className='mb-3'>
 							<FrontDoorLinkCard
@@ -102,21 +144,41 @@ const FrontDoor = (props) => {
 								icon='gavel'
 								button
 								buttonText='View'
-								buttonLink='https://www.bolingbrook.com/villageboardmeetings'>
-									Missed a Village Board Meeting? Get the most updated information here.
-								</FrontDoorLinkCard>
+								buttonLink='https://www.bolingbrook.com/agendas_minutes'>
+								Missed a Village Board Meeting? Get the most updated information here.
+							</FrontDoorLinkCard>
+						</Col>
+						<Col md={6} lg={4} className='mb-3'>
+							<FrontDoorLinkCard
+								title='Commissions'
+								icon='group_work'
+								button
+								buttonText='View'
+								buttonLink='https://www.bolingbrook.com/commissions'>
+								Learn about different village commissions and what they do.
+							</FrontDoorLinkCard>
+						</Col>
+						<Col md={6} lg={4} className='mb-3'>
+							<FrontDoorLinkCard
+								title='Video Tour'
+								icon='videocam'
+								button
+								buttonText='View'
+								buttonLink='https://www.bolingbrook.com/history'>
+								Get to know what the village has to offer with this virtual tour!
+							</FrontDoorLinkCard>
 						</Col>
 					</Row>
 				</Col>
 				<Col id='fadeInRight' className='mt-5' md={12} lg={3}>
-					<Row  className=' gy-3 justify-content-center w-100'>
+					<Row className=' gy-3 justify-content-center w-100'>
 						<FrontDoorLinkCard
 							title='Service Requests'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/Service_Request_Banner_Web.jpg'
 							buttonLink='http://www.bolingbrook.com/servicerequests'>
 							Report Potholes, downed mailboxes, etc.
 						</FrontDoorLinkCard>
-{/* 
+						{/* 
 						<FrontDoorLinkCard
 							title='Online Payments'
 							imgLink='https://www.bolingbrook.com/vertical/Sites/%7B55EB27CA-CA9F-40A5-A0EF-1E4EEF52F39E%7D/uploads/payment_Web.jpg'

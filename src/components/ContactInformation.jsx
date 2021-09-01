@@ -118,78 +118,85 @@ const MembersContactCard = ({ members }) => {
 		</>
 	);
 };
-const ContactCardSideBar = (props) => {
+const ContactCardSideBar = ({ person, noShadow, shown }) => {
+	var { title, name, email, phone, fax, id, firstName, lastName } = person;
 
-		var { title, name, email, phone, fax, id, firstName, lastName } = props.person;
-		if (firstName) {
-			name = firstName + " " + lastName;
-			id = props.person.id.current;
-		}
-		return (
-			<>
-				<Card className={props.noShadow ? "w-100 border my-1" : "w-100 border my-1 hover-shadow"}>
-					<CardBody className='h-100 w-100 py-0'>
-						<ListGroup flush={true} className='ps-0 py-0'>
-							<div className='list-group-flush'>
-								<ListGroupItem className='px-0'>
-									<CardTitle tag={"h5"} className='mb-0 d-flex'>
-										<span>{title}</span>
-										{!props.shown && (
-											<span
-												role='button'
-												data-mdb-toggle='collapse'
-												href={"#" + id}
-												aria-expanded='false'
-												aria-controls={id}
-												className='ms-auto my-auto float-right material-icons border rounded-pill caret'>
-												expand_more
-											</span>
-										)}
-									</CardTitle>
+	if (firstName) {
+		name = firstName + " " + lastName;
+		id = person.id.current;
+	}
+	var test = [ email, phone, fax];
+
+	var filtered = test.filter((x) => x !== undefined);
+
+	if (filtered.length <= 1) {
+		console.log(filtered, name);
+		shown = true;
+	}
+	return (
+		<>
+			<Card className={noShadow ? "w-100 border my-1" : "w-100 border my-1 hover-shadow"}>
+				<CardBody className='h-100 w-100 py-0'>
+					<ListGroup flush={true} className='ps-0 py-0'>
+						<div className='list-group-flush'>
+							<ListGroupItem className='px-0'>
+								<CardTitle tag={"h5"} className='mb-0 d-flex'>
+									<span>{title}</span>
+									{!shown && (
+										<span
+											role='button'
+											data-mdb-toggle='collapse'
+											href={"#" + id}
+											aria-expanded='false'
+											aria-controls={id}
+											className='ms-auto my-auto float-right material-icons border rounded-pill caret'>
+											expand_more
+										</span>
+									)}
+								</CardTitle>
+							</ListGroupItem>
+
+							{name && name !== title && (
+								<ListGroupItem className='text-muted ps-0 py-1'>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+										person
+									</i>
+									{name}
 								</ListGroupItem>
+							)}
+						</div>
+						<div className={shown ? "collapse show" : "collapse"} id={id} style={{ borderLeft: "none", borderRight: "none" }}>
+							{phone && (
+								<ListGroupItem className='text-muted ps-0 py-1'>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
+										phone
+									</i>
+									{phone}
+								</ListGroupItem>
+							)}
 
-								{name && name !== title && (
-									<ListGroupItem className='text-muted ps-0 py-1'>
-										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
-											person
-										</i>
-										{name}
-									</ListGroupItem>
-								)}
-							</div>
-							<div className={props.shown ? "collapse show" : "collapse"} id={id} style={{ borderLeft: "none", borderRight: "none" }}>
-								{phone && (
-									<ListGroupItem className='text-muted ps-0 py-1'>
-										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
-											phone
-										</i>
-										{phone}
-									</ListGroupItem>
-								)}
-
-								{email && (
-									<ListGroupItem className=' text-muted ps-0 py-1'>
-										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
-											mail
-										</i>
-										{email}
-									</ListGroupItem>
-								)}
-								{fax && (
-									<ListGroupItem className=' text-muted ps-0 py-1'>
-										<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
-											local_printshop
-										</i>
-										{fax}
-									</ListGroupItem>
-								)}
-							</div>
-						</ListGroup>
-					</CardBody>
-				</Card>
-			</>
-		);
-	
+							{email && (
+								<ListGroupItem className=' text-muted ps-0 py-1'>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+										mail
+									</i>
+									{email}
+								</ListGroupItem>
+							)}
+							{fax && (
+								<ListGroupItem className=' text-muted ps-0 py-1'>
+									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons  text-center'>
+										local_printshop
+									</i>
+									{fax}
+								</ListGroupItem>
+							)}
+						</div>
+					</ListGroup>
+				</CardBody>
+			</Card>
+		</>
+	);
 };
 
 const ContactSideBar = ({ people, members }) => {

@@ -9,7 +9,7 @@ const CallToAction = ({ buttonText, buttonLink, color, children }) => {
 	}
 
 	return (
-		<Card className={"border mx-auto text-center my-4" + border}>
+		<Card style={{ borderRadius: "0px" }} className={"shadow-0 border mx-auto text-center my-4" + border}>
 			<CardBody className='p-2 py-3'>
 				{children}
 				<a href={buttonLink} className='stretched-link'>

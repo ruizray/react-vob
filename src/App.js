@@ -19,10 +19,10 @@ import OnePost from "./OnePost";
 import LandingPage from "./LandingPage";
 import VillageDirectory from "./Departments/VillageDirectory";
 import { ElectedOfficialsProfile } from "./Government/ElectedOfficialsProfiles/ElectedOfficialProfiles";
+import PizzaOrder from './Residents/PizzaOrder';
 const App = () => {
 	const [postData, setPostData] = useState(null);
-	const [width, setWidth] = useState(window.innerWidth);
-	const breakpoint = 1000;
+
 	useEffect(() => {
 		sanityClient
 			.fetch(
@@ -56,14 +56,7 @@ const App = () => {
 			.catch(console.error);
 	}, []);
 
-	useEffect(() => {
-		const handleWindowResize = () => setWidth(window.innerWidth);
-		console.log(window.innerWidth);
-		window.addEventListener("resize", handleWindowResize);
 
-		// Return a function from the effect that removes the event listener
-		return () => window.removeEventListener("resize", handleWindowResize);
-	}, []);
 
 	return (
 		<>
@@ -92,6 +85,7 @@ const App = () => {
 					<Route component={OnePost} path='/preview/:slug' />
 					<Route component={LandingPage} path='/preview2/:slug' />
 					<Route component={ElectedOfficialsProfile} path='/profile/:id'></Route>
+					<Route path='/Pizza' component = {PizzaOrder}/> 
 				</Container>
 			</GenerateHTML>
 		</>
@@ -236,8 +230,8 @@ const DesktopNav = (props) => {
 						})}
 					<NavRoot text='Extra Pages'>
 						<NavDropDownItem text='Village Directory' to='/villageDirectory'></NavDropDownItem>
-						<NavDropDownItem text='test' to='/Elected'></NavDropDownItem>
 						<NavDropDownItem text='Front Door' to='/FrontDoor'></NavDropDownItem>
+						<NavDropDownItem text="Pizza Order" to ='/Pizza'></NavDropDownItem>
 					</NavRoot>
 				</ul>
 			</div>

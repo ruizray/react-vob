@@ -22,8 +22,11 @@ const GenerateHTML = (props) => {
 	const handleToggle = () => {
 		const temp = !toggled;
 		var str = page.current.innerHTML;
+		console.log(str)
 		let withHeader = header + str;
+		console.log(withHeader)
 		let formatted = prettier.format(withHeader, { useTabs: true, printWidth: 100, semi: false, parser: "html", plugins: [parserhtml] });
+		console.log(formatted)
 		setHTML(formatted);
 		setToggled(temp);
 	};
@@ -33,7 +36,6 @@ const GenerateHTML = (props) => {
 
 	return (
 		<>
-			{" "}
 			<div ref={page}>{props.children}</div>{" "}
 			<Button className='m-3' onClick={() => handleToggle()}>
 				Generate HTML

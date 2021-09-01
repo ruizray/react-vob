@@ -24,44 +24,47 @@ const LinkCard = (props) => {
 	);
 };
 
-const TwoLinkCard = (props) => {
-	console.log(props);
-
+const TwoLinkCard = ({ imageLink, icon, title, buttons }) => {
 	return (
 		<>
 			<Card className='card-raised h-100 border'>
-				<CardBody className={props.imageLink ? 'flex-column d-flex h-100 w-100 px-0 pt-0 text-center pb-3':'flex-column d-flex h-100 w-100 p-4 text-center pb-3'}>
-					{props.icon && (
+				<CardBody
+					className={
+						imageLink ? "flex-column d-flex h-100 w-100 px-0 pt-0 text-center pb-3" : "flex-column d-flex h-100 w-100 p-4 text-center pb-3"
+					}>
+					{icon && (
 						<i className='w-100 material-icons icon-lg text-primary text-center' style={{ fontSize: "8rem" }}>
-							{props.icon}
+							{icon}
 						</i>
 					)}
-					{props.imageLink && <img style={{maxHeight:"160px", objectFit:"cover"}} src={props.imageLink}></img>}
+					{imageLink && <img style={{ maxHeight: "160px", objectFit: "cover" }} a src={imageLink}></img>}
 					<CardTitle tag={"h4"} className='py-3 mx-2'>
-						{props.title}
+						{title}
 					</CardTitle>
-					{props.buttons &&
-						props.buttons.map((button, index) => (
+					{buttons &&
+						buttons.map((button, index) => (
 							<a
 								href={button.link || button.url}
 								data-mdb-ripple-color='dark'
 								key={index}
-								className={props.imageLink ? "border border-2 btn btn-outline-light mb-2 mx-3 ripple ripple-surface ripple-surface-dark text-dark" : 'btn btn-outline-light border border-2 text-dark ripple w-100 mb-2 mt-auto'}>
+								className={
+									imageLink
+										? "border border-2 btn btn-outline-light mb-2 mx-3 ripple ripple-surface ripple-surface-dark text-dark"
+										: "btn btn-outline-light border border-2 text-dark ripple w-100 mb-2 mt-auto"
+								}>
 								{button.text || button.linkText}
 							</a>
 						))}
-
-				
 				</CardBody>
 			</Card>
 		</>
 	);
 };
 
-const FrontDoorLinkCard = ({ imgLink, title, buttonLink, buttonText, button, icon, children }) => {
+const FrontDoorLinkCard = ({ title, imgLink, buttonLink, buttonText, button, icon, children }) => {
 	return (
 		<>
-			<a href={buttonLink} style={{ color: "inherit" }} className=''>
+			<a href={buttonLink} style={{ color: "inherit" }}>
 				<Card className='card-raised h-100 border ripple'>
 					{imgLink && <CardImg src={imgLink}></CardImg>}
 
