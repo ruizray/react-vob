@@ -6,16 +6,17 @@ export default {
 	type: "document",
 	fields: [
 		{
+			name: "order",
+			title: "Order",
+			type: "number",
+		},
+		{
 			name: "firstName",
 			title: "First Name",
 			type: "string",
 			validation: (Rule) => Rule.required(),
 		},
-		{
-			name:"order",
-			title:"Order",
-			type:"number"
-		},
+		
 		{
 			name: "middleInitial",
 			title: "Middle Initial",
@@ -92,7 +93,6 @@ export default {
 			type: "array",
 			of: [{ type: "paragraph" }],
 		},
-
 	],
 
 	preview: {

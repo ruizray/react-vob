@@ -53,7 +53,7 @@ export default () => {
 									S.documentList({ title: "Executive", id: "executiveDocumentList" })
 										.filter('_type == "employee" && department == "Executive"')
 										.params({ type: "employee", department: "Executive" })
-										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Executive" })]),
+										.initialValueTemplates([S.initialValueTemplateItem("executiveEmployee", { department: "Executive" })]),
 							}),
 							S.listItem({
 								title: "Commissions",
@@ -62,7 +62,7 @@ export default () => {
 									S.documentList({ title: "Commission", id: "commissionDocumentList" })
 										.filter('_type == "employee" && department == "Commission"')
 										.params({ type: "employee", department: "Commission" })
-										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Commission" })]),
+										.initialValueTemplates([S.initialValueTemplateItem("commissionEmployee", { department: "Commission" })]),
 							}),
 							S.listItem({
 								title: "Human Resources",
@@ -71,7 +71,7 @@ export default () => {
 									S.documentList({ title: "Human Resources", id: "humanResourcesDocuments" })
 										.filter('_type == "employee" && department == "Human Resources"')
 										.params({ type: "employee", department: "Human Resources" })
-										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Human Resources" })]),
+										.initialValueTemplates([S.initialValueTemplateItem("humanResourcesEmployee", { department: "Human Resources" })]),
 							}),
 							S.listItem({
 								title: "IT Department",
@@ -80,7 +80,7 @@ export default () => {
 									S.documentList({ title: "IT Department", id: "ITDepartmentDocuments" })
 										.filter('_type == "employee" && department == "IT Department"')
 										.params({ type: "employee", department: "IT Department" })
-										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "IT Department" })]),
+										.initialValueTemplates([S.initialValueTemplateItem("informationTechEmployee", { department: "IT Department" })]),
 							}),
 							S.listItem({
 								title: "Public Services",
@@ -89,7 +89,16 @@ export default () => {
 									S.documentList({ title: "Public Services", id: "publicServicesDocuments" })
 										.filter('_type == "employee" && department == "Public Services"')
 										.params({ type: "employee", department: "Public Services" })
-										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Public Services" })]),
+										.initialValueTemplates([S.initialValueTemplateItem("publicServicesEmployee", { department: "Public Services" })]),
+							}),
+							S.listItem({
+								title: "Public Works",
+								id: "publicWorks",
+								child: () =>
+									S.documentList({ title: "Public Works", id: "publicWorksDocuments" })
+										.filter('_type == "employee" && department == "Public Works"')
+										.params({ type: "employee", department: "Public Works" })
+										.initialValueTemplates([S.initialValueTemplateItem("publicWorksEmployee", { department: "Public Works" })]),
 							}),
 							S.listItem({
 								title: "Finance",
@@ -98,7 +107,7 @@ export default () => {
 									S.documentList({ title: "Finance", id: "financeDocuments" })
 										.filter('_type == "employee" && department == "Finance"')
 										.params({ type: "employee", department: "Finance" })
-										.initialValueTemplates([S.initialValueTemplateItem("fireEmployee", { department: "Finance" })]),
+										.initialValueTemplates([S.initialValueTemplateItem("financeEmployee", { department: "Finance" })]),
 							}),
 						],
 					}),

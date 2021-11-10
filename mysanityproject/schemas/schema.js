@@ -14,7 +14,7 @@ import subSection from "./subSection";
 import CTA from "./CTA";
 import navigationLink from "./navigationLink";
 import navigationSection from "./navigationSection";
-import imageCarousel from "./customImage";
+import imageCarousel from "./imageCarousel";
 import linkCard from "./linkCard";
 import landingPage from "./landingPage";
 // Then we give our schema to the builder and provide the result to Sanity

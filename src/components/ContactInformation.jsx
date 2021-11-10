@@ -2,10 +2,10 @@ import React from "react";
 import { Card, CardTitle, CardBody, CardSubtitle, ListGroup, ListGroupItem, UncontrolledCollapse } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
-const ContactCardProfile = (props) => {
-	var { title, name, email, phone, codeBlock, id } = props.person;
-	if (props.person.firstName) {
-		name = props.person.firstName + " " + props.person.lastName;
+const ContactCardProfile = ({ person }) => {
+	var { title, name, email, phone, codeBlock, id } = person;
+	if (person.firstName) {
+		name = person.firstName + " " + person.lastName;
 	}
 
 	return (
@@ -120,17 +120,14 @@ const MembersContactCard = ({ members }) => {
 };
 const ContactCardSideBar = ({ person, noShadow, shown }) => {
 	var { title, name, email, phone, fax, id, firstName, lastName } = person;
-
+	// Since switching over from the javascript file database to the cms, a new field was added which will take the first and last name and concatenate them together
 	if (firstName) {
 		name = firstName + " " + lastName;
 		id = person.id.current;
 	}
-	var test = [ email, phone, fax];
-
+	var test = [email, phone, fax];
 	var filtered = test.filter((x) => x !== undefined);
-
 	if (filtered.length <= 1) {
-		console.log(filtered, name);
 		shown = true;
 	}
 	return (
@@ -155,7 +152,7 @@ const ContactCardSideBar = ({ person, noShadow, shown }) => {
 									)}
 								</CardTitle>
 							</ListGroupItem>
-
+							{/* Checks if the name and the title are the same. This is used for contact information that is not a person */}
 							{name && name !== title && (
 								<ListGroupItem className='text-muted ps-0 py-1'>
 									<i style={{ verticalAlign: "middle", fontSize: "inherit" }} className=' material-icons text-center'>
@@ -212,4 +209,4 @@ const ContactSideBar = ({ people, members }) => {
 	);
 };
 
-export { ContactCardSideBar, ContactCardProfile, ContactCardTree, ContactSideBar };
+export { MembersContactCard, ContactCardSideBar, ContactCardProfile, ContactCardTree, ContactSideBar };
