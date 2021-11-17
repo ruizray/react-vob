@@ -5,6 +5,7 @@ import { Row, Col, Card, CardBody, CardImg, ListGroup, ListGroupItem } from "rea
 import BlockContent from "@sanity/block-content-to-react";
 import { ContentCard, ContentCardSubsection } from "./components/ContentCard";
 import { ContactCardSideBar, ContactSideBar } from "./components/ContactInformation";
+import QuickLinks from "./components/QuickLinks";
 import CallToAction from "./components/CallToAction";
 import ScrollSpy from "./components/ScrollSpy";
 import LastUpdated from "./components/LastUpdated";
@@ -116,6 +117,15 @@ export default function OnePost() {
 					<CallToAction key={props._key} buttonText={buttonText} buttonLink={buttonLink}>
 						<p>{CTAbody}</p>
 					</CallToAction>
+				);
+			},
+			quickLinksObject: (props) => {
+				console.log("%c CTA ", "color:purple", props);
+				const { header, links} = props.node;
+				return (
+					<QuickLinks key={props._key} header={header} links={links}>
+					
+					</QuickLinks>
 				);
 			},
 			subSection: (props) => {

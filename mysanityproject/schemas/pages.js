@@ -93,9 +93,8 @@ export default {
 					type: "code",
 					options: {
 						language: "html",
-						
-							editModal: "fullscreen",
-						
+
+						editModal: "fullscreen",
 					},
 				},
 				{
@@ -122,6 +121,33 @@ export default {
 									fields: [
 										{ name: "key", title: "Key", type: "string" },
 										{ name: "value", title: "Value", type: "string" },
+									],
+								},
+							],
+						},
+					],
+				},
+				{
+					name: "quickLinksObject",
+					title: "Quick Links",
+					type: "object",
+					options: {
+						editModal: "fullscreen",
+					},
+					fields: [
+						{ name: "header", title: "Header", type: "string" },
+						{
+							name: "links",
+							title: "Links",
+							type: "array",
+							of: [
+								{
+									name: "link",
+									title: "Link",
+									type: "object",
+									fields: [
+										{ name: "linkText", title: "Link Text", type: "string" },
+										{ name: "url", title: "URL", type: "string" },
 									],
 								},
 							],
